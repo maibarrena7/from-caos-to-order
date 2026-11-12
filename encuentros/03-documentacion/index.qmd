@@ -2,8 +2,8 @@
 title: "Encuentro 3 · Documentar para comprender y reutilizar"
 subtitle: "Semana 2 · Documentación y reproducibilidad"
 resources:
-  - plantillas/README-plantilla.md
-  - plantillas/diccionario-plantilla.csv
+  - _plantillas/README-plantilla.md
+  - _plantillas/diccionario-plantilla.csv
 ---
 
 ::: {.callout-note}
@@ -19,8 +19,8 @@ resources:
 
 ## Plantillas
 
-- [⬇ Plantilla de README (`README-plantilla.md`)](plantillas/README-plantilla.md){download="README.md"}
-- [⬇ Plantilla de diccionario de datos (`diccionario-plantilla.csv`)](plantillas/diccionario-plantilla.csv){download="diccionario_datos.csv"}
+- [⬇ Plantilla de README (`README-plantilla.md`)](_plantillas/README-plantilla.md){download="README.md"}
+- [⬇ Plantilla de diccionario de datos (`diccionario-plantilla.csv`)](_plantillas/diccionario-plantilla.csv){download="diccionario_datos.csv"}
 
 Guardá el README en la [raíz]{.hl} del proyecto y el diccionario en `docs/`.
 

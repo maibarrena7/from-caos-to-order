@@ -114,3 +114,15 @@ input[type="checkbox"] { accent-color: $pastel; }
 // Navegación
 .navbar { border-bottom: 1px solid #2C352E; }
 .sidebar nav[role="doc-toc"] ul > li > a.active { color: $menta; border-left-color: $menta; }
+
+// Nombres de botones y menús de programas: [Download]{.ui}
+.ui {
+  display: inline-block;
+  border: 1px solid #4A5A4E;
+  border-radius: 6px;
+  padding: 0 0.35em;
+  font-size: 0.92em;
+  color: $menta;
+  background: rgba(181, 227, 192, 0.06);
+  white-space: nowrap;
+}

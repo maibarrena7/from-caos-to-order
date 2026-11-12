@@ -1,7 +1,187 @@
 ---
-title: "Antes del taller: instalación"
+title: "Antes del taller"
+subtitle: "Guía de instalación · unos 30–45 minutos"
+resources:
+  - prueba-instalacion.R
 ---
 
-::: callout-note
-Página en construcción.
+Para aprovechar los encuentros necesitás tener [cuatro cosas instaladas y funcionando]{.hl} en la computadora que vas a traer. Hacelo con tiempo, y con buena conexión a internet: algunas descargas son pesadas.
+
+| | Qué es | Para qué lo usamos |
+|:--|:--|:--|
+| 1. R | El lenguaje | Correr los análisis |
+| 2. RStudio | El programa donde escribimos y corremos R | Todo el taller |
+| 3. Paquetes de R | Herramientas extra para R | Leer Excel, ordenar datos, hacer figuras |
+| 4. GitHub Desktop + cuenta de GitHub | Control de versiones | Encuentro 5 |
+
+::: {.callout-tip}
+## ¿Ya tenés R y RStudio?
+Saltá directo al [paso 3](#paso-3-instalar-los-paquetes) y corré el [script de prueba](#paso-4-comprobar-que-todo-funciona). Si te dice que tu versión de R es vieja, volvé al paso 1.
 :::
+
+::: {.callout-warning}
+## ¿Computadora de la facultad o del trabajo?
+Muchas veces no dejan instalar programas sin permiso de administrador. Si es tu caso, avisame antes del taller y lo resolvemos.
+:::
+
+## Paso 1: instalar R
+
+R tiene que instalarse [antes]{.hl} que RStudio.
+
+::: {.panel-tabset}
+
+### Windows
+
+1. Entrá a <https://cran.r-project.org>.
+2. Hacé clic en [Download R for Windows]{.ui} y después en [base]{.ui}.
+3. Hacé clic en [Download R-x.x.x for Windows]{.ui} (el número es la versión más nueva).
+4. Abrí el archivo descargado (`R-x.x.x-win.exe`).
+5. Si Windows pregunta si permitís que la aplicación haga cambios, decí [Sí]{.ui}.
+6. Elegí el idioma y dejá todas las opciones como vienen: [Siguiente]{.ui} hasta el final y [Finalizar]{.ui}.
+
+### macOS
+
+1. Entrá a <https://cran.r-project.org>.
+2. Hacé clic en [Download R for macOS]{.ui}.
+3. Elegí el instalador que corresponde a tu computadora:
+   - Mac con chip Apple (M1, M2, M3, M4...): el que dice arm64.
+   - Mac con procesador Intel: el que dice x86_64.
+   - ¿No sabés cuál tenés? Menú  → [Acerca de esta Mac]{.ui} → mirá si dice "Chip Apple" o "Procesador Intel".
+4. Abrí el archivo `.pkg` descargado y seguí los pasos con las opciones que vienen por defecto.
+
+### Linux
+
+Seguí las instrucciones de tu distribución en <https://cran.r-project.org/bin/linux/>. Si usás Ubuntu, hay instrucciones paso a paso en <https://cran.r-project.org/bin/linux/ubuntu/>.
+
+:::
+
+## Paso 2: instalar RStudio
+
+1. Entrá a <https://posit.co/download/rstudio-desktop/>.
+2. Como ya instalaste R, salteá el paso 1 de esa página y hacé clic en el botón azul [Download RStudio Desktop]{.ui} (la página detecta tu sistema operativo).
+3. Instalalo:
+   - [Windows:]{.ui} abrí el `.exe` descargado y [Siguiente]{.ui} hasta el final.
+   - [macOS:]{.ui} abrí el `.dmg` y arrastrá el ícono de RStudio a la carpeta [Aplicaciones]{.ui}.
+4. Abrí RStudio (no "R"). Tiene que verse más o menos así: una ventana dividida en paneles, con la Consola abajo a la izquierda.
+
+::: {.callout-note}
+## R y RStudio: ¿cuál abro?
+Siempre RStudio. R trabaja "por detrás": RStudio lo usa solo. Es como el motor (R) y el tablero del auto (RStudio).
+:::
+
+## Paso 3: instalar los paquetes
+
+1. En RStudio, hacé clic en la Consola (el panel de abajo a la izquierda, donde aparece el símbolo `>`).
+2. Copiá esta línea completa, pegala en la Consola y apretá [Enter]{.ui}:
+
+```r
+install.packages(c("here", "readxl", "readr", "dplyr", "tidyr", "stringr", "lubridate", "ggplot2"))
+```
+
+3. Van a aparecer muchas líneas de texto en rojo: [es normal]{.hl}, no son errores. Esperá a que termine (unos minutos) y vuelva a aparecer el `>`.
+
+::: {.callout-tip collapse="true"}
+## ¿Te pregunta algo mientras instala?
+- *"Would you like to use a personal library instead?"* → escribí `yes` y Enter.
+- *"Do you want to install from sources the packages which need compilation?"* → escribí `no` y Enter.
+- Si te pide elegir un "CRAN mirror" (un servidor), elegí cualquiera; por ejemplo, el primero de la lista (*0-Cloud*).
+:::
+
+## Paso 4: comprobar que todo funciona
+
+1. Descargá el script de prueba:
+
+::: {.text-center}
+[⬇ Descargar `prueba-instalacion.R`](prueba-instalacion.R){.btn .btn-primary download="prueba-instalacion.R"}
+:::
+
+2. En RStudio: [File → Open File...]{.ui} y abrí `prueba-instalacion.R`.
+3. Arriba a la derecha del script, hacé clic en el botón [Source]{.ui}.
+4. Mirá la Consola. Si todo está bien, vas a ver algo así:
+
+```
+✔ R 4.x.x instalado.
+✔ Estás usando RStudio.
+✔ Los 8 paquetes del taller están instalados.
+✔ R puede leer datos, transformarlos y guardar una figura.
+
+🎉 ¡Todo listo para el taller!
+```
+
+Si aparece alguna ✘, el mismo mensaje te dice qué hacer. Si no te sale, [escribime](#ayuda).
+
+## Paso 5: GitHub Desktop y cuenta de GitHub
+
+Esto lo usamos recién en el encuentro 5, pero conviene dejarlo listo.
+
+### 5a. Crear una cuenta de GitHub
+
+1. Entrá a <https://github.com/signup>.
+2. Poné tu correo, una contraseña y un nombre de usuario.
+   - Elegí un nombre que te sirva en lo profesional: por ejemplo `nombreapellido`. Lo van a ver otras personas.
+3. Confirmá tu correo con el código que te llega.
+4. Si te ofrece planes pagos, elegí el gratuito (*Free*). Alcanza y sobra.
+
+### 5b. Instalar GitHub Desktop
+
+GitHub Desktop es un programa con botones para usar Git, sin escribir comandos. [Ya trae Git incluido]{.hl}: no hace falta instalar nada más.
+
+1. Entrá a <https://desktop.github.com/>.
+2. Hacé clic en [Download]{.ui} (detecta Windows o macOS).
+3. Instalalo:
+   - [Windows:]{.ui} abrí el `.exe`. Se instala solo, sin preguntar nada.
+   - [macOS:]{.ui} descomprimí el `.zip` y arrastrá [GitHub Desktop]{.ui} a [Aplicaciones]{.ui}.
+4. Abrilo y hacé clic en [Sign in to GitHub.com]{.ui}. Se abre el navegador: iniciá sesión y autorizá la aplicación.
+5. Cuando te pregunte por [Configure Git]{.ui}, dejá tu nombre y tu correo (los de tu cuenta) y hacé clic en [Finish]{.ui}.
+
+::: {.callout-note}
+## ¿Usás Linux?
+GitHub Desktop no tiene versión oficial para Linux. Instalá Git (`sudo apt install git` en Ubuntu) y en el encuentro 5 usamos la pestaña [Git]{.ui} de RStudio.
+:::
+
+## Lista final
+
+Antes del primer encuentro, verificá que puedas tildar todo:
+
+- [ ] Abro RStudio y veo la Consola.
+- [ ] El script `prueba-instalacion.R` termina con 🎉.
+- [ ] Tengo una cuenta de GitHub y recuerdo mi usuario y contraseña.
+- [ ] Abro [GitHub Desktop]{.ui} y aparece mi cuenta (en *File → Options → Accounts* en Windows, o *GitHub Desktop → Settings → Accounts* en Mac).
+
+## Problemas frecuentes
+
+::: {.callout-tip collapse="true"}
+## "No such file or directory" o problemas con carpetas
+Evitá guardar los proyectos del taller en carpetas sincronizadas (OneDrive, Google Drive, Dropbox) o con espacios y tildes en el nombre. Una buena opción es crear una carpeta `taller-r` directamente en *Documentos*.
+:::
+
+::: {.callout-tip collapse="true"}
+## El paquete no se instala ("installation of package had non-zero exit status")
+1. Cerrá RStudio y volvé a abrirlo.
+2. Volvé a correr el `install.packages(...)` solo con el paquete que falló.
+3. Si sigue fallando, copiá el mensaje de error completo y mandámelo.
+:::
+
+::: {.callout-tip collapse="true"}
+## Mi versión de R es vieja
+Instalá la nueva encima (paso 1): no hace falta desinstalar la anterior. Después, en RStudio: [Tools → Global Options → General → R version]{.ui} y elegí la nueva. Vas a tener que volver a instalar los paquetes (paso 3).
+:::
+
+::: {.callout-tip collapse="true"}
+## No tengo computadora para traer
+Avisame cuando confirmes tu inscripción y vemos cómo resolverlo (por ejemplo, trabajar en pareja).
+:::
+
+## Ayuda
+
+Si algo no funciona, escribime a [maibarrena7@gmail.com](mailto:maibarrena7@gmail.com) con:
+
+- tu sistema operativo (Windows, macOS, Linux),
+- en qué paso te trabaste,
+- una captura de pantalla del error.
+
+También vamos a tener un horario de consulta antes del primer encuentro (te aviso por mail).
+
+---
+
+*Basada en LMU Open Science Center, [Introduction to Version Control within RStudio](https://lmu-osc.github.io/Introduction-RStudio-Git-GitHub/) (CC BY-SA 4.0), y en Bryan, J., [Happy Git and GitHub for the useR](https://happygitwithr.com).*

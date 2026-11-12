@@ -1,0 +1,65 @@
+---
+title: "Encuentro 6 · Integración y revisión del proyecto"
+subtitle: "Semana 3 · Control de versiones e integración"
+resources:
+  - ordenado.zip
+---
+
+::: {.callout-note}
+## Diapositivas
+[Abrir las diapositivas del encuentro](slides.qmd){target="_blank"} (en pantalla completa con la tecla [F]{.hl}).
+:::
+
+## Al terminar este encuentro vas a poder
+
+1. Evaluar la organización y reproducibilidad de un proyecto con una checklist.
+2. Dar y recibir devoluciones sobre un proyecto.
+3. Identificar los próximos pasos para compartir datos y código.
+4. Planificar una práctica concreta para un proyecto propio.
+
+## Actividad 1: revisión cruzada
+
+[En parejas, 30 minutos.]{.hl}
+
+1. Intercambiá tu proyecto con otra persona (por GitHub, pendrive o zip).
+2. Tratá de correr su análisis usando solo el README, sin preguntarle nada.
+3. Recorré la [checklist](../../checklist/index.qmd).
+4. Dejale dos comentarios: una cosa que funciona y una que mejorarías.
+
+## Actividad 2: comparar con la referencia
+
+Descargá el proyecto de referencia y comparalo con el tuyo. ¿Tomaste decisiones distintas? ¿Por qué?
+
+::: {.text-center}
+[⬇ Descargar `ordenado.zip`](ordenado.zip){.btn .btn-primary}
+:::
+
+::: {.callout-tip}
+## No hay una única respuesta
+`ordenado/` es [una]{.hl} forma de resolverlo. Si tu proyecto cumple la checklist y tus decisiones están documentadas, está bien.
+:::
+
+## El siguiente escalón: compartir
+
+| | Opciones |
+|:--|:--|
+| Dónde depositar | [Zenodo](https://zenodo.org), [OSF](https://osf.io), [CONICET Digital](https://ri.conicet.gov.ar) o el repositorio de tu institución |
+| Cómo obtener un DOI | Zenodo y OSF lo asignan; un *release* de GitHub se puede conectar con Zenodo |
+| Licencia para datos | CC BY 4.0 o CC0 |
+| Licencia para código | MIT o GPL |
+| Versiones de paquetes | [{renv}](https://lmu-osc.github.io/introduction-to-renv/) |
+
+## Mi compromiso
+
+Escribí [una práctica que vas a aplicar en tu proyecto esta semana]{.hl}. Pegala donde la veas.
+
+## Encuesta
+
+Completá la encuesta anónima del taller: [[LINK A LA ENCUESTA]]{.hl}. ¡Gracias!
+
+## Para seguir leyendo
+
+- LMU Open Science Center. [Code Publishing](https://lmu-osc.github.io/code-publishing/) (CC BY-SA 4.0).
+- LMU Open Science Center. [FAIR Data Management](https://lmu-osc.github.io/FAIR-Data-Management/) (CC BY-SA 4.0).
+- LMU Open Science Center. [Introduction to {renv}](https://lmu-osc.github.io/introduction-to-renv/) (CC BY-SA 4.0).
+- The Turing Way. [Guide for reproducible research](https://book.the-turing-way.org/reproducible-research/reproducible-research).

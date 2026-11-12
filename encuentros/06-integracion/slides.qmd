@@ -1,0 +1,187 @@
+---
+title: "Integración y revisión del proyecto"
+subtitle: "Del caos al orden · Encuentro 6"
+author: "Maité A. Barrena"
+lang: es
+format:
+  revealjs:
+    theme: [default, ../../assets/slides.scss]
+    slide-number: true
+    footer: "Del caos al orden · Encuentro 6 · CC BY-SA 4.0"
+    transition: fade
+    highlight-style: github-dark
+    hash-type: number
+    preview-links: auto
+---
+
+## De dónde venimos
+
+:::: {.columns}
+::: {.column width="50%"}
+[Encuentro 1]{.subtitulo}
+
+```
+desordenado/
+├── Datos_campo_plantas.xlsx
+├── Datos_..._COMPLETO.xlsx
+├── analisis_prevalencia.R
+├── analisis_..._v2_OK.R
+├── mapa/  (.RData, (1).svg...)
+├── version final/
+│   └── final final final final/
+└── CONVENIO_..._FIRMADO.docx
+```
+:::
+
+::: {.column width="50%"}
+[Hoy]{.subtitulo}
+
+```
+visitantes-florales/
+├── README.md
+├── .gitignore
+├── data/raw/  (solo lectura)
+├── R/01_ 02_ 03_
+├── docs/diccionario_datos.csv
+└── outputs/   (se regenera)
+```
+:::
+::::
+
+::: notes
+Fase R. Que miren el camino recorrido. Preguntar: ¿qué encuentro les sirvió más?
+:::
+
+## Hoy
+
+Al terminar este encuentro vas a poder:
+
+1. Evaluar la organización y reproducibilidad de un proyecto con una checklist
+2. Dar y recibir devoluciones sobre un proyecto
+3. Identificar los próximos pasos para compartir datos y código
+4. Planificar una práctica concreta para un proyecto propio
+
+## La checklist {.smaller}
+
+| Área | Pregunta clave |
+|:--|:--|
+| 📂 Estructura | ¿Encuentro cada cosa sin preguntar? |
+| 📊 Datos | ¿Entiendo cada variable sin preguntar? |
+| 💻 Código | ¿Corre en mi compu, en una sesión nueva? |
+| 📈 Resultados | ¿Se regeneran si los borro? |
+| 📝 Documentación | ¿El README me alcanza para empezar? |
+| 🔁 Versiones | ¿Hay historial y nada sensible adentro? |
+
+La lista completa está en la página [Checklist]{.hl} del sitio.
+
+## Revisión cruzada
+
+::: {.actividad}
+[En parejas]{.etiqueta} <span class="tiempo">30 min</span>
+
+1. Intercambiá tu proyecto con otra persona (GitHub, pendrive o zip)
+2. Tratá de [correr su análisis usando solo el README]{.hl}, sin preguntarle nada
+3. Recorré la checklist
+4. Dejale dos comentarios: una cosa que funciona y una que mejorarías
+:::
+
+::: notes
+La regla de oro: no se vale preguntar. Si hace falta preguntar, eso va al comentario de mejora.
+
+Si usaron GitHub: compartir el repositorio con el compañero (Settings → Collaborators) o hacerlo público un rato. Si no, pendrive o zip.
+:::
+
+## Devolución
+
+::: {.actividad}
+[En parejas]{.etiqueta} <span class="tiempo">10 min</span>
+
+Cada uno cuenta qué encontró en el proyecto del otro.
+
+¿Qué fue lo más difícil de entender o de correr?
+:::
+
+## No hay una única respuesta {.smaller}
+
+Comparen su proyecto con `ordenado/`, la versión de referencia.
+
+- ¿Tomaron decisiones distintas? ¿Por qué?
+- ¿Hay algo en la suya que esté [mejor]{.hl} resuelto?
+
+No existe *la* estructura correcta: existen criterios (los de la checklist) y decisiones documentadas.
+
+::: notes
+Este es un buen momento para reforzar que lo importante no es copiar una plantilla, sino entender por qué cada práctica ayuda.
+:::
+
+## El siguiente escalón: compartir {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+[Dónde]{.subtitulo}
+
+- [Zenodo]{.hl} u OSF: repositorios generales, gratuitos, con DOI
+- CONICET Digital o el repositorio institucional (Ley 26.899)
+- Un release de GitHub se puede conectar con Zenodo para obtener un DOI
+:::
+
+::: {.column width="50%"}
+[Con qué licencia]{.subtitulo}
+
+- Datos: CC BY 4.0 o CC0
+- Código: MIT o GPL
+- Materiales: CC BY o CC BY-SA
+
+Sin licencia, legalmente nadie puede reutilizarlo.
+:::
+::::
+
+<span class="fuente">Ver: LMU Open Science Center, *Code Publishing* y *FAIR Data Management* (CC BY-SA 4.0).</span>
+
+::: notes
+No profundizar: es un mapa para después. Mostrar como ejemplo el repositorio del propio taller (que va a tener DOI en Zenodo).
+
+Mencionar {renv} como siguiente paso para fijar las versiones de los paquetes.
+:::
+
+## Mi compromiso
+
+::: {.actividad}
+[Individual]{.etiqueta} <span class="tiempo">5 min</span>
+
+Escribí en un papel:
+
+*[Una práctica que voy a aplicar en mi proyecto esta semana.]{.hl}*
+
+Llevátelo. 📌
+:::
+
+## Contanos cómo te fue {.center}
+
+La encuesta es [anónima]{.hl} y nos ayuda a mejorar el taller.
+
+📝 [LINK A LA ENCUESTA]
+
+::: notes
+Fase E. Dar 10 minutos dentro del encuentro para completarla: si queda para después, casi nadie responde.
+
+Es el insumo del informe de feedback para la certificación de LMU.
+:::
+
+## ¡Gracias! {.center}
+
+Todos los materiales del taller quedan disponibles en el sitio y en el repositorio, bajo licencia [CC BY-SA 4.0]{.hl}.
+
+Maité A. Barrena · maibarrena7@gmail.com
+
+<span class="fuente">Este taller fue diseñado en el marco del Open Science Summer School 2026 del LMU Open Science Center, Ludwig-Maximilians-Universität München.</span>
+
+## Créditos {.smaller}
+
+- LMU Open Science Center. *Code Publishing*. <https://lmu-osc.github.io/code-publishing/> (CC BY-SA 4.0).
+- LMU Open Science Center. *FAIR Data Management*. <https://lmu-osc.github.io/FAIR-Data-Management/> (CC BY-SA 4.0).
+- LMU Open Science Center. *Introduction to {renv}*. <https://lmu-osc.github.io/introduction-to-renv/> (CC BY-SA 4.0).
+- Wilson, G. et al. (2017). Good enough practices in scientific computing. *PLOS Computational Biology*, 13(6), e1005510.
+- Ley 26.899 (2013). Repositorios digitales institucionales de acceso abierto. República Argentina.
+
+Este material se distribuye bajo licencia [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.es).

@@ -1,0 +1,24 @@
+# ------------------------------------------------------------
+# .gitignore del proyecto
+# Guardá este archivo en la raíz del proyecto con el nombre: .gitignore
+# Cada línea es un archivo o carpeta que Git va a IGNORAR.
+# ------------------------------------------------------------
+
+# Archivos de sesión de R: el código es la fuente, no el workspace
+.Rhistory
+.RData
+.Rproj.user/
+
+# Productos generados por los scripts (se regeneran con R/00_correr_todo.R)
+data/processed/
+outputs/
+docs/informe.html
+docs/informe_files/
+
+# Documentos con datos personales o firmas: nunca a un repositorio
+*FIRMADO*
+
+# Archivos temporales de Office y del sistema
+~$*
+.DS_Store
+Thumbs.db

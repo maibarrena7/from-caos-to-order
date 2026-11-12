@@ -1,0 +1,56 @@
+---
+title: "Checklist de organización y reproducibilidad"
+subtitle: "¿Podría otra persona entender y correr este proyecto?"
+---
+
+Usá esta lista para revisar [tu propio proyecto]{.hl} o el de otra persona. No hace falta cumplir todo: cada ítem tildado es un paso más hacia un proyecto reproducible.
+
+## 📂 Estructura
+
+- [ ] Hay un solo archivo `.Rproj`, en la raíz del proyecto.
+- [ ] Datos, código, productos y documentación están en carpetas separadas.
+- [ ] Los nombres de archivos y carpetas no tienen espacios, tildes ni caracteres especiales.
+- [ ] Las fechas en los nombres siguen el formato `AAAA-MM-DD` y los scripts están numerados (`01_`, `02_`...).
+- [ ] No hay versiones manuales (`_final`, `_v2`, `_ok`, `(1)`) ni archivos duplicados.
+
+## 📊 Datos
+
+- [ ] Los datos crudos están en `data/raw/` y no se modifican (están marcados como solo lectura).
+- [ ] Hay un diccionario de datos con la descripción, el tipo y la unidad de cada variable.
+- [ ] Los códigos de dato faltante están documentados.
+- [ ] Ninguna información depende de colores o formatos de la planilla.
+
+## 💻 Código
+
+- [ ] No hay `setwd()` ni rutas absolutas (`C:/Users/...`): las rutas usan `here()`.
+- [ ] No hay `install.packages()` dentro de los scripts.
+- [ ] El análisis corre de punta a punta en una sesión nueva (*Session → Restart R* y correr todo).
+- [ ] RStudio está configurado para no guardar ni cargar `.RData`.
+- [ ] La limpieza de los datos está hecha con código, no a mano.
+
+## 📈 Resultados
+
+- [ ] Si borro `outputs/`, se regenera completo corriendo los scripts.
+- [ ] Ninguna tabla ni número del informe está copiado a mano.
+
+## 📝 Documentación
+
+- [ ] Hay un `README.md` que dice qué es el proyecto, quién lo hizo y cómo contactarle.
+- [ ] El README explica la estructura de carpetas y cómo reproducir los resultados (en qué orden se corren los scripts, qué paquetes hacen falta).
+- [ ] Las decisiones y correcciones sobre los datos están registradas.
+
+## 🔁 Control de versiones
+
+- [ ] El proyecto es un repositorio de Git.
+- [ ] Hay un `.gitignore` que excluye archivos de sesión y productos regenerables.
+- [ ] Los mensajes de commit dicen qué cambió y por qué.
+- [ ] No hay documentos sensibles (datos personales, firmas, contraseñas) en el repositorio, ni en su historial.
+
+## 🌍 Para compartir (próximos pasos)
+
+- [ ] El proyecto tiene una licencia (por ejemplo, CC BY 4.0 para datos y MIT para código).
+- [ ] Está listo para depositarse en un repositorio con DOI (Zenodo, OSF o el repositorio institucional).
+
+---
+
+*Basada en Wilson, G. et al. (2017). [Good enough practices in scientific computing](https://doi.org/10.1371/journal.pcbi.1005510). PLOS Computational Biology, 13(6), e1005510; y en Broman, K. W. & Woo, K. H. (2018). [Data organization in spreadsheets](https://doi.org/10.1080/00031305.2017.1375989). The American Statistician, 72(1), 2–10.*

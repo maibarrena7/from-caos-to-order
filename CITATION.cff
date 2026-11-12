@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "Si usás estos materiales, citalos así. / If you use these materials, please cite them as below."
+type: dataset
+title: "Del caos al orden: organización de proyectos de investigación en R"
+abstract: "Materiales de un taller de seis encuentros sobre organización, documentación y control de versiones de proyectos de investigación en R."
+authors:
+  - family-names: Barrena
+    given-names: Maité Aneley
+version: "1.0"
+date-released: "2026-12-01"
+license: CC-BY-SA-4.0
+repository-code: "https://github.com/maibarrena7/from-caos-to-order"
+url: "https://maibarrena7.github.io/from-caos-to-order/"
+keywords:
+  - open science
+  - reproducibility
+  - research data management
+  - R
+  - Git
+  - teaching

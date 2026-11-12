@@ -1,0 +1,106 @@
+---
+title: "Encuentro 2 · Datos, scripts y resultados en R"
+subtitle: "Semana 1 · Organización de proyectos"
+---
+
+::: {.callout-note}
+## Diapositivas
+[Abrir las diapositivas del encuentro](slides.qmd){target="_blank"} (en pantalla completa con la tecla [F]{.hl}).
+:::
+
+## Al terminar este encuentro vas a poder
+
+1. Crear un proyecto de RStudio y explicar para qué sirve.
+2. Reorganizar un proyecto separando datos, código y productos.
+3. Reemplazar rutas absolutas por rutas relativas con `here()`.
+4. Configurar RStudio para no depender del *workspace*.
+
+## Antes de empezar
+
+- Tené a mano la carpeta `desordenado/` y la estructura vacía que creaste en el [encuentro 1](../01-estructura/index.qmd).
+- Instalá el paquete `here` desde la consola (no en un script):
+
+```r
+install.packages("here")
+```
+
+## Configurar RStudio (una sola vez)
+
+[Tools → Global Options → General]{.hl}:
+
+- Destildá Restore .RData into workspace at startup.
+- En Save workspace to .RData on exit, elegí Never.
+
+Así cada sesión arranca de cero y tus resultados dependen solo del código.
+
+## Guía de mudanza
+
+[35 minutos.]{.hl} Esta es una propuesta: si decidís distinto y tenés un buen motivo, ¡vale!
+
+### 1. Crear el proyecto
+
+[File → New Project → Existing Directory]{.hl} y elegí la carpeta raíz de tu estructura (por ejemplo, `visitantes-florales/`). Se crea el archivo `.Rproj`.
+
+### 2. Mover (y renombrar) lo que se queda
+
+| Archivo en `desordenado/` | Va a | Con el nombre |
+|:--|:--|:--|
+| `Datos_campo_plantas_COMPLETO.xlsx` | `data/raw/` | `2023-03_campo_plantas.xlsx` |
+| `mapa/sitios_muestreo_2.xlsx` | `data/raw/` | `sitios_muestreo.xlsx` |
+| `analisis_prevalencia.R` | `R/` | `analisis_prevalencia.R` |
+| `mapa/mapa.R` | `R/` | `mapa.R` |
+| `version final/Final_final/final final final final/` → manuscrito y tablas | `docs/manuscrito/` | (sin cambios por ahora) |
+| `version final/Final_final/final final final final/Fig_2_visitantes.pdf` | `outputs/figuras/` | `fig2_visitantes.pdf` |
+
+Después, marcá los archivos de `data/raw/` como [solo lectura]{.hl}:
+
+- Windows: clic derecho → *Propiedades* → tildar Solo lectura.
+- macOS: clic derecho → *Obtener información* → tildar Bloqueado.
+
+### 3. Lo que se va (y por qué)
+
+| Archivo | Motivo |
+|:--|:--|
+| `Datos_campo_plantas.xlsx` | Versión vieja e incompleta del crudo |
+| `analisis_prevalencia_v2_OK.R` | No sabemos si es mejor: anotalo para el README |
+| `Prev_especies.xlsx`, `Tabla I_Nota.docx` | Tablas hechas a mano: el código las va a generar |
+| Todos los mapas (`.png`, `.svg`, `.pdf`) y `grafico prevalencia nuevo.png` | Se regeneran con el código |
+| `mapa/Mapa Sitios de muestreo.r`, `mapa/nuevomapa2024.R` | Pruebas y un script vacío |
+| `.RData`, `.Rhistory`, los dos `.Rproj` sueltos | El proyecto nuevo los reemplaza |
+| Borradores, `rev_AB_2024/` y versiones viejas del manuscrito | De esto se encarga Git (encuentro 5) |
+| `0.1 Bibliografia/`, `Referencias_nota_AB.docx` | Van a un gestor de referencias (por ej. Zotero), no al proyecto |
+| `CONVENIO_permiso_colecta_FIRMADO.docx` | Datos personales: fuera del proyecto y nunca a un repositorio |
+
+::: {.callout-tip}
+## ¿Miedo a borrar?
+Si te da miedo, en vez de borrar mové todo eso a una carpeta [fuera]{.hl} del proyecto (por ejemplo, `viejo_no_tocar/` en el Escritorio).
+:::
+
+## Hacer correr el script
+
+[15 minutos.]{.hl} Abrí el proyecto (doble clic en el `.Rproj`) y después `R/analisis_prevalencia.R`:
+
+1. Borrá la línea `setwd(...)` (y cualquier `install.packages(...)`, si hubiera).
+2. Agregá `library(here)` debajo de los otros `library()`.
+3. Cambiá la lectura de datos y el guardado de la figura por:
+
+```r
+datos <- read_excel(here("data", "raw", "2023-03_campo_plantas.xlsx"), skip = 1)
+
+ggsave(here("outputs", "figuras", "grafico_prevalencia.png"))
+```
+
+4. Corré el script completo (Ctrl/Cmd + Shift + Enter). Mirá la tabla `prev` que aparece en la consola.
+
+🤔 *¿Cuántos sitios había en el estudio? ¿Cuántos aparecen en la tabla?*
+
+## Para la próxima
+
+1. Desactivá el guardado de `.RData` en tu RStudio (si no lo hiciste hoy).
+2. Creá un proyecto de RStudio para un trabajo propio y reemplazá un `setwd()` por `here()`.
+
+## Para seguir leyendo
+
+- Bryan, J. (2017). [Project-oriented workflow](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/). Tidyverse blog.
+- [Documentación del paquete here](https://here.r-lib.org).
+- LMU Open Science Center. [Introduction to Version Control within RStudio](https://lmu-osc.github.io/Introduction-RStudio-Git-GitHub/rstudio-project/index.html), sección "Creating an RStudio project" (CC BY-SA 4.0).

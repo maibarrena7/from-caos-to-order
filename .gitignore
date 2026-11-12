@@ -47,3 +47,14 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+# ---- Quarto ----
+/.quarto/
+/_site/
+/docs/
+*_files/
+**/*.quarto_ipynb
+
+# El proyecto de ejemplo desordenado incluye .RData y .Rhistory A PROPOSITO (material didactico)
+!proyecto-ejemplo/desordenado/**/.RData
+!proyecto-ejemplo/desordenado/**/.Rhistory

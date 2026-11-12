@@ -1,0 +1,242 @@
+---
+title: "Documentar para comprender y reutilizar"
+subtitle: "Del caos al orden · Encuentro 3"
+author: "Maité A. Barrena"
+lang: es
+format:
+  revealjs:
+    theme: [default, ../../assets/slides.scss]
+    slide-number: true
+    footer: "Del caos al orden · Encuentro 3 · CC BY-SA 4.0"
+    transition: fade
+    highlight-style: github-dark
+    hash-type: number
+    preview-links: auto
+---
+
+## Si te paso este proyecto mañana...
+
+::: {.actividad}
+[Lluvia de ideas]{.etiqueta} <span class="tiempo">10 min</span>
+
+¿Qué necesitarías saber para poder [usar]{.hl} la carpeta que ordenamos la semana pasada?
+:::
+
+::: notes
+Fase R. Anotar en el pizarrón. Aparecen: qué es cada archivo, qué significan las columnas, en qué unidades, qué script corro primero, de dónde salen los datos, quién los tomó...
+
+Retomar las dudas de la mudanza: ¿cuál de los dos Excel?, ¿cuál de los dos scripts?, ¿qué eran las celdas amarillas? Todo eso es información que nadie documentó.
+:::
+
+## Hoy
+
+Al terminar este encuentro vas a poder:
+
+1. Escribir un README que explique un proyecto
+2. Construir un diccionario de datos para un conjunto de datos
+3. Registrar las decisiones y correcciones hechas sobre los datos
+
+## Documentar es para vos {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+[Sin documentación]{.subtitulo}
+
+- "¿Esta columna estaba en cm o en mm?"
+- "¿Qué significaba el 999?"
+- "¿Por qué saqué la planta 10?"
+- "¿Qué era el amarillo?"
+:::
+
+::: {.column width="50%"}
+[Con documentación]{.subtitulo}
+
+- Retomás el proyecto en 5 minutos
+- Tu director/a lo entiende sin preguntarte
+- Quien herede tus datos puede usarlos
+- Podés publicar los datos (encuentro 6)
+:::
+::::
+
+<span class="fuente">Ver también: LMU Open Science Center, *Data Documentation & Validation in R* (CC BY-SA 4.0).</span>
+
+## El README {.smaller}
+
+El primer archivo que alguien abre. Responde:
+
+| Pregunta | Sección |
+|:--|:--|
+| ¿Qué es esto? | Título y descripción breve |
+| ¿Quién lo hizo? ¿A quién le escribo? | Autoría y contacto |
+| ¿Qué hay en cada carpeta? | Estructura |
+| ¿Cómo obtengo los resultados? | Cómo reproducir |
+| ¿De dónde salen los datos? ¿Qué se corrigió? | Datos y decisiones |
+| ¿Lo puedo reutilizar? | Licencia |
+
+Formato [Markdown]{.hl} (`.md`): texto plano, se lee en cualquier lado y GitHub lo muestra lindo.
+
+::: notes
+Mostrar un README real de un repositorio de GitHub (por ejemplo, el del proyecto `ordenado/` del taller) para que vean cómo se ve renderizado.
+:::
+
+## Markdown en 1 minuto
+
+```markdown
+# Título principal
+## Subtítulo
+
+Texto normal, **negrita** y *cursiva*.
+
+- Un ítem de lista
+- Otro ítem
+
+Código en línea: `data/raw/`
+```
+
+Es el mismo formato que usan Quarto, GitHub y este sitio.
+
+## El diccionario de datos {.smaller}
+
+Una tabla que describe [cada variable]{.hl} del conjunto de datos:
+
+| variable | descripcion | tipo | unidad | valores_permitidos | codigo_faltante |
+|:--|:--|:--|:--|:--|:--|
+| `altura_cm` | Altura desde el suelo hasta el ápice | número | cm | > 0 | `-`, `999` |
+| `sitio` | Sitio de muestreo | texto | | Loma del Viento; Bajo Fantasma; Pampa Imaginaria | |
+| `z_aurea` | Visitantes de *Z. aurea* en la planta | entero | individuos | ≥ 0 | `s/d` |
+
+En un CSV, al lado de los datos: `docs/diccionario_datos.csv`.
+
+<span class="fuente">Basado en LMU Open Science Center, *Data Documentation & Validation in R*; Broman, K. W. & Woo, K. H. (2018). Data organization in spreadsheets. *The American Statistician*, 72(1), 2–10.</span>
+
+## Planillas que se entienden {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+<span class="mal">Lo que encontramos</span>
+
+- Faltantes como `-`, `NA`, `s/d`, `999`
+- Correcciones marcadas con [color]{.hl}
+- Título encima del encabezado
+- Nombres con espacios y símbolos: `Nº flores`
+- Notas escritas debajo de los datos
+:::
+
+::: {.column width="50%"}
+<span class="bien">Lo que conviene</span>
+
+- Un solo código de faltante, documentado
+- La información en columnas, no en colores
+- La primera fila = nombres de las variables
+- Nombres simples: `n_flores`
+- Las notas, en el README o en una columna
+:::
+::::
+
+<span class="fuente">Broman, K. W. & Woo, K. H. (2018). Data organization in spreadsheets. *The American Statistician*, 72(1), 2–10.</span>
+
+::: notes
+No vamos a modificar el crudo (es de solo lectura): lo documentamos tal como está. La limpieza se hace con código en el encuentro 4.
+
+Para sus PRÓXIMAS planillas de campo, en cambio, esto se aplica desde el día 1.
+:::
+
+## Registrar decisiones {.smaller}
+
+Cada vez que [decidís algo sobre los datos]{.hl}, anotalo:
+
+```markdown
+## Decisiones y correcciones
+
+- 2024-03: se usa `2023-03_campo_plantas.xlsx` (antes "COMPLETO");
+  la otra versión estaba incompleta (32 plantas).
+- La altura 999 de la planta P10 es un código de dato faltante.
+- Las celdas amarillas son valores corregidos tras revisar las fotos.
+- Duda: existe `analisis_prevalencia_v2_OK.R`, que además excluye la
+  planta 14. No se sabe por qué. Se usa la versión 1.
+```
+
+Una sección del README, o un archivo `docs/decisiones.md`.
+
+::: notes
+Lo más valioso de la documentación no es lo obvio, sino las decisiones: lo que solo vos sabés.
+:::
+
+## Diccionario de datos
+
+::: {.actividad}
+[En parejas]{.etiqueta} <span class="tiempo">30 min</span>
+
+Con la [plantilla]{.hl} de la página del encuentro, completen el diccionario de `data/raw/2023-03_campo_plantas.xlsx`:
+
+- descripción, tipo y unidad de cada variable
+- valores permitidos
+- todos los códigos de faltante que aparecen
+- qué significaba el amarillo
+:::
+
+::: notes
+Pista: abrir el Excel y recorrer columna por columna. Hay faltantes escondidos: "-" en altura, "NA" en cobertura, "s/d" en P. rapida, 999 en altura.
+:::
+
+## README
+
+::: {.actividad}
+[Individual]{.etiqueta} <span class="tiempo">20 min</span>
+
+Con la [plantilla]{.hl}, escribí el `README.md` del proyecto:
+
+- qué es y quién lo hizo (podés inventar)
+- la estructura de carpetas que armaste
+- cómo correr el análisis
+- las decisiones que tomaste en la mudanza
+:::
+
+::: notes
+Se puede escribir en RStudio: File → New File → Markdown File. Guardar como README.md en la raíz del proyecto.
+:::
+
+## Intercambio
+
+::: {.actividad}
+[En parejas]{.etiqueta} <span class="tiempo">10 min</span>
+
+Leé el README de tu compañero/a y marcá [una cosa que no se entiende]{.hl}.
+:::
+
+## Bonus: diccionarios automáticos
+
+```r
+library(datawizard)
+
+data_codebook(datos)
+```
+
+Genera un resumen de cada variable (tipo, valores, faltantes). [No reemplaza]{.hl} el diccionario: no sabe qué significa cada columna ni en qué unidad está.
+
+<span class="fuente">Basado en LMU Open Science Center, *Data Documentation & Validation in R*, "Automated Creation with R" (CC BY-SA 4.0).</span>
+
+::: notes
+Solo mostrar si sobra tiempo. Sirve para chequear que no se escape ningún valor raro.
+:::
+
+## Para la próxima {.smaller}
+
+::: {.actividad}
+[Tarea]{.etiqueta} <span class="tiempo">≤ 30 min</span>
+
+Escribí un [README de 5 líneas]{.hl} para un proyecto propio: qué es, qué hay en la carpeta y cómo se usa.
+:::
+
+<br>
+
+Pregunta de salida: *¿Qué información de tus datos está hoy solo en tu cabeza?*
+
+## Créditos {.smaller}
+
+- LMU Open Science Center. *Data Documentation & Validation in R*. <https://lmu-osc.github.io/data-documentation-validation-R/> (CC BY-SA 4.0). Autoría: R. Gupta y M. Ihle.
+- Broman, K. W. & Woo, K. H. (2018). Data organization in spreadsheets. *The American Statistician*, 72(1), 2–10. <https://doi.org/10.1080/00031305.2017.1375989>
+- Wilson, G. et al. (2017). Good enough practices in scientific computing. *PLOS Computational Biology*, 13(6), e1005510.
+- The Turing Way Community (2022). *The Turing Way*. Zenodo. <https://doi.org/10.5281/zenodo.3233853>
+
+Este material se distribuye bajo licencia [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.es).

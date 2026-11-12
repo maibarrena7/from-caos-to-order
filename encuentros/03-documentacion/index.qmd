@@ -1,0 +1,68 @@
+---
+title: "Encuentro 3 · Documentar para comprender y reutilizar"
+subtitle: "Semana 2 · Documentación y reproducibilidad"
+resources:
+  - plantillas/README-plantilla.md
+  - plantillas/diccionario-plantilla.csv
+---
+
+::: {.callout-note}
+## Diapositivas
+[Abrir las diapositivas del encuentro](slides.qmd){target="_blank"} (en pantalla completa con la tecla [F]{.hl}).
+:::
+
+## Al terminar este encuentro vas a poder
+
+1. Escribir un README que explique un proyecto.
+2. Construir un diccionario de datos para un conjunto de datos.
+3. Registrar las decisiones y correcciones hechas sobre los datos.
+
+## Plantillas
+
+- [⬇ Plantilla de README (`README-plantilla.md`)](plantillas/README-plantilla.md){download="README.md"}
+- [⬇ Plantilla de diccionario de datos (`diccionario-plantilla.csv`)](plantillas/diccionario-plantilla.csv){download="diccionario_datos.csv"}
+
+Guardá el README en la [raíz]{.hl} del proyecto y el diccionario en `docs/`.
+
+## Actividad 1: diccionario de datos
+
+[En parejas, 30 minutos.]{.hl} Completá el diccionario de `data/raw/2023-03_campo_plantas.xlsx`. Para cada variable:
+
+| Columna | Qué poner |
+|:--|:--|
+| `descripcion` | Qué mide, en una oración |
+| `tipo` | número, entero, texto, fecha |
+| `unidad` | cm, m², individuos... |
+| `valores_permitidos` | Rango o lista de valores posibles |
+| `codigo_faltante` | Cómo aparecen los datos faltantes en el crudo |
+| `notas` | Cualquier otra cosa que haga falta saber |
+
+::: {.callout-tip}
+## Pista
+Recorré el Excel columna por columna. Hay [cuatro]{.hl} formas distintas de anotar un dato faltante. Y no te olvides del amarillo.
+:::
+
+## Actividad 2: README
+
+[Individual, 20 minutos.]{.hl} Con la plantilla, escribí el `README.md` del proyecto. Incluí una sección de decisiones y correcciones con lo que decidiste en la mudanza del encuentro 2 (qué Excel usaste, qué descartaste, qué dudas quedaron).
+
+Podés escribirlo en RStudio: File → New File → Markdown File.
+
+### Markdown básico
+
+```markdown
+# Título
+## Subtítulo
+**negrita**, *cursiva*, `código`
+- ítem de lista
+```
+
+## Para la próxima
+
+Escribí un [README de 5 líneas]{.hl} para un proyecto propio: qué es, qué hay en la carpeta y cómo se usa.
+
+## Para seguir leyendo
+
+- Broman, K. W. & Woo, K. H. (2018). [Data organization in spreadsheets](https://doi.org/10.1080/00031305.2017.1375989). *The American Statistician*, 72(1), 2–10.
+- LMU Open Science Center. [Data Documentation & Validation in R](https://lmu-osc.github.io/data-documentation-validation-R/) (CC BY-SA 4.0).
+- The Turing Way. [Documentation](https://book.the-turing-way.org/reproducible-research/code-documentation).

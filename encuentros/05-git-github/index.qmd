@@ -1,0 +1,74 @@
+---
+title: "Encuentro 5 · Introducción a Git y GitHub"
+subtitle: "Semana 3 · Control de versiones e integración"
+resources:
+  - gitignore-plantilla.txt
+---
+
+::: {.callout-note}
+## Diapositivas
+[Abrir las diapositivas del encuentro](slides.qmd){target="_blank"} (en pantalla completa con la tecla [F]{.hl}).
+:::
+
+## Al terminar este encuentro vas a poder
+
+1. Explicar qué es el control de versiones y para qué sirve.
+2. Distinguir entre Git y GitHub.
+3. Registrar cambios en un proyecto (*commits*) y recorrer su historial.
+4. Decidir qué archivos van (y cuáles no) a un repositorio.
+
+## Antes de empezar
+
+- Instalá [GitHub Desktop](https://desktop.github.com/) (trae Git incluido).
+- Creá una cuenta gratuita en [github.com](https://github.com) e iniciá sesión en GitHub Desktop (*File → Options → Accounts*).
+
+## Vocabulario mínimo
+
+| Palabra | Qué es |
+|:--|:--|
+| Repositorio | Una carpeta cuyo historial está registrado por Git |
+| Commit | Una "foto" del proyecto, con un mensaje que dice qué cambió |
+| Historial | La lista de todos los commits |
+| Push | Subir los commits de tu compu a GitHub |
+| Pull | Bajar a tu compu los commits que están en GitHub |
+| `.gitignore` | La lista de archivos que Git no debe registrar |
+
+## Paso 1: el `.gitignore`
+
+[⬇ Descargar la plantilla de `.gitignore`](gitignore-plantilla.txt){download=".gitignore"}
+
+Guardala en la [raíz]{.hl} del proyecto con el nombre `.gitignore` (con el punto adelante y sin `.txt` al final).
+
+::: {.callout-important}
+## Antes del primer commit
+El `.gitignore` tiene que estar [antes]{.hl} del primer commit. Si un archivo ya quedó registrado, ignorarlo después no lo saca del historial.
+:::
+
+## Paso 2: crear el repositorio
+
+En GitHub Desktop: [File → Add local repository]{.hl} → elegí la carpeta del proyecto. Como todavía no es un repositorio, va a aparecer el aviso *"This directory does not appear to be a Git repository"*: hacé clic en create a repository y después en Create repository.
+
+## Paso 3: commits
+
+1. A la izquierda vas a ver la lista de archivos. Revisá que no aparezcan `outputs/`, `.RData` ni nada que no deba ir.
+2. Abajo a la izquierda, escribí un mensaje (por ejemplo, *"Proyecto organizado"*) y hacé clic en Commit to main.
+3. Abrí `README.md`, cambiá algo y guardá. Volvé a GitHub Desktop: vas a ver el cambio resaltado. Hacé un segundo commit con un mensaje claro.
+
+## Paso 4: historial y volver atrás
+
+- Pestaña History: todos los commits, con fecha, autoría y qué cambió.
+- Clic derecho sobre un commit → Revert changes in commit: deshace ese cambio (y queda registrado como un commit nuevo).
+
+## Paso 5: subir a GitHub (opcional)
+
+[Publish repository]{.hl} → dejá tildado Keep this code private → Publish. Entrá a github.com y buscá tu repositorio: el README aparece como portada.
+
+## Para la próxima
+
+Hacé [al menos un commit más]{.hl} en el proyecto, con un mensaje claro. Si lo publicaste, hacé también Push origin.
+
+## Para seguir leyendo
+
+- LMU Open Science Center. [Introduction to version control with Git in RStudio](https://lmu-osc.github.io/slides-git/slides-git-revealjs.html) (slides, CC BY-SA 4.0).
+- LMU Open Science Center. [Introduction to Version Control within RStudio](https://lmu-osc.github.io/Introduction-RStudio-Git-GitHub/) (tutorial, CC BY-SA 4.0).
+- Bryan, J. [Happy Git and GitHub for the useR](https://happygitwithr.com).

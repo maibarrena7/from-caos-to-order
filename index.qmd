@@ -1,0 +1,82 @@
+---
+title: "Del caos al orden"
+subtitle: "Organización de proyectos de investigación en R"
+toc: false
+---
+
+::: hero
+## Tu proyecto, ordenado, documentado y reproducible
+
+Un taller práctico de seis encuentros para pasar de carpetas llenas de `datos_final_v2_DEFINITIVO.xlsx` a un proyecto que vos, tu equipo, o vos dentro de dos años puedan entender y volver a ejecutar.
+:::
+
+::: {.callout-note collapse="true"}
+## English summary
+
+[From Messy Folders to Reproducible Research]{.hl} is a six-session, in-person workshop (Spanish) held at the Facultad de Ciencias Marinas, Universidad Nacional del Comahue (San Antonio Oeste, Argentina). Participants learn to structure, document and version-control research projects in R. It was developed as part of the instructor certification of the [LMU Open Science Center](https://www.osc.uni-muenchen.de) Summer School 2026. All materials are openly licensed under CC BY-SA 4.0.
+:::
+
+## ¿De qué se trata?
+
+Investigar implica colectar datos, escribir código, generar figuras y tomar decisiones metodológicas. Con el tiempo, todo eso se acumula en carpetas sin una estructura clara: versiones duplicadas, scripts que solo funcionan en una computadora y resultados cuyo origen nadie recuerda.
+
+En este taller vamos a ordenar, paso a paso, un proyecto de investigación real con datos ecológicos. Vamos a separar datos, código y resultados, documentarlo y registrar sus cambios con Git. La idea es que después puedas aplicar lo mismo a tu propio trabajo.
+
+## ¿Para quién es?
+
+Para estudiantes avanzados de grado, estudiantes de posgrado y docentes/investigadores en formación que hayan participado en proyectos de investigación y trabajado con datos.
+
+- Necesitás: conocimientos básicos de R (crear objetos, usar funciones, correr un script).
+- No necesitás: experiencia previa con Git, GitHub ni flujos de trabajo reproducibles.
+
+## Al terminar vas a tener
+
+- Un proyecto con una estructura de carpetas clara y consistente.
+- Documentación inicial: un README y un diccionario de datos.
+- Un flujo de trabajo reproducible en R, desde los datos originales hasta una figura final.
+- Un repositorio con el historial de cambios de tu proyecto.
+
+## Programa
+
+| Semana | Encuentro | Tema |
+|:------:|:---------:|:-----|
+| 1 | [1](encuentros/01-estructura/index.qmd) | Del desorden a una estructura de proyecto |
+| 1 | [2](encuentros/02-datos-scripts/index.qmd) | Datos, scripts y resultados en R |
+| 2 | [3](encuentros/03-documentacion/index.qmd) | Documentar para comprender y reutilizar |
+| 2 | [4](encuentros/04-flujo-reproducible/index.qmd) | De los datos originales a los resultados |
+| 3 | [5](encuentros/05-git-github/index.qmd) | Introducción a Git y GitHub |
+| 3 | [6](encuentros/06-integracion/index.qmd) | Integración y revisión del proyecto |
+
+## Información práctica
+
+|                 |                                                          |
+|:----------------|:---------------------------------------------------------|
+| Modalidad   | Presencial, teórico-práctico                             |
+| Lugar       | Facultad de Ciencias Marinas (UNComa), San Antonio Oeste |
+| Fechas      | *A confirmar*                                            |
+| Duración    | 6 encuentros de 90 minutos (9 horas)                     |
+| Costo       | Gratuito                                                 |
+| Inscripción | *Formulario disponible próximamente*                     |
+
+::: callout-tip
+## Antes del primer encuentro
+Traé tu computadora con R, RStudio y Git instalados. Seguí la [guía de instalación](instalacion/index.qmd); si algo no funciona, escribime y lo resolvemos antes de empezar.
+:::
+
+## Materiales y licencia
+
+Todos los materiales (guías, scripts, datos de ejemplo y checklist) están en el [repositorio del taller](https://github.com/maibarrena7/from-caos-to-order) bajo licencia [Creative Commons Atribución-CompartirIgual 4.0 Internacional (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/deed.es). Podés usarlos, adaptarlos y compartirlos citando la fuente.
+
+### Cómo citar
+
+> Barrena, M. A. (2026). *Del caos al orden: organización de proyectos de investigación en R* (Versión 1.0) \[Material didáctico\]. Zenodo. https://doi.org/XX.XXXX/zenodo.XXXXXXX
+
+## Sobre la instructora
+
+[Maité A. Barrena]{.hl} es licenciada en Biología Marina y doctoranda en Biología (Universidad Nacional del Comahue). Estudia los ensambles de peces e invertebrados de la Bahía San Antonio, se forma como instructora en ciencia abierta en el LMU Open Science Center y se especializa en gestión de datos de investigación.
+
+Contacto: [maibarrena7@gmail.com](mailto:maibarrena7@gmail.com)
+
+## Agradecimientos
+
+Este taller fue diseñado en el marco del *Open Science Summer School 2026* del [LMU Open Science Center](https://www.osc.uni-muenchen.de) y se nutre de recursos de [The Turing Way](https://the-turing-way.netlify.app), [Happy Git and GitHub for the useR](https://happygitwithr.com) y [R for Data Science](https://r4ds.hadley.nz).

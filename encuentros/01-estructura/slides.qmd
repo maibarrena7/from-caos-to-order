@@ -1,0 +1,383 @@
+---
+title: "Del desorden a una estructura de proyecto"
+subtitle: "Del caos al orden · Encuentro 1"
+author: "Maité A. Barrena"
+lang: es
+format:
+  revealjs:
+    theme: [default, ../../assets/slides.scss]
+    slide-number: true
+    footer: "Del caos al orden · Encuentro 1 · CC BY-SA 4.0"
+    transition: fade
+    highlight-style: github-dark
+    hash-type: number
+    preview-links: auto
+    toc: false
+---
+
+## Bienvenida {.smaller}
+
+:::: {.columns}
+::: {.column width="55%"}
+[Durante las próximas 3 semanas]{.subtitulo}
+
+- 6 encuentros de 90 minutos
+- Mucha práctica, poca teoría
+- Un solo proyecto que vamos a ir ordenando de a poco
+- No vamos a programar desde cero: el código se los doy yo
+:::
+
+::: {.column width="45%"}
+[Acuerdos]{.subtitulo}
+
+- Preguntar es bienvenido, siempre
+- Equivocarse es parte del taller
+- Notitas de colores:
+  - [verde]{.hl} = terminé
+  - [rosa]{.hl-rosa} = necesito ayuda
+:::
+::::
+
+::: notes
+Presentarme brevemente: doctoranda, por qué me interesa el tema, que este taller es parte de mi formación como instructora en LMU.
+
+Repartir las notitas verdes y rosas. Explicar que no hace falta levantar la mano: si pegan la rosa en la pantalla, me acerco.
+
+Chequeo técnico: que todos abran RStudio. Si alguien no puede, que trabaje en pareja hoy y lo resolvemos al final.
+:::
+
+## El recorrido
+
+| Semana | Encuentro | Tema |
+|:--:|:--:|:--|
+| 1 | 1 | Del desorden a una estructura |
+| 1 | 2 | Datos, scripts y resultados en R |
+| 2 | 3 | Documentar para comprender y reutilizar |
+| 2 | 4 | De los datos originales a los resultados |
+| 3 | 5 | Git y GitHub |
+| 3 | 6 | Integración y revisión |
+
+::: notes
+Mostrar que hay una línea: cada encuentro arregla una parte del mismo proyecto. Al final del 6 tienen un proyecto que cualquiera puede abrir y correr.
+:::
+
+## Hoy
+
+Al terminar este encuentro vas a poder:
+
+1. Reconocer los problemas típicos de un proyecto desordenado
+2. Explicar por qué afectan la reproducibilidad
+3. Diseñar una estructura de carpetas para un proyecto
+4. Aplicar una regla para nombrar archivos
+
+::: notes
+Objetivos de aprendizaje (workbook, sección 4). Volver a esta slide al final para chequear.
+:::
+
+## ¿Cómo se ve tu proyecto?
+
+::: {.actividad}
+[Ronda rápida]{.etiqueta} <span class="tiempo">5 min</span>
+
+Pensá en la carpeta de tu tesis, tu trabajo final o el último proyecto en el que trabajaste.
+
+- ¿Encontrarías en 1 minuto el archivo de datos que usaste para la figura principal?
+- ¿Sabrías qué script la generó?
+:::
+
+::: notes
+Fase R (reactivar). No hace falta que todos hablen: 3 o 4 voluntarios. Dar pie a la risa: a todos nos pasa.
+:::
+
+## Esto me pasó a mí
+
+```
+Nota Acantocefalos de Róbalo/
+├── Excel_Data_..._Argentina.xlsx
+├── Excel_Data_..._Argentina_COMPLETE.xlsx
+├── mapa/
+│   ├── .RData
+│   ├── ggmap.R
+│   ├── Mapa Puntos de muestreo.r
+│   ├── newmap2024.R          ← vacío
+│   ├── mapa(1).svg
+│   └── SAB MAP(1).png
+└── final version/
+    └── Final_final/
+        └── final final final final/
+            └── MS_..._12.2024.docx
+```
+
+::: notes
+Mi carpeta real de la tesis de grado (solo los nombres). Contar la anécdota: cuando el revisor pidió un cambio en la figura, no sabía cuál de los Excel era el bueno ni qué script hacía el mapa.
+
+Opcional: reemplazar este bloque por una captura de pantalla de la carpeta (img/mi-carpeta.png).
+:::
+
+## Tu colaborador más cercano {.center}
+
+> "Your closest collaborator is you six months ago, and you don't reply to emails."
+
+*Tu colaborador más cercano sos vos hace seis meses... y no contestás los mails.*
+
+<span class="fuente">Frase atribuida a Mark Holder, difundida por Karl Broman.</span>
+
+::: notes
+La primera persona que se beneficia de un proyecto ordenado sos vos misma. Después: directores, coautores, revisores, quien herede tus datos.
+:::
+
+## ¿Qué es la ciencia abierta? {.smaller}
+
+> Un conjunto de movimientos y prácticas para que el conocimiento científico esté [abiertamente disponible, sea accesible y reutilizable para todas las personas]{.hl}, y para abrir los procesos de creación, evaluación y comunicación de la ciencia a la sociedad.
+
+No es solo publicar en acceso abierto: es una forma de hacer la investigación.
+
+<span class="fuente">Adaptado de UNESCO (2021). *Recomendación de la UNESCO sobre la Ciencia Abierta*. <https://unesdoc.unesco.org/ark:/48223/pf0000379949_spa></span>
+
+::: notes
+Definición resumida de la Recomendación de la UNESCO (adoptada por 193 países, incluida Argentina). Remarcar la palabra "procesos": la ciencia abierta no empieza cuando publicamos, empieza en cómo trabajamos todos los días.
+:::
+
+## Lo que se abre {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+[Los productos]{.subtitulo}
+
+- 📄 Publicaciones (acceso abierto, preprints)
+- 📊 Datos
+- 💻 Código y software
+- 🧪 Protocolos y métodos
+- 🎓 Recursos educativos
+:::
+
+::: {.column width="50%"}
+[Los procesos]{.subtitulo}
+
+- 📝 Preregistro de estudios
+- 🔁 Reproducibilidad y replicabilidad
+- 🤝 Colaboración y ciencia ciudadana
+- 🌎 Diálogo con otros saberes
+:::
+::::
+
+En Argentina, la [Ley 26.899]{.hl} (2013) obliga a que la producción financiada con fondos públicos esté en repositorios de acceso abierto, incluidos los datos primarios.
+
+<span class="fuente">UNESCO (2021); Ley 26.899 de Repositorios Digitales Institucionales de Acceso Abierto.</span>
+
+::: notes
+No profundizar en cada pilar: es un mapa. La ley 26.899 conecta con su realidad: si tienen beca CONICET o un proyecto financiado, ya les aplica.
+:::
+
+## ¿Dónde entra este taller?
+
+Para poder [compartir]{.hl} datos y código, primero tienen que estar ordenados, documentados y funcionando.
+
+::: {.escalera}
+<div style="height:35%"><span class="esc-t">Organizar</span><br>carpetas y nombres<br><em>Encuentros 1–2</em></div>
+<div style="height:55%"><span class="esc-t">Documentar</span><br>README, diccionario, flujo reproducible<br><em>Encuentros 3–4</em></div>
+<div style="height:75%"><span class="esc-t">Versionar</span><br>Git y GitHub<br><em>Encuentro 5</em></div>
+<div class="fuera" style="height:95%"><span class="esc-t">Compartir</span><br>repositorios, DOI, licencias<br><em>Encuentro 6 y después</em></div>
+:::
+
+Este taller trabaja los primeros escalones: los que dependen solo de nosotros.
+
+::: notes
+Idea fuerza: no se puede abrir lo que no se entiende. La ciencia abierta "grande" (datos abiertos, DOI) se apoya en estas prácticas "chiquitas" y cotidianas.
+:::
+
+## ¿Por qué importa? {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+En una encuesta a más de 1500 investigadores:
+
+- [más del 70 %]{.hl} no pudo reproducir los resultados de otra persona
+- más del 50 % no pudo reproducir sus propios resultados
+:::
+
+::: {.column width="50%"}
+Reproducibilidad: obtener los mismos resultados usando los mismos datos y el mismo código.
+
+Es el piso: si no podemos reproducir nuestro propio análisis, ¿cómo lo va a revisar otra persona?
+:::
+::::
+
+<span class="fuente">Baker, M. (2016). 1,500 scientists lift the lid on reproducibility. *Nature*, 533, 452–454. · Definición: The Turing Way Community (2022). · Ver también: LMU Open Science Center, *Threats to credible research* (CC BY-SA 4.0).</span>
+
+::: notes
+No profundizar en la crisis de replicabilidad: es contexto. Lo importante es que la organización del proyecto es el primer escalón de la reproducibilidad, y está en nuestras manos.
+:::
+
+## Búsqueda del tesoro {background-color="#B5E3C0" .seccion .center}
+
+## El proyecto de hoy {.smaller}
+
+Un estudio (inventado) de [visitantes florales]{.hl} de *Inventia patagonica*:
+
+- 38 plantas en 3 sitios (Loma del Viento, Bajo Fantasma, Pampa Imaginaria)
+- 4 especies de insectos visitantes
+- Se calculó la prevalencia y la abundancia media de cada especie
+- Se publicó una nota con un mapa, dos tablas y una figura
+
+Todo está en la carpeta `desordenado/`.
+
+::: notes
+Aclarar que los datos son simulados, pero la carpeta imita la estructura de un proyecto real (el mío).
+
+Que descarguen y descompriman `desordenado.zip` desde la página del encuentro. Pendrive de respaldo.
+:::
+
+## Búsqueda del tesoro
+
+::: {.actividad}
+[En parejas]{.etiqueta} <span class="tiempo">30 min</span>
+
+Abran `desordenado/` y traten de responder:
+
+1. ¿Cuál es el [archivo de datos crudos]{.hl} "bueno"?
+2. ¿Qué script generó la Figura 2?
+3. ¿Cuál es la versión final del manuscrito?
+4. ¿Qué significan las celdas amarillas del Excel?
+5. ¿Hay algún archivo que no debería estar acá?
+
+Anoten cada problema que encuentren en el camino.
+:::
+
+::: notes
+Circular por las mesas. No dar respuestas: la gracia es que no se pueden responder con certeza.
+
+Pistas si se traban: comparar fechas de modificación, abrir los scripts y ver qué archivo leen.
+
+Respuestas "esperables": (1) no se sabe, probablemente el COMPLETO; (2) ninguno: la Fig 2 no sale de ningún script; (3) imposible saber; (4) solo lo dice una nota al pie del Excel; (5) el CONVENIO_..._FIRMADO.docx.
+:::
+
+## Puesta en común {.smaller}
+
+¿Qué problemas encontraron?
+
+| Categoría | Ejemplos |
+|:--|:--|
+| Versiones | `final final final final/`, el manuscrito en 4 lugares |
+| Datos | dos Excel "crudos", correcciones solo con colores, faltantes como `-`, `s/d`, `999` |
+| Código | `setwd("C:/Users/...")`, scripts vacíos, `.RData` guardado |
+| Productos | figuras sin script, tablas copiadas a mano en Word |
+| Documentos sensibles | un convenio firmado con datos personales |
+| Documentación | ningún README, nadie sabe qué es cada cosa |
+
+::: notes
+Completar la tabla en el pizarrón con lo que digan ellos ANTES de mostrar esta slide. Mostrarla al final como resumen.
+
+Anticipar: cada categoría se resuelve en un encuentro distinto.
+:::
+
+## ¿Cómo lo ordenamos? {background-color="#B5E3C0" .seccion .center}
+
+## Principios {.smaller}
+
+1. Un proyecto = una carpeta. Todo lo necesario está adentro, nada afuera.
+2. Los datos crudos no se tocan. Se guardan una vez y se tratan como de solo lectura.
+3. Separar datos, código, productos y documentación.
+4. Los productos son descartables. Si borro una figura, el código la vuelve a generar.
+5. Una carpeta se explica sola, con un `README`.
+
+<span class="fuente">Basado en Wilson, G. et al. (2017). Good enough practices in scientific computing. *PLOS Computational Biology*, 13(6), e1005510.</span>
+
+::: notes
+El 4 es el más difícil de aceptar: estamos acostumbrados a cuidar las figuras como si fueran el resultado. El resultado es el código.
+:::
+
+## Una estructura posible
+
+```
+visitantes-florales/
+├── README.md                ← qué es esto y cómo se usa
+├── visitantes-florales.Rproj
+├── data/
+│   ├── raw/                 ← datos originales (solo lectura)
+│   └── processed/           ← datos limpios (los genera el código)
+├── R/                       ← scripts, numerados en orden
+├── outputs/
+│   ├── figuras/
+│   └── tablas/
+└── docs/                    ← diccionario de datos, informe, notas
+```
+
+No es *la* estructura correcta: es [una]{.hl} estructura con criterio.
+
+::: notes
+Insistir en que hay muchas variantes válidas. Lo importante es que sea consistente y que esté explicada en el README.
+:::
+
+## Nombrar archivos {.smaller}
+
+Tres reglas:
+
+1. Legible para máquinas: sin espacios, tildes ni caracteres raros
+2. Legible para personas: que el nombre diga qué es
+3. Se ordena solo: fechas `AAAA-MM-DD` y números con ceros al inicio
+
+| <span class="mal">Así no</span> | <span class="bien">Así sí</span> |
+|:--|:--|
+| `Datos_campo_plantas_COMPLETO.xlsx` | `2023-03_campo_plantas.xlsx` |
+| `Mapa Puntos de muestreo.r` | `03_figuras.R` |
+| `grafico prevalencia nuevo.png` | `fig2_prevalencia.png` |
+| `Tabla 1. Datos biologicos_JP_AB.docx` | `tabla1_plantas_por_sitio.csv` |
+
+<span class="fuente">Basado en Bryan, J. *Naming things* (2015).</span>
+
+::: notes
+Preguntar: ¿por qué la fecha va al revés (año primero)? Porque así el explorador de archivos los ordena cronológicamente.
+
+Ceros al inicio: 01, 02... 10, para que el 10 no quede después del 1.
+:::
+
+## Diseñen su estructura
+
+::: {.actividad}
+[En parejas]{.etiqueta} <span class="tiempo">15 min</span>
+
+1. En papel, diseñen la estructura de carpetas para el proyecto de las plantas.
+2. Decidan [en qué carpeta iría]{.hl} cada archivo de `desordenado/`, y cuáles se descartan.
+3. Creen esa estructura (todavía vacía) en su computadora.
+:::
+
+::: notes
+Fase P. Pueden usar la estructura de referencia o inventar la suya. Si alguien termina antes, que piense una regla de nombres para su propio proyecto.
+
+NO mover todavía los archivos: eso es el encuentro 2.
+:::
+
+## Para la próxima {.smaller}
+
+::: {.actividad}
+[Tarea]{.etiqueta} <span class="tiempo">≤ 30 min</span>
+
+Mirá una carpeta de [un proyecto tuyo]{.hl} y anotá 3 problemas que reconozcas de los de hoy.
+
+No hace falta arreglarlos: solo identificarlos.
+:::
+
+<br>
+
+Pregunta de salida (en un papelito, anónimo):
+
+*¿Qué problema de la lista reconociste en tus propios proyectos?*
+
+::: notes
+Fase E. Juntar los papelitos: sirven para ajustar el encuentro 2 y para la reflexión del informe de LMU.
+
+Volver a la slide de objetivos y preguntar: ¿lo logramos?
+:::
+
+## Créditos {.smaller}
+
+- Wilson, G., Bryan, J., Cranston, K., Kitzes, J., Nederbragt, L., & Teal, T. K. (2017). Good enough practices in scientific computing. *PLOS Computational Biology*, 13(6), e1005510.
+- Bryan, J. (2015). *Naming things*. Reproducible Science Workshop.
+- UNESCO (2021). *Recomendación de la UNESCO sobre la Ciencia Abierta*. <https://unesdoc.unesco.org/ark:/48223/pf0000379949_spa>
+- Ley 26.899 (2013). Repositorios digitales institucionales de acceso abierto. República Argentina.
+- Baker, M. (2016). 1,500 scientists lift the lid on reproducibility. *Nature*, 533, 452–454.
+- The Turing Way Community (2022). *The Turing Way*. Zenodo. <https://doi.org/10.5281/zenodo.3233853>
+- Von Grebmer zu Wolfsthurn, S., Ihle, M., & Schönbrodt, F. (2026). *Threats to credible research: Where are we at?* \[Quarto slides\]. LMU Open Science Center. CC BY-SA 4.0.
+
+Este material se distribuye bajo licencia [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.es). Datos del proyecto de ejemplo: simulados.

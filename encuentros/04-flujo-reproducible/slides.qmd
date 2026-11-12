@@ -1,0 +1,191 @@
+---
+title: "De los datos originales a los resultados"
+subtitle: "Del caos al orden · Encuentro 4"
+author: "Maité A. Barrena"
+lang: es
+format:
+  revealjs:
+    theme: [default, ../../assets/slides.scss]
+    slide-number: true
+    footer: "Del caos al orden · Encuentro 4 · CC BY-SA 4.0"
+    transition: fade
+    highlight-style: github-dark
+    hash-type: number
+    preview-links: auto
+---
+
+## ¿Cuántos sitios había? {.center}
+
+```
+  Sitio            prev_Za abund_Za
+1 Bajo Fantasma       66.7     2.5
+2 Loma del Viento     87.5     3.62
+3 Loma del viento    100       3.4
+4 Pampa Imaginaria    63.6     2.55
+5 Pampa imaginaria     0       0
+6 NA                 NaN     NaN
+```
+
+El script corría... pero ¿daba bien?
+
+::: notes
+Fase R. Retomar la pregunta que quedó abierta en el encuentro 2. Dejar que lo descubran: "Loma del viento " con un espacio al final y "Pampa imaginaria" en minúscula son tratados como sitios distintos. La fila NA es la nota escrita debajo de los datos.
+:::
+
+## Hoy
+
+Al terminar este encuentro vas a poder:
+
+1. Describir un flujo de trabajo reproducible: datos crudos → procesados → resultados
+2. Leer un script de limpieza e identificar qué problema resuelve cada parte
+3. Regenerar todos los resultados de un proyecto con un solo comando
+4. Explicar por qué los resultados no se copian a mano
+
+## Un flujo en tres pasos
+
+::: {.escalera}
+<div style="height:60%"><span class="esc-t">01_limpieza.R</span><br><code>data/raw/</code> → <code>data/processed/</code><br><em>unificar, corregir, controlar</em></div>
+<div style="height:60%"><span class="esc-t">02_analisis.R</span><br><code>data/processed/</code> → <code>outputs/tablas/</code><br><em>prevalencia y abundancia</em></div>
+<div style="height:60%"><span class="esc-t">03_figuras.R</span><br><code>outputs/tablas/</code> → <code>outputs/figuras/</code><br><em>mapa y figura 2</em></div>
+:::
+
+- Un script por etapa, [numerados]{.hl} en el orden en que se corren
+- Cada uno lee lo que generó el anterior
+- `00_correr_todo.R` corre los tres
+
+::: notes
+Insistir: el crudo NUNCA se modifica. Todo lo que cambia queda escrito en 01_limpieza.R, que es la documentación ejecutable de la limpieza.
+:::
+
+## La limpieza se hace con código {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+<span class="mal">A mano</span>
+
+- Corregir celdas en el Excel
+- `datos[-10, ]` "porque la 10 estaba mal"
+- Copiar y pegar en Word
+
+[No queda registro]{.hl} de qué se cambió ni por qué.
+:::
+
+::: {.column width="50%"}
+<span class="bien">Con código</span>
+
+- Cada corrección es una línea comentada
+- Se puede revisar, discutir y deshacer
+- Si llegan datos nuevos, se vuelve a correr
+
+**El script *es* la documentación** de la limpieza.
+:::
+::::
+
+## Leamos `01_limpieza.R` {.smaller}
+
+```r
+# --- 3. Unificar los nombres de los sitios ---
+plantas <- plantas |>
+  mutate(
+    sitio = str_squish(str_to_lower(sitio)),
+    sitio = case_when(
+      str_detect(sitio, "^(loma|l\\.)")  ~ "Loma del Viento",
+      str_detect(sitio, "^bajo")         ~ "Bajo Fantasma",
+      str_detect(sitio, "^(pampa|p\\.)") ~ "Pampa Imaginaria"
+    )
+  )
+
+# --- 5. Tratar valores imposibles ---
+# 999 en la altura es un código de dato faltante
+altura_cm = if_else(altura_cm == 999, NA_real_, altura_cm)
+```
+
+¿Qué problema de la [búsqueda del tesoro]{.hl} resuelve cada bloque?
+
+::: notes
+No hace falta que entiendan cada función. Lo importante es conectar cada bloque con un problema concreto de la lista del encuentro 1 y con el diccionario del encuentro 3.
+:::
+
+## Lectura guiada
+
+::: {.actividad}
+[En parejas]{.etiqueta} <span class="tiempo">20 min</span>
+
+1. Descargá los scripts de la página del encuentro y copialos en `R/` (y `informe.qmd` en `docs/`)
+2. Abrí `R/01_limpieza.R` y leelo sección por sección
+3. Para cada sección, anotá: [¿qué problema del Excel resuelve?]{.hl}
+4. ¿Hay algo del diccionario de datos que no esté resuelto en el script?
+:::
+
+## Correr todo
+
+::: {.actividad}
+[Individual]{.etiqueta} <span class="tiempo">15 min</span>
+
+1. En la consola: `source("R/00_correr_todo.R")`
+2. Mirá qué apareció en `data/processed/` y en `outputs/`
+3. Borrá la carpeta `outputs/` completa 😱
+4. Volvé a correr `00_correr_todo.R`
+:::
+
+::: notes
+El momento del "¡ah!": borrar los resultados no da miedo, porque se regeneran. Ese es el principio 4 del encuentro 1 (los productos son descartables).
+
+Si falta algún paquete: install.packages() en la consola.
+:::
+
+## ¿Qué número es el bueno? {.smaller}
+
+Prevalencia de *Zumbatrix aurea*:
+
+| Fuente | Loma del Viento | Total |
+|:--|--:|--:|
+| Script viejo (encuentro 2) | 87,5 % | — |
+| `Tabla I_Nota.docx` (copiada a mano) | — | 76,2 % |
+| Flujo reproducible (hoy) | 92,9 % | 73,7 % |
+
+. . .
+
+El script viejo partía los sitios. La tabla de Word se copió de [una versión anterior]{.hl}. Y eso fue lo que se publicó.
+
+::: notes
+Discusión (10 min): ¿cuántos papers tendrán este problema? ¿Cómo lo habrían detectado los revisores? No lo habrían detectado: no tenían ni los datos ni el código.
+:::
+
+## Ningún número a mano
+
+`docs/informe.qmd` lee las tablas y figuras que generó el código:
+
+```markdown
+La especie más frecuente fue *`r tabla2$especie[1]`*,
+presente en el `r tabla2$prevalencia[1]` % de las plantas.
+```
+
+Si cambian los datos → se corren los scripts → se renderiza el informe → [todo se actualiza solo]{.hl}.
+
+<span class="fuente">Ver: LMU Open Science Center, *Introduction to Quarto* (CC BY-SA 4.0).</span>
+
+::: notes
+Demostración en vivo: renderizar docs/informe.qmd. Después cambiar un color en 03_figuras.R, correr todo de nuevo y volver a renderizar.
+:::
+
+## Para la próxima {.smaller}
+
+::: {.actividad}
+[Tarea]{.etiqueta} <span class="tiempo">≤ 30 min</span>
+
+En `R/03_figuras.R`, cambiá un [color]{.hl}, un título o el tamaño de una figura. Corré `00_correr_todo.R` y renderizá `docs/informe.qmd`. ¿Se actualizó solo?
+:::
+
+<br>
+
+Pregunta de salida: *¿Qué paso manual de tu trabajo podría ser un script?*
+
+## Créditos {.smaller}
+
+- LMU Open Science Center. *Introduction to Quarto*. <https://lmu-osc.github.io/introduction-to-Quarto/> (CC BY-SA 4.0).
+- LMU Open Science Center. *Readable Code*. <https://lmu-osc.github.io/training/reproducible-processes/readable-code.html> (CC BY-SA 4.0).
+- Wilson, G. et al. (2017). Good enough practices in scientific computing. *PLOS Computational Biology*, 13(6), e1005510.
+- The Turing Way Community (2022). *The Turing Way*. Zenodo. <https://doi.org/10.5281/zenodo.3233853>
+
+Este material se distribuye bajo licencia [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.es).

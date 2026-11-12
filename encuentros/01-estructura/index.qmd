@@ -1,0 +1,92 @@
+---
+title: "Encuentro 1 · Del desorden a una estructura de proyecto"
+subtitle: "Semana 1 · Organización de proyectos"
+resources:
+  - desordenado.zip
+---
+
+::: {.callout-note}
+## Diapositivas
+[Abrir las diapositivas del encuentro](slides.qmd){target="_blank"} (en pantalla completa con la tecla [F]{.hl}).
+:::
+
+## Al terminar este encuentro vas a poder
+
+1. Reconocer los problemas típicos de un proyecto desordenado.
+2. Explicar por qué afectan la reproducibilidad.
+3. Diseñar una estructura de carpetas para un proyecto.
+4. Aplicar una regla para nombrar archivos.
+
+## Antes de empezar
+
+Descargá la carpeta del proyecto de ejemplo y descomprimila en algún lugar que encuentres fácil (por ejemplo, el Escritorio):
+
+::: {.text-center}
+[⬇ Descargar `desordenado.zip`](desordenado.zip){.btn .btn-primary}
+:::
+
+::: {.callout-warning}
+## Los datos son simulados
+Las especies, los sitios, las personas y los documentos de esta carpeta son [ficticios]{.hl}. La carpeta está desordenada a propósito.
+:::
+
+## Actividad 1: búsqueda del tesoro
+
+[En parejas, 30 minutos.]{.hl} Abran `desordenado/` y traten de responder:
+
+1. ¿Cuál es el archivo de datos crudos "bueno"?
+2. ¿Qué script generó la Figura 2?
+3. ¿Cuál es la versión final del manuscrito?
+4. ¿Qué significan las celdas amarillas del Excel?
+5. ¿Hay algún archivo que no debería estar acá?
+
+Mientras buscan, anoten cada problema que encuentren.
+
+## Principios para ordenar un proyecto
+
+1. Un proyecto = una carpeta. Todo lo necesario está adentro, nada afuera.
+2. Los datos crudos no se tocan. Se guardan una vez y se tratan como de solo lectura.
+3. Separar datos, código, productos y documentación.
+4. Los productos son descartables. Si borro una figura, el código la vuelve a generar.
+5. Una carpeta se explica sola, con un `README`.
+
+Una estructura posible:
+
+```
+visitantes-florales/
+├── README.md                ← qué es esto y cómo se usa
+├── visitantes-florales.Rproj
+├── data/
+│   ├── raw/                 ← datos originales (solo lectura)
+│   └── processed/           ← datos limpios (los genera el código)
+├── R/                       ← scripts, numerados en orden
+├── outputs/
+│   ├── figuras/
+│   └── tablas/
+└── docs/                    ← diccionario de datos, informe, notas
+```
+
+### Nombrar archivos
+
+- Legible para máquinas: sin espacios, tildes ni caracteres especiales.
+- Legible para personas: que el nombre diga qué es.
+- Se ordena solo: fechas como `AAAA-MM-DD` y números con ceros al inicio (`01_`, `02_`...).
+
+## Actividad 2: diseñen su estructura
+
+[En parejas, 15 minutos.]{.hl}
+
+1. En papel, diseñen la estructura de carpetas para el proyecto de las plantas.
+2. Decidan en qué carpeta iría cada archivo de `desordenado/`, y cuáles se descartan.
+3. Creen esa estructura, todavía vacía, en su computadora. Los archivos los movemos en el encuentro 2.
+
+## Para la próxima
+
+Mirá una carpeta de [un proyecto tuyo]{.hl} y anotá 3 problemas que reconozcas de los de hoy. No hace falta arreglarlos: solo identificarlos. (Máximo 30 minutos.)
+
+## Para seguir leyendo
+
+- Wilson, G. et al. (2017). [Good enough practices in scientific computing](https://doi.org/10.1371/journal.pcbi.1005510). *PLOS Computational Biology*, 13(6), e1005510.
+- Bryan, J. (2015). [Naming things](https://speakerdeck.com/jennybc/how-to-name-files).
+- The Turing Way Community. [Guide for reproducible research](https://book.the-turing-way.org/reproducible-research/reproducible-research).
+- LMU Open Science Center. [Threats to credible research](https://lmu-osc.github.io/slides-reproducibility-replicability/slides-reproducibility-replicability-revealjs.html) (CC BY-SA 4.0).

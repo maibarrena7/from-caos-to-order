@@ -1,0 +1,80 @@
+---
+title: "Encuentro 4 · De los datos originales a los resultados"
+subtitle: "Semana 2 · Documentación y reproducibilidad"
+resources:
+  - scripts-encuentro4.zip
+---
+
+::: {.callout-note}
+## Diapositivas
+[Abrir las diapositivas del encuentro](slides.qmd){target="_blank"} (en pantalla completa con la tecla [F]{.hl}).
+:::
+
+## Al terminar este encuentro vas a poder
+
+1. Describir un flujo de trabajo reproducible: datos crudos → procesados → resultados.
+2. Leer un script de limpieza e identificar qué problema resuelve cada parte.
+3. Regenerar todos los resultados de un proyecto con un solo comando.
+4. Explicar por qué los resultados no se copian a mano.
+
+## Antes de empezar
+
+Instalá los paquetes que usan los scripts [desde la consola]{.hl} (una sola vez):
+
+```r
+install.packages(c("here", "readxl", "readr", "dplyr", "tidyr",
+                   "stringr", "lubridate", "ggplot2"))
+```
+
+Descargá los scripts y copiá su contenido dentro de tu proyecto: la carpeta `R/` en tu `R/` y `informe.qmd` en tu `docs/`.
+
+::: {.text-center}
+[⬇ Descargar `scripts-encuentro4.zip`](scripts-encuentro4.zip){.btn .btn-primary}
+:::
+
+Los scripts esperan encontrar los datos crudos en:
+
+```
+data/raw/2023-03_campo_plantas.xlsx
+data/raw/sitios_muestreo.xlsx
+```
+
+## El flujo
+
+| Script | Lee | Genera |
+|:--|:--|:--|
+| `01_limpieza.R` | `data/raw/2023-03_campo_plantas.xlsx` | `data/processed/plantas_limpio.csv` |
+| `02_analisis.R` | `data/processed/plantas_limpio.csv` | `outputs/tablas/*.csv` |
+| `03_figuras.R` | `outputs/tablas/` y `data/raw/sitios_muestreo.xlsx` | `outputs/figuras/*.png` |
+| `00_correr_todo.R` | — | corre los tres, en orden |
+
+## Actividad 1: lectura guiada
+
+[En parejas, 20 minutos.]{.hl} Abrí `R/01_limpieza.R` y leelo sección por sección. Para cada sección, anotá qué problema del Excel resuelve. ¿Hay algo del diccionario de datos del encuentro 3 que no esté resuelto en el script?
+
+## Actividad 2: correr todo
+
+[Individual, 15 minutos.]{.hl}
+
+1. En la consola: `source("R/00_correr_todo.R")`
+2. Mirá qué apareció en `data/processed/` y en `outputs/`.
+3. Borrá la carpeta `outputs/` completa.
+4. Volvé a correr `00_correr_todo.R`. ¿Qué pasó?
+
+## Actividad 3: comparar
+
+Compará la prevalencia de *Zumbatrix aurea* que da el flujo nuevo (`outputs/tablas/`) con la del script viejo del encuentro 2 y con la `Tabla I_Nota.docx` de la carpeta `desordenado/`. ¿Coinciden?
+
+## El informe
+
+Abrí `docs/informe.qmd` y tocá [Render]{.hl}. Ningún número del informe está escrito a mano: todos salen de las tablas que generó el código.
+
+## Para la próxima
+
+En `R/03_figuras.R`, cambiá un color, un título o el tamaño de una figura. Corré `00_correr_todo.R` y renderizá `docs/informe.qmd`. ¿Se actualizó solo?
+
+## Para seguir leyendo
+
+- LMU Open Science Center. [Introduction to Quarto](https://lmu-osc.github.io/introduction-to-Quarto/) (CC BY-SA 4.0).
+- LMU Open Science Center. [Readable Code](https://lmu-osc.github.io/training/reproducible-processes/readable-code.html) (CC BY-SA 4.0).
+- Wickham, H., Çetinkaya-Rundel, M. & Grolemund, G. (2023). [R for Data Science](https://r4ds.hadley.nz) (2.ª ed.), capítulo "Workflow: scripts and projects".

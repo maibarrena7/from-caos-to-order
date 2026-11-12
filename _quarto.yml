@@ -1,0 +1,63 @@
+project:
+  type: website
+  output-dir: _site
+  # Solo estas páginas forman parte del sitio web.
+  # proyecto-ejemplo/ se descarga como material, no es parte del sitio.
+  render:
+    - index.qmd
+    - instalacion/
+    - encuentros/
+    - checklist/
+
+lang: es
+
+website:
+  title: "Del caos al orden"
+  description: "Taller de organización de proyectos de investigación en R"
+  site-url: "https://maibarrena7.github.io/from-caos-to-order/"
+  repo-url: "https://github.com/maibarrena7/from-caos-to-order"
+  repo-actions: [issue]
+  page-navigation: true
+  navbar:
+    left:
+      - href: index.qmd
+        text: Inicio
+      - href: instalacion/index.qmd
+        text: Antes del taller
+      - text: Encuentros
+        menu:
+          - text: "Semana 1 · Organización"
+          - href: encuentros/01-estructura/index.qmd
+            text: "1. Del desorden a una estructura"
+          - href: encuentros/02-datos-scripts/index.qmd
+            text: "2. Datos, scripts y resultados"
+          - text: "---"
+          - text: "Semana 2 · Documentación y reproducibilidad"
+          - href: encuentros/03-documentacion/index.qmd
+            text: "3. Documentar para reutilizar"
+          - href: encuentros/04-flujo-reproducible/index.qmd
+            text: "4. De los datos a los resultados"
+          - text: "---"
+          - text: "Semana 3 · Control de versiones"
+          - href: encuentros/05-git-github/index.qmd
+            text: "5. Git y GitHub"
+          - href: encuentros/06-integracion/index.qmd
+            text: "6. Integración y revisión"
+      - href: checklist/index.qmd
+        text: Checklist
+    right:
+      - icon: github
+        href: "https://github.com/maibarrena7/from-caos-to-order"
+        aria-label: GitHub
+  page-footer:
+    left: "© 2026 Maité A. Barrena · Materiales bajo licencia [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.es)"
+    right: "Hecho con [Quarto](https://quarto.org)"
+
+format:
+  html:
+    theme: [darkly, custom.scss]
+    toc: true
+    toc-title: "En esta página"
+    code-copy: true
+    code-overflow: wrap
+    link-external-newwindow: true

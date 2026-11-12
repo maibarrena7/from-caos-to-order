@@ -1,0 +1,116 @@
+/*-- scss:defaults --*/
+// Tema del sitio "Del caos al orden": fondo oscuro + verdes pastel (igual que las slides)
+
+$fondo:        #141614;
+$fondo-caja:   #1E2620;
+$texto:        #E9EEE8;
+$texto-suave:  #A3AEA5;
+$menta:        #B5E3C0;
+$salvia:       #CFE8C3;
+$pastel:       #8FCB9B;
+$rosa:         #F4C6D0;
+$amarillo:     #F3E3A2;
+$lila:         #D8CCF0;
+$durazno:      #F6CDB4;
+
+$body-bg:      $fondo;
+$body-color:   $texto;
+$primary:      $pastel;
+$secondary:    $texto-suave;
+$link-color:   $pastel;
+$headings-color: $menta;
+$headings-font-weight: 600;
+$font-weight-bold: 600;
+$font-family-sans-serif: '"Source Sans 3"', system-ui, sans-serif;
+
+$navbar-bg:    #0F110F;
+$navbar-fg:    $texto;
+$navbar-hl:    $menta;
+$footer-bg:    #0F110F;
+$footer-fg:    $texto-suave;
+
+$code-color:   $salvia;
+$code-bg:      #243026;
+$code-block-bg: $fondo-caja;
+$table-border-color: #2C352E;
+$border-color: #2C352E;
+$input-bg: $fondo-caja;
+$dropdown-bg: #0F110F;
+$dropdown-link-color: $texto;
+$dropdown-link-hover-bg: $fondo-caja;
+$dropdown-link-hover-color: $menta;
+
+/*-- scss:rules --*/
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&display=swap');
+
+strong, b { font-weight: 600; }
+
+// Portada
+.hero {
+  background: $fondo-caja;
+  border-left: 6px solid $pastel;
+  padding: 1.5rem 1.75rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+.hero h2 { margin-top: 0; border-bottom: none; color: $menta; }
+
+h2 { border-bottom: 1px solid #2C352E; padding-bottom: .3rem; }
+.quarto-title .title { color: $menta; }
+.quarto-title .subtitle { color: $pastel; }
+
+// Resaltadores pastel: [texto]{.hl}, {.hl-rosa}, {.hl-amarillo}, {.hl-lila}, {.hl-durazno}
+%resaltador {
+  color: $fondo;
+  padding: 0.02em 0.28em;
+  border-radius: 0.25em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.hl          { @extend %resaltador; background: $salvia; }
+.hl-rosa     { @extend %resaltador; background: $rosa; }
+.hl-amarillo { @extend %resaltador; background: $amarillo; }
+.hl-lila     { @extend %resaltador; background: $lila; }
+.hl-durazno  { @extend %resaltador; background: $durazno; }
+
+// Botones de descarga
+.btn-primary {
+  background: $salvia; border-color: $salvia; color: $fondo; font-weight: 500;
+  &:hover, &:focus { background: $menta; border-color: $menta; color: $fondo; }
+}
+
+// Código
+div.sourceCode, pre { background: $fondo-caja; border: 1px solid #2C352E; border-radius: 8px; }
+pre code { color: $texto; }
+code { color: $salvia; }
+:not(pre) > code, p code:not(.sourceCode), li code:not(.sourceCode), td code:not(.sourceCode), a code {
+  background-color: #243026 !important;
+  color: $salvia !important;
+  padding: 0.1em 0.3em;
+  border-radius: 4px;
+}
+pre code span.co { color: #7F8C82; font-style: italic; }
+pre code span.st { color: $amarillo; }
+pre code span.fu { color: $menta; }
+pre code span.dv, pre code span.fl { color: $durazno; }
+pre code span.kw, pre code span.ot { color: $lila; }
+pre code span.at { color: $rosa; }
+
+// Tablas
+.table { color: $texto; --bs-table-color: #{$texto}; --bs-table-bg: transparent; }
+.table th { color: $menta; font-weight: 500; border-bottom: 1px solid $pastel; }
+
+// Callouts sobre fondo oscuro
+.callout { background: $fondo-caja; border-color: #2C352E; }
+.callout.callout-style-default .callout-header { background: transparent; }
+.callout-note    { border-left-color: $pastel !important; }
+.callout-tip     { border-left-color: $menta !important; }
+.callout-warning { border-left-color: $amarillo !important; }
+.callout-important { border-left-color: $rosa !important; }
+
+// Casillas de la checklist
+input[type="checkbox"] { accent-color: $pastel; }
+
+// Navegación
+.navbar { border-bottom: 1px solid #2C352E; }
+.sidebar nav[role="doc-toc"] ul > li > a.active { color: $menta; border-left-color: $menta; }

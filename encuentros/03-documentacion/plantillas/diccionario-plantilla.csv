@@ -1,0 +1,12 @@
+variable,descripcion,tipo,unidad,valores_permitidos,codigo_faltante,notas
+id_planta,,,,,,
+sitio,,,,,,
+fecha,,,,,,
+altura_cm,,,,,,
+cobertura_m2,,,,,,
+n_flores,,,,,,
+z_aurea,,,,,,
+p_rapida,,,,,,
+f_nocturna,,,,,,
+m_minima,,,,,,
+observaciones,,,,,,

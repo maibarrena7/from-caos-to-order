@@ -1,0 +1,243 @@
+---
+title: "Datos, scripts y resultados en R"
+subtitle: "Del caos al orden · Encuentro 2"
+author: "Maité A. Barrena"
+lang: es
+format:
+  revealjs:
+    theme: [default, ../../assets/slides.scss]
+    slide-number: true
+    footer: "Del caos al orden · Encuentro 2 · CC BY-SA 4.0"
+    transition: fade
+    highlight-style: github-dark
+    hash-type: number
+    preview-links: auto
+---
+
+## ¿Qué encontraron en sus carpetas?
+
+::: {.actividad}
+[Ronda]{.etiqueta} <span class="tiempo">10 min</span>
+
+¿Qué 3 problemas encontraste en una carpeta tuya?
+¿Alguno que no estaba en nuestra lista de la semana pasada?
+:::
+
+::: notes
+Fase R. 2 o 3 voluntarios. Ir sumando problemas nuevos a la lista del encuentro 1 (tenerla a mano en papel o en una foto del pizarrón).
+:::
+
+## Hoy
+
+Al terminar este encuentro vas a poder:
+
+1. Crear un proyecto de RStudio y explicar para qué sirve
+2. Reorganizar un proyecto separando datos, código y productos
+3. Reemplazar rutas absolutas por rutas relativas con `here()`
+4. Configurar RStudio para no depender del *workspace*
+
+## "En mi compu funciona"
+
+```r
+setwd("C:/Users/usuario/Desktop/nota plantas")
+datos <- read_excel("Datos_campo_plantas_COMPLETO.xlsx", skip = 1)
+```
+
+En cualquier otra computadora:
+
+```
+Error in setwd("C:/Users/usuario/Desktop/nota plantas"):
+  cannot change working directory
+```
+
+. . .
+
+Y en tu misma computadora, si [movés la carpeta]{.hl} o cambiás de compu, también.
+
+::: notes
+Preguntar: ¿alguna vez les pasó? Clásico al pasarle el script al director/a.
+
+`setwd()` con una ruta absoluta ata el código a una computadora y a una ubicación. Es el problema más común cuando alguien intenta reproducir un análisis.
+:::
+
+## Proyectos de RStudio
+
+Un archivo `.Rproj` en la [raíz]{.hl} de la carpeta del proyecto.
+
+Al abrirlo, RStudio:
+
+- ubica el directorio de trabajo en esa carpeta, automáticamente
+- recuerda los scripts abiertos y la configuración de ese proyecto
+- separa un proyecto de otro
+
+[Un proyecto = una carpeta = un `.Rproj`.]{.subtitulo}
+
+<span class="fuente">Basado en LMU Open Science Center, *Introduction to Version Control within RStudio*, sección "Creating an RStudio project" (CC BY-SA 4.0); Bryan, J. (2017). *Project-oriented workflow*. Tidyverse blog.</span>
+
+::: notes
+Demostración en vivo: File → New Project → Existing Directory. Mostrar que getwd() da la carpeta del proyecto.
+
+En el proyecto de ejemplo hay DOS .Rproj sueltos en subcarpetas: preguntar qué problema genera eso.
+:::
+
+## Rutas relativas con `here()`
+
+```r
+library(here)
+
+here()
+#> "C:/Users/maite/Documents/visitantes-florales"   ← en mi compu
+#> "/home/juan/proyectos/visitantes-florales"       ← en la de Juan
+
+datos <- read_excel(here("data", "raw", "2023-03_campo_plantas.xlsx"))
+```
+
+`here()` arma la ruta [desde la raíz del proyecto]{.hl}, esté donde esté la carpeta y en el sistema operativo que sea.
+
+<span class="fuente">Müller, K. (2020). *here: A Simpler Way to Find Your Files*. R package. <https://here.r-lib.org></span>
+
+::: notes
+Ventaja extra: funciona igual en Windows, macOS y Linux (las barras / y \).
+
+Funciona aunque el script esté en una subcarpeta (R/), porque busca el .Rproj hacia arriba.
+:::
+
+## El *workspace* no es el proyecto {.smaller}
+
+`.RData` guarda los objetos de la sesión. Parece cómodo... pero:
+
+- tus resultados dependen de cosas que [no están en el código]{.hl}
+- objetos viejos se cuelan en análisis nuevos
+- nadie más puede reconstruirlos
+
+[El código es la fuente. Los objetos se recrean corriendo el código.]{.subtitulo}
+
+::: {.actividad}
+[Tools → Global Options → General]{.subtitulo}
+
+- ☐ Restore .RData into workspace at startup
+- *Save workspace to .RData on exit:* Never
+:::
+
+::: notes
+Hacerlo todos juntos ahora, en vivo. Es un cambio de 30 segundos que previene muchos problemas.
+
+Atajo para "empezar de cero": Session → Restart R (Ctrl/Cmd + Shift + F10).
+:::
+
+## Tampoco adentro del script
+
+```r
+install.packages("ggplot2")   # ✗ se reinstala cada vez que alguien lo corre
+library(ggplot2)              # ✓ esto sí
+```
+
+Los paquetes se instalan [una vez]{.hl}, desde la consola. En el script solo van los `library()`.
+
+Las instrucciones de instalación van en el README (encuentro 3).
+
+## La mudanza {background-color="#B5E3C0" .seccion .center}
+
+## Mudanza guiada
+
+::: {.actividad}
+[Individual o en parejas]{.etiqueta} <span class="tiempo">35 min</span>
+
+Con la [guía de mudanza]{.hl} de la página del encuentro:
+
+1. Crear el `.Rproj` en la raíz de la estructura del encuentro 1
+2. Elegir el Excel crudo, renombrarlo y moverlo a `data/raw/` como solo lectura
+3. Mover cada archivo a su carpeta... o descartarlo
+4. Borrar `.RData`, `.Rhistory` y los `.Rproj` sueltos
+:::
+
+::: notes
+Fase P, la más larga. Circular. La guía es una propuesta: si alguien decide distinto con un buen argumento, perfecto.
+
+Solo lectura: Windows → clic derecho → Propiedades → Solo lectura. macOS → Obtener información → Bloqueado.
+:::
+
+## Decisiones difíciles {.smaller}
+
+| Archivo | ¿Qué hacemos? |
+|:--|:--|
+| Dos Excel "crudos" | ¿Cuál se usó? Elegimos `COMPLETO`... pero lo dejamos anotado |
+| `analisis_prevalencia.R` y `..._v2_OK.R` | ¿Cuál es el bueno? No lo sabemos |
+| La Figura 2 | No sale de ningún script: se guarda por ahora |
+| Manuscritos y tablas de Word | Solo la última versión, en `docs/` |
+| Bibliografía en PDF | Fuera del proyecto (gestor de referencias) |
+| `CONVENIO_..._FIRMADO.docx` | Fuera del proyecto. Nunca a un repositorio |
+
+::: notes
+Esta slide se discute DESPUÉS de la actividad, no antes.
+
+Lo importante: cada duda que no podemos resolver es información que faltó documentar. La anotamos para el README del encuentro 3.
+:::
+
+## ¿Corre?
+
+::: {.actividad}
+[Individual]{.etiqueta} <span class="tiempo">15 min</span>
+
+Abrí `R/analisis_prevalencia.R` desde el proyecto y:
+
+1. Borrá la línea de `setwd()` (y cualquier `install.packages()`, si hubiera)
+2. Agregá `library(here)` y cambiá la lectura de datos y el `ggsave()` por:
+:::
+
+```r
+datos <- read_excel(
+  here("data", "raw", "2023-03_campo_plantas.xlsx"),
+  skip = 1
+)
+
+ggsave(here("outputs", "figuras", "grafico_prevalencia.png"))
+```
+
+::: notes
+Es el único cambio de código del encuentro, y se los doy hecho.
+
+Si alguien no tiene `here`: install.packages("here") en la consola (¡no en el script!).
+:::
+
+## Corre... ¿pero da bien? {.center}
+
+```
+  Sitio            prev_Za abund_Za
+1 Bajo Fantasma       66.7     2.5
+2 Loma del Viento     87.5     3.62
+3 Loma del viento    100       3.4
+4 Pampa Imaginaria    63.6     2.55
+5 Pampa imaginaria     0       0
+6 NA                 NaN     NaN
+```
+
+🤔 ¿Cuántos sitios había?
+
+::: notes
+Dejar la pregunta abierta. NO resolverla: se retoma en el encuentro 4.
+
+Que corra sin errores no significa que el resultado sea correcto.
+:::
+
+## Para la próxima {.smaller}
+
+::: {.actividad}
+[Tarea]{.etiqueta} <span class="tiempo">≤ 30 min</span>
+
+1. Desactivá el guardado de `.RData` en tu RStudio (si no lo hiciste hoy)
+2. Creá un [proyecto de RStudio]{.hl} para un trabajo propio y reemplazá un `setwd()` por `here()`
+:::
+
+<br>
+
+Pregunta de salida: *¿Qué decidiste descartar y por qué?*
+
+## Créditos {.smaller}
+
+- LMU Open Science Center. *Introduction to Version Control within RStudio*. <https://lmu-osc.github.io/Introduction-RStudio-Git-GitHub/> (CC BY-SA 4.0).
+- Bryan, J. (2017). *Project-oriented workflow*. Tidyverse blog. <https://www.tidyverse.org/blog/2017/12/workflow-vs-script/>
+- Müller, K. (2020). *here: A Simpler Way to Find Your Files*. <https://here.r-lib.org>
+- Wilson, G. et al. (2017). Good enough practices in scientific computing. *PLOS Computational Biology*, 13(6), e1005510.
+
+Este material se distribuye bajo licencia [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.es).

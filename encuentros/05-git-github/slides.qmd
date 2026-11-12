@@ -1,0 +1,199 @@
+---
+title: "Introducción a Git y GitHub"
+subtitle: "Del caos al orden · Encuentro 5"
+author: "Maité A. Barrena"
+lang: es
+format:
+  revealjs:
+    theme: [default, ../../assets/slides.scss]
+    slide-number: true
+    footer: "Del caos al orden · Encuentro 5 · CC BY-SA 4.0"
+    transition: fade
+    highlight-style: github-dark
+    hash-type: number
+    preview-links: auto
+---
+
+## ¿Cuál era la buena? {.center}
+
+```
+version final/
+└── Final_final/
+    └── final final final final/
+        └── Manuscrito_visitantes_florales_12.2024.docx
+```
+
+¿Quién usó Git alguna vez? 🙋
+
+::: notes
+Fase R. Volver a la carpeta del proyecto desordenado. ¿Cómo sabíamos cuál era la versión buena? No lo sabíamos.
+
+Encuesta rápida de manos para calibrar el ritmo: si nadie usó Git, ir más despacio en la demo.
+:::
+
+## Hoy
+
+Al terminar este encuentro vas a poder:
+
+1. Explicar qué es el control de versiones y para qué sirve
+2. Distinguir entre Git y GitHub
+3. Registrar cambios en un proyecto (*commits*) y recorrer su historial
+4. Decidir qué archivos van (y cuáles no) a un repositorio
+
+## Control de versiones
+
+En lugar de [copias]{.hl} del archivo...
+
+```
+informe_v1.docx  informe_v2.docx  informe_final.docx  informe_final_ok.docx
+```
+
+... un solo archivo con su historia:
+
+```
+● 2026-12-03  Agrego la figura 2               (Maité)
+● 2026-12-02  Corrijo la unidad de la altura   (Maité)
+● 2026-12-01  Primera versión del análisis     (Maité)
+```
+
+Cada punto es una foto del proyecto, con fecha, autor y un mensaje. Podés volver a cualquiera.
+
+<span class="fuente">Basado en Von Grebmer zu Wolfsthurn, S., Edelsbrunner, P., Ihle, M. & Schönbrodt, F. (2026). *Introduction to version control with Git in RStudio* [Quarto slides]. LMU Open Science Center (CC BY-SA 4.0).</span>
+
+## Git y GitHub no son lo mismo
+
+:::: {.columns}
+::: {.column width="50%"}
+### Git
+
+- Un programa en [tu computadora]{.hl}
+- Registra los cambios de una carpeta
+- Funciona sin internet
+:::
+
+::: {.column width="50%"}
+### GitHub
+
+- Una página web
+- Guarda una copia del repositorio en la nube
+- Sirve para respaldar, colaborar y compartir
+:::
+::::
+
+*Git es como el programa que saca las fotos; GitHub, como el álbum compartido en la nube.*
+
+## Vocabulario mínimo {.smaller}
+
+| Palabra | Qué es |
+|:--|:--|
+| Repositorio | Una carpeta cuyo historial está registrado por Git |
+| Commit | Una "foto" del proyecto, con un mensaje que dice qué cambió |
+| Historial | La lista de todos los commits |
+| Push | Subir los commits de tu compu a GitHub |
+| Pull | Bajar a tu compu los commits que están en GitHub |
+| `.gitignore` | La lista de archivos que Git no debe registrar |
+
+<span class="fuente">Basado en LMU Open Science Center, *Introduction to version control with Git in RStudio* (CC BY-SA 4.0).</span>
+
+## ¿Qué NO va a un repositorio?
+
+::: {.actividad}
+[Discusión]{.etiqueta} <span class="tiempo">10 min</span>
+
+En `desordenado/` había un archivo `CONVENIO_permiso_colecta_FIRMADO.docx`.
+
+¿Lo subirías a GitHub? ¿Qué otros archivos [no]{.hl} deberían ir?
+:::
+
+::: notes
+Llegar a la lista: datos personales o sensibles (convenios, DNI, datos de participantes), archivos muy pesados (fotos, videos, datos crudos enormes), productos que se regeneran (outputs/, data/processed/), archivos de sesión (.RData, .Rhistory), contraseñas o tokens.
+
+Aclarar: un repositorio privado tampoco es lugar para documentos sensibles.
+:::
+
+## El `.gitignore`
+
+```
+# Archivos de sesión de R
+.Rhistory
+.RData
+.Rproj.user/
+
+# Productos que se regeneran con el código
+data/processed/
+outputs/
+
+# Documentos con datos personales: nunca
+*FIRMADO*
+```
+
+Un archivo de texto en la [raíz]{.hl} del proyecto. Cada línea = algo que Git ignora.
+
+::: notes
+Ojo: el .gitignore no "borra" nada, solo hace que Git no lo registre. Y hay que crearlo ANTES del primer commit: si un archivo ya fue registrado, ignorarlo después no lo saca del historial.
+:::
+
+## Manos a la obra {background-color="#B5E3C0" .seccion .center}
+
+## Primer repositorio
+
+::: {.actividad}
+[Guiado, paso a paso]{.etiqueta} <span class="tiempo">30 min</span>
+
+1. Guardar la plantilla como `.gitignore` en la raíz del proyecto
+2. GitHub Desktop → *File → Add local repository* → elegir la carpeta → *create a repository*
+3. Primer [commit]{.hl}: "Proyecto organizado"
+4. Cambiar algo en el `README.md` → segundo commit
+5. Mirar el historial (*History*)
+6. Deshacer un cambio (*Revert changes in commit*)
+:::
+
+::: notes
+Demostración en vivo con proyector, paso a paso, y que lo repliquen. Ir al ritmo del más lento: en la encuesta de inscripción vimos quién nunca usó Git.
+
+Alternativa para quien prefiera: pestaña Git de RStudio (requiere Git instalado aparte). GitHub Desktop trae Git incluido.
+:::
+
+## Buenos mensajes de commit {.smaller}
+
+| <span class="mal">Así no</span> | <span class="bien">Así sí</span> |
+|:--|:--|
+| `cambios` | `Unifico los nombres de los sitios en la limpieza` |
+| `asdf` | `Corrijo la unidad de altura en el diccionario` |
+| `final` | `Agrego la figura 2 (prevalencia por sitio)` |
+
+El mensaje responde: [¿qué cambió y por qué?]{.hl} Lo va a leer tu "yo" de dentro de seis meses.
+
+## Subir a GitHub
+
+::: {.actividad}
+[Si llegamos]{.etiqueta} <span class="tiempo">10 min</span>
+
+1. En GitHub Desktop: [Publish repository]{.hl}
+2. Dejar tildado Keep this code private
+3. Entrar a github.com y ver el proyecto (¡con el README como portada!)
+:::
+
+::: notes
+Si no da el tiempo o falla internet, hacerlo como demostración. Se retoma en el encuentro 6 para la revisión cruzada.
+:::
+
+## Para la próxima {.smaller}
+
+::: {.actividad}
+[Tarea]{.etiqueta} <span class="tiempo">≤ 30 min</span>
+
+Hacé [al menos un commit más]{.hl} en el proyecto, con un mensaje claro. Si lo publicaste, hacé también Push.
+:::
+
+<br>
+
+Pregunta de salida: *¿Qué carpeta tuya reemplazarías con Git?*
+
+## Créditos {.smaller}
+
+- Von Grebmer zu Wolfsthurn, S., Edelsbrunner, P., Ihle, M. & Schönbrodt, F. (2026). *Introduction to version control with Git in RStudio* \[Quarto slides\]. LMU Open Science Center. <https://lmu-osc.github.io/slides-git/slides-git-revealjs.html> (CC BY-SA 4.0).
+- LMU Open Science Center. *Introduction to Version Control within RStudio*. <https://lmu-osc.github.io/Introduction-RStudio-Git-GitHub/> (CC BY-SA 4.0).
+- Bryan, J. *Happy Git and GitHub for the useR*. <https://happygitwithr.com>
+
+Este material se distribuye bajo licencia [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.es).

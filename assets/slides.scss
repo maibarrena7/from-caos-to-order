@@ -1,0 +1,146 @@
+/*-- scss:defaults --*/
+// Tema de slides del taller "Del caos al orden"
+// Fondo oscuro + verdes pastel. Para destacar: resaltador pastel, no negrita.
+
+// Paleta
+$fondo:        #141614;   // casi negro, apenas verdoso
+$fondo-caja:   #1E2620;   // cajas de actividad y código
+$texto:        #E9EEE8;
+$texto-suave:  #A3AEA5;
+$menta:        #B5E3C0;   // títulos
+$salvia:       #CFE8C3;   // resaltador principal
+$pastel:       #8FCB9B;   // acentos, links
+$rosa:         #F4C6D0;
+$amarillo:     #F3E3A2;
+$lila:         #D8CCF0;
+$durazno:      #F6CDB4;
+
+$body-bg: $fondo;
+$body-color: $texto;
+$link-color: $pastel;
+$presentation-heading-color: $menta;
+$presentation-heading-font-weight: 600;
+$presentation-font-size-root: 34px;
+$font-family-sans-serif: '"Source Sans 3"', system-ui, sans-serif;
+$code-block-bg: $fondo-caja;
+$code-color: $salvia;
+$selection-bg: $pastel;
+$table-border-color: #3A443C;
+
+/*-- scss:rules --*/
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&display=swap');
+
+.reveal { font-weight: 400; }
+.reveal strong, .reveal b { font-weight: 600; }
+
+// Slide de título
+.reveal .quarto-title-block .title { color: $menta; font-weight: 600; }
+.reveal .quarto-title-block .subtitle { color: $pastel; }
+.reveal .quarto-title-block .quarto-title-author-name { color: $texto-suave; }
+
+// ---- Resaltadores pastel ------------------------------------------------
+// Uso en el .qmd:  [texto]{.hl}  [texto]{.hl-rosa}  [texto]{.hl-amarillo}  [texto]{.hl-lila}
+%resaltador {
+  color: $fondo;
+  padding: 0.02em 0.28em;
+  border-radius: 0.25em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.hl          { @extend %resaltador; background: $salvia; }
+.hl-rosa     { @extend %resaltador; background: $rosa; }
+.hl-amarillo { @extend %resaltador; background: $amarillo; }
+.hl-lila     { @extend %resaltador; background: $lila; }
+.hl-durazno  { @extend %resaltador; background: $durazno; }
+.hl code, [class^="hl"] code { color: $fondo; background: transparent; }
+
+// Subtítulos de columna: en color, sin negrita
+.subtitulo {
+  display: inline-block;
+  color: $pastel;
+  font-size: 0.8em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.2em;
+}
+
+// ---- Slides de sección --------------------------------------------------
+.reveal .slides section.seccion h1,
+.reveal .slides section.seccion h2 { color: $fondo; font-weight: 600; }
+
+// ---- Caja de actividad --------------------------------------------------
+.actividad {
+  background: $fondo-caja;
+  border-left: 6px solid $pastel;
+  border-radius: 8px;
+  padding: 0.6em 0.9em;
+  margin-top: 0.4em;
+}
+.etiqueta { color: $pastel; font-weight: 500; }
+
+// Reloj de la actividad
+.tiempo {
+  display: inline-block;
+  background: $salvia;
+  color: $fondo;
+  border-radius: 999px;
+  padding: 0.05em 0.6em;
+  font-size: 0.72em;
+  font-weight: 500;
+  vertical-align: middle;
+}
+
+// Ejemplos buenos / malos
+.bien { color: $pastel; }
+.mal  { color: #F2A7A0; text-decoration: line-through; }
+
+// Cita de la fuente
+.fuente {
+  display: block;
+  margin-top: 1.2em;
+  font-size: 0.45em;
+  line-height: 1.3;
+  color: $texto-suave;
+}
+
+// ---- Código y árboles de carpetas ---------------------------------------
+.reveal pre { font-size: 0.66em; line-height: 1.35; box-shadow: none; border: 1px solid #2C352E; border-radius: 8px; }
+.reveal pre code, .reveal div.sourceCode pre code { font-size: 1em !important; line-height: 1.35; background: $fondo-caja; color: $texto; }
+.reveal div.sourceCode { background: $fondo-caja; border: none; }
+.reveal code { color: $salvia; }
+.reveal pre code span.co { color: #7F8C82; font-style: italic; }   // comentarios
+.reveal pre code span.st { color: $amarillo; }                      // texto entre comillas
+.reveal pre code span.fu { color: $menta; }                         // funciones
+.reveal pre code span.dv, .reveal pre code span.fl { color: $durazno; }  // números
+.reveal pre code span.kw, .reveal pre code span.ot { color: $lila; }
+.reveal pre code span.at { color: $rosa; }
+.reveal .code-with-copy .code-copy-button { color: $texto-suave; }
+.reveal pre.sourceCode code a { color: #5A675D; }   // números de línea
+
+// ---- Tablas -------------------------------------------------------------
+.reveal table th { color: $menta; font-weight: 500; border-bottom: 1px solid $pastel; }
+.reveal table td { border-bottom: 1px solid #2C352E; }
+
+// ---- Citas --------------------------------------------------------------
+.reveal blockquote {
+  background: $fondo-caja;
+  border-left: 4px solid $menta;
+  color: $texto;
+  box-shadow: none;
+}
+
+// ---- Escalera de la ciencia abierta -------------------------------------
+.escalera { display: flex; align-items: flex-end; gap: 0.4em; height: 9em; margin: 0.6em 0; }
+.escalera > div {
+  flex: 1; background: $fondo-caja; border-top: 6px solid $pastel; border-radius: 8px 8px 0 0;
+  padding: 0.35em 0.5em; font-size: 0.6em; line-height: 1.3; color: $texto;
+}
+.escalera .esc-t { color: $menta; font-size: 1.3em; font-weight: 500; }
+.escalera > div.fuera { border-top-color: $lila; }
+.escalera > div.fuera .esc-t { color: $lila; }
+
+// ---- Pie y controles ----------------------------------------------------
+.reveal .footer { color: $texto-suave; }
+.reveal .slide-number { color: $texto-suave; background: transparent; }
+.reveal .progress { color: $pastel; }
+.reveal .controls { color: $pastel; }

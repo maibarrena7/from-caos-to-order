@@ -1,0 +1,15 @@
+# Archivos de sesión de R: el código es la fuente, no el workspace
+.Rhistory
+.RData
+.Rproj.user/
+
+# Productos generados por los scripts (se regeneran corriendo R/01-03)
+data/processed/*
+outputs/tablas/*
+outputs/figuras/*
+!**/.gitkeep
+docs/informe.html
+docs/informe_files/
+
+# Documentos con datos personales: nunca al repositorio
+*FIRMADO*

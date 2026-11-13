@@ -84,20 +84,20 @@ Insistir: el crudo NUNCA se modifica. Todo lo que cambia queda escrito en 01_lim
 ## Leamos `01_limpieza.R` {.smaller}
 
 ```r
-# --- 3. Unificar los nombres de los sitios ---
+# 3. Unificar los nombres de los sitios ----
 plantas <- plantas |>
-  mutate(
-    sitio = str_squish(str_to_lower(sitio)),
-    sitio = case_when(
-      str_detect(sitio, "^(loma|l\\.)")  ~ "Loma del Viento",
-      str_detect(sitio, "^bajo")         ~ "Bajo Fantasma",
-      str_detect(sitio, "^(pampa|p\\.)") ~ "Pampa Imaginaria"
+  dplyr::mutate(
+    sitio = stringr::str_squish(stringr::str_to_lower(sitio)),
+    sitio = dplyr::case_when(
+      stringr::str_detect(sitio, "^(loma|l\\.)")  ~ "Loma del Viento",
+      stringr::str_detect(sitio, "^bajo")         ~ "Bajo Fantasma",
+      stringr::str_detect(sitio, "^(pampa|p\\.)") ~ "Pampa Imaginaria"
     )
   )
 
-# --- 5. Tratar valores imposibles ---
+# 5. Tratar valores imposibles ----
 # 999 en la altura es un código de dato faltante
-altura_cm = if_else(altura_cm == 999, NA_real_, altura_cm)
+altura_cm = dplyr::if_else(altura_cm == 999, NA_real_, altura_cm)
 ```
 
 ¿Qué problema de la [búsqueda del tesoro]{.hl} resuelve cada bloque?

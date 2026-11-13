@@ -1,8 +1,9 @@
-# =============================================================================
-# 00_correr_todo.R
+# 00_correr_todo.R -------------------------------------------------------------
 # Corre todo el análisis en orden: datos crudos -> datos limpios -> tablas -> figuras.
 # Para reproducir los resultados desde cero alcanza con correr este archivo.
-# =============================================================================
+
+
+# Correr los scripts en orden --------------------------------------------------
 
 source(here::here("R", "01_limpieza.R"))
 source(here::here("R", "02_analisis.R"))

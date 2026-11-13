@@ -81,16 +81,15 @@ Si te da miedo, en vez de borrar mové todo eso a una carpeta [fuera]{.hl} del p
 [15 minutos.]{.hl} Abrí el proyecto (doble clic en el `.Rproj`) y después `R/analisis_prevalencia.R`:
 
 1. Borrá la línea `setwd(...)` (y cualquier `install.packages(...)`, si hubiera).
-2. Agregá `library(here)` debajo de los otros `library()`.
-3. Cambiá la lectura de datos y el guardado de la figura por:
+2. Cambiá la lectura de datos y el guardado de la figura por:
 
 ```r
-datos <- read_excel(here("data", "raw", "2023-03_campo_plantas.xlsx"), skip = 1)
+datos <- readxl::read_excel(here::here("data", "raw", "2023-03_campo_plantas.xlsx"), skip = 1)
 
-ggsave(here("outputs", "figuras", "grafico_prevalencia.png"))
+ggplot2::ggsave(here::here("outputs", "figuras", "grafico_prevalencia.png"))
 ```
 
-4. Corré el script completo (Ctrl/Cmd + Shift + Enter). Mirá la tabla `prev` que aparece en la consola.
+3. Corré el script completo (Ctrl/Cmd + Shift + Enter). Mirá la tabla `prev` que aparece en la consola.
 
 🤔 *¿Cuántos sitios había en el estudio? ¿Cuántos aparecen en la tabla?*
 

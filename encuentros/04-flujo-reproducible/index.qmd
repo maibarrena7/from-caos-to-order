@@ -22,8 +22,7 @@ resources:
 Instalá los paquetes que usan los scripts [desde la consola]{.hl} (una sola vez):
 
 ```r
-install.packages(c("here", "readxl", "readr", "dplyr", "tidyr",
-                   "stringr", "lubridate", "ggplot2"))
+install.packages(c("tidyverse", "here"))
 ```
 
 Descargá los scripts y copiá su contenido dentro de tu proyecto: la carpeta `R/` en tu `R/` y `informe.qmd` en tu `docs/`.

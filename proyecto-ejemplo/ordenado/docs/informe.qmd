@@ -1,0 +1,46 @@
+---
+title: "Visitantes florales de *Inventia patagonica*"
+subtitle: "Informe de resultados (datos simulados)"
+lang: es
+format:
+  html:
+    embed-resources: true
+execute:
+  echo: false
+  message: false
+  warning: false
+---
+
+```{r}
+# Leer las tablas generadas por los scripts ----
+tabla1 <- readr::read_csv(here::here("outputs", "tablas", "tabla1_plantas_por_sitio.csv"),
+                          show_col_types = FALSE)
+tabla2 <- readr::read_csv(here::here("outputs", "tablas", "tabla2_prevalencia_total.csv"),
+                          show_col_types = FALSE)
+```
+
+> Este informe se genera a partir de los resultados de `R/01_limpieza.R`, `R/02_analisis.R` y `R/03_figuras.R`. Si cambian los datos, se vuelven a correr los scripts y se renderiza de nuevo: ningún número se copia a mano.
+
+## Sitios de muestreo
+
+Se muestrearon `r sum(tabla1$n_plantas)` plantas en `r nrow(tabla1)` sitios (@fig-mapa).
+
+![Ubicación de los sitios de muestreo.](../outputs/figuras/fig1_mapa_sitios.png){#fig-mapa width=60%}
+
+```{r}
+#| label: tbl-plantas
+#| tbl-cap: "Características de las plantas muestreadas por sitio."
+knitr::kable(tabla1, col.names = c("Sitio", "N", "Altura media (cm)", "Flores (media)"))
+```
+
+## Visitantes florales
+
+La especie más frecuente fue *`r tabla2$especie[1]`*, presente en el `r tabla2$prevalencia[1]` % de las plantas (@tbl-prevalencia, @fig-prevalencia).
+
+```{r}
+#| label: tbl-prevalencia
+#| tbl-cap: "Prevalencia y abundancia media de cada especie de visitante floral."
+knitr::kable(tabla2, col.names = c("Especie", "N", "Prevalencia (%)", "Abundancia media"))
+```
+
+![Prevalencia de cada especie de visitante floral por sitio.](../outputs/figuras/fig2_prevalencia.png){#fig-prevalencia}

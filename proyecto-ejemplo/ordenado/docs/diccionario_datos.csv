@@ -1,0 +1,12 @@
+variable_procesada,columna_original,descripcion,tipo,unidad,valores_permitidos,codigos_faltantes_en_crudo
+id_planta,ID planta,Identificador único de cada planta,texto,,P01 a P38,
+sitio,Sitio,Sitio de muestreo,texto,,Loma del Viento; Bajo Fantasma; Pampa Imaginaria,
+fecha,Fecha,Fecha de muestreo,fecha (AAAA-MM-DD),,marzo de 2023,
+altura_cm,Altura (cm),Altura de la planta desde el suelo hasta el ápice,número,cm,> 0,"""-"" y 999"
+cobertura_m2,Cobertura m2,Superficie cubierta por la copa de la planta,número,m2,> 0,"""NA"""
+n_flores,Nº flores,Número de flores abiertas en la planta,entero,flores,>= 0,
+z_aurea,Z. aurea,Número de visitantes de Zumbatrix aurea observados en la planta,entero,individuos,>= 0,"""s/d"""
+p_rapida,P. rapida,Número de visitantes de Polinia rapida observados en la planta,entero,individuos,>= 0,"""s/d"""
+f_nocturna,F. nocturna,Número de visitantes de Florivora nocturna observados en la planta,entero,individuos,>= 0,"""s/d"""
+m_minima,M. minima,Número de visitantes de Mieliphila minima observados en la planta,entero,individuos,>= 0,"""s/d"""
+observaciones,obs,Notas de campo,texto,,,

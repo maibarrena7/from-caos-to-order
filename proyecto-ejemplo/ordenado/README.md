@@ -43,8 +43,7 @@ Todo lo que está en `data/processed/` y `outputs/` se puede borrar: se vuelve a
 2. Instalar los paquetes (una sola vez):
 
    ```r
-   install.packages(c("here", "readxl", "readr", "dplyr", "tidyr",
-                      "stringr", "lubridate", "ggplot2"))
+   install.packages(c("tidyverse", "here"))
    ```
 
 3. Correr todo el análisis con un solo archivo:

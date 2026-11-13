@@ -83,13 +83,11 @@ En el proyecto de ejemplo hay DOS .Rproj sueltos en subcarpetas: preguntar qué 
 ## Rutas relativas con `here()`
 
 ```r
-library(here)
-
-here()
+here::here()
 #> "C:/Users/maite/Documents/visitantes-florales"   ← en mi compu
 #> "/home/juan/proyectos/visitantes-florales"       ← en la de Juan
 
-datos <- read_excel(here("data", "raw", "2023-03_campo_plantas.xlsx"))
+datos <- readxl::read_excel(here::here("data", "raw", "2023-03_campo_plantas.xlsx"))
 ```
 
 `here()` arma la ruta [desde la raíz del proyecto]{.hl}, esté donde esté la carpeta y en el sistema operativo que sea.
@@ -128,11 +126,11 @@ Atajo para "empezar de cero": Session → Restart R (Ctrl/Cmd + Shift + F10).
 ## Tampoco adentro del script
 
 ```r
-install.packages("ggplot2")   # ✗ se reinstala cada vez que alguien lo corre
-library(ggplot2)              # ✓ esto sí
+install.packages("ggplot2")        # ✗ se reinstala cada vez que alguien lo corre
+ggplot2::ggplot(datos, ...)        # ✓ esto sí: paquete::función()
 ```
 
-Los paquetes se instalan [una vez]{.hl}, desde la consola. En el script solo van los `library()`.
+Los paquetes se instalan [una vez]{.hl}, desde la consola. En el script se usan con `paquete::función()`, así queda claro de dónde sale cada función.
 
 Las instrucciones de instalación van en el README (encuentro 3).
 
@@ -182,16 +180,16 @@ Lo importante: cada duda que no podemos resolver es información que faltó docu
 Abrí `R/analisis_prevalencia.R` desde el proyecto y:
 
 1. Borrá la línea de `setwd()` (y cualquier `install.packages()`, si hubiera)
-2. Agregá `library(here)` y cambiá la lectura de datos y el `ggsave()` por:
+2. Cambiá la lectura de datos y el `ggsave()` por:
 :::
 
 ```r
-datos <- read_excel(
-  here("data", "raw", "2023-03_campo_plantas.xlsx"),
+datos <- readxl::read_excel(
+  here::here("data", "raw", "2023-03_campo_plantas.xlsx"),
   skip = 1
 )
 
-ggsave(here("outputs", "figuras", "grafico_prevalencia.png"))
+ggplot2::ggsave(here::here("outputs", "figuras", "grafico_prevalencia.png"))
 ```
 
 ::: notes

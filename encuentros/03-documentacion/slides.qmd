@@ -207,9 +207,7 @@ Leé el README de tu compañero/a y marcá [una cosa que no se entiende]{.hl}.
 ## Bonus: diccionarios automáticos
 
 ```r
-library(datawizard)
-
-data_codebook(datos)
+datawizard::data_codebook(datos)
 ```
 
 Genera un resumen de cada variable (tipo, valores, faltantes). [No reemplaza]{.hl} el diccionario: no sabe qué significa cada columna ni en qué unidad está.

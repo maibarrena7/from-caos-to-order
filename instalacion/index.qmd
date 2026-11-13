@@ -11,7 +11,7 @@ Para aprovechar los encuentros necesitás tener [cuatro cosas instaladas y funci
 |:--|:--|:--|
 | 1. R | El lenguaje | Correr los análisis |
 | 2. RStudio | El programa donde escribimos y corremos R | Todo el taller |
-| 3. Paquetes de R | Herramientas extra para R | Leer Excel, ordenar datos, hacer figuras |
+| 3. Paquetes de R (`tidyverse` y `here`) | Herramientas extra para R | Leer Excel, ordenar datos, hacer figuras |
 | 4. GitHub Desktop + cuenta de GitHub | Control de versiones | Encuentro 5 |
 
 ::: {.callout-tip}
@@ -75,10 +75,10 @@ Siempre RStudio. R trabaja "por detrás": RStudio lo usa solo. Es como el motor 
 2. Copiá esta línea completa, pegala en la Consola y apretá [Enter]{.ui}:
 
 ```r
-install.packages(c("here", "readxl", "readr", "dplyr", "tidyr", "stringr", "lubridate", "ggplot2"))
+install.packages(c("tidyverse", "here"))
 ```
 
-3. Van a aparecer muchas líneas de texto en rojo: [es normal]{.hl}, no son errores. Esperá a que termine (unos minutos) y vuelva a aparecer el `>`.
+3. Van a aparecer muchas líneas de texto en rojo: [es normal]{.hl}, no son errores. `tidyverse` es un "paquete de paquetes" (trae todo lo necesario para leer, ordenar y graficar datos), así que puede tardar varios minutos. Esperá a que vuelva a aparecer el `>`.
 
 ::: {.callout-tip collapse="true"}
 ## ¿Te pregunta algo mientras instala?

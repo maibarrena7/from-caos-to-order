@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: _site
+  output-dir: docs
   # Solo estas páginas forman parte del sitio web.
   # proyecto-ejemplo/ se descarga como material, no es parte del sitio.
   render:

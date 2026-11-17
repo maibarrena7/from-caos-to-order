@@ -6,8 +6,8 @@ lang: es
 format:
   revealjs:
     theme: [default, ../../assets/slides.scss]
-    slide-number: true
-    footer: "Del caos al orden · Encuentro 3 · CC BY-SA 4.0"
+    slide-number: c/t
+    footer: "Del caos al orden · Encuentro 03"
     transition: fade
     highlight-style: github-dark
     hash-type: number

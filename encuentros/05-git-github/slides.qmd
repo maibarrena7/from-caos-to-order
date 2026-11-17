@@ -6,8 +6,8 @@ lang: es
 format:
   revealjs:
     theme: [default, ../../assets/slides.scss]
-    slide-number: true
-    footer: "Del caos al orden · Encuentro 5 · CC BY-SA 4.0"
+    slide-number: c/t
+    footer: "Del caos al orden · Encuentro 05"
     transition: fade
     highlight-style: github-dark
     hash-type: number
@@ -133,7 +133,7 @@ Un archivo de texto en la [raíz]{.hl} del proyecto. Cada línea = algo que Git 
 Ojo: el .gitignore no "borra" nada, solo hace que Git no lo registre. Y hay que crearlo ANTES del primer commit: si un archivo ya fue registrado, ignorarlo después no lo saca del historial.
 :::
 
-## Manos a la obra {background-color="#B5E3C0" .seccion .center}
+## Manos a la obra {.seccion .center}
 
 ## Primer repositorio
 

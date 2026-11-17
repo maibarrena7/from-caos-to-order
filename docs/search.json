@@ -420,25 +420,11 @@
     "text": "Para seguir leyendo\n\nWilson, G. et al. (2017). Good enough practices in scientific computing. PLOS Computational Biology, 13(6), e1005510.\nBryan, J. (2015). Naming things.\nThe Turing Way Community. Guide for reproducible research.\nLMU Open Science Center. Threats to credible research (CC BY-SA 4.0)."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Del caos al orden",
-    "section": "",
-    "text": "Un taller práctico de seis encuentros para pasar de carpetas llenas de datos_final_v2_DEFINITIVO.xlsx a un proyecto que vos, tu equipo, o vos dentro de dos años puedan entender y volver a ejecutar."
-  },
-  {
-    "objectID": "index.html#tu-proyecto-ordenado-documentado-y-reproducible",
-    "href": "index.html#tu-proyecto-ordenado-documentado-y-reproducible",
-    "title": "Del caos al orden",
-    "section": "",
-    "text": "Un taller práctico de seis encuentros para pasar de carpetas llenas de datos_final_v2_DEFINITIVO.xlsx a un proyecto que vos, tu equipo, o vos dentro de dos años puedan entender y volver a ejecutar."
-  },
-  {
     "objectID": "index.html#de-qué-se-trata",
     "href": "index.html#de-qué-se-trata",
     "title": "Del caos al orden",
     "section": "¿De qué se trata?",
-    "text": "¿De qué se trata?\nInvestigar implica colectar datos, escribir código, generar figuras y tomar decisiones metodológicas. Con el tiempo, todo eso se acumula en carpetas sin una estructura clara: versiones duplicadas, scripts que solo funcionan en una computadora y resultados cuyo origen nadie recuerda.\nEn este taller vamos a ordenar, paso a paso, un proyecto de investigación real con datos ecológicos. Vamos a separar datos, código y resultados, documentarlo y registrar sus cambios con Git. La idea es que después puedas aplicar lo mismo a tu propio trabajo."
+    "text": "¿De qué se trata?\nInvestigar implica colectar datos, escribir código, generar figuras y tomar decisiones metodológicas. Con el tiempo, todo eso se acumula en carpetas sin una estructura clara: versiones duplicadas, scripts que solo funcionan en una computadora y resultados cuyo origen nadie recuerda.\nEn este taller vamos a ordenar, paso a paso, un proyecto de investigación con datos ecológicos. Vamos a separar datos, código y resultados, documentarlo y registrar sus cambios con Git. La idea es que después puedas aplicar lo mismo a tu propio trabajo."
   },
   {
     "objectID": "index.html#para-quién-es",
@@ -455,39 +441,32 @@
     "text": "Al terminar vas a tener\n\nUn proyecto con una estructura de carpetas clara y consistente.\nDocumentación inicial: un README y un diccionario de datos.\nUn flujo de trabajo reproducible en R, desde los datos originales hasta una figura final.\nUn repositorio con el historial de cambios de tu proyecto."
   },
   {
-    "objectID": "index.html#programa",
-    "href": "index.html#programa",
+    "objectID": "index.html#seis-encuentros-un-proyecto",
+    "href": "index.html#seis-encuentros-un-proyecto",
     "title": "Del caos al orden",
-    "section": "Programa",
-    "text": "Programa\n\n\n\nSemana\nEncuentro\nTema\n\n\n\n\n1\n1\nDel desorden a una estructura de proyecto\n\n\n1\n2\nDatos, scripts y resultados en R\n\n\n2\n3\nDocumentar para comprender y reutilizar\n\n\n2\n4\nDe los datos originales a los resultados\n\n\n3\n5\nIntroducción a Git y GitHub\n\n\n3\n6\nIntegración y revisión del proyecto"
+    "section": "Seis encuentros, un proyecto",
+    "text": "Seis encuentros, un proyecto\n\n\n01\n\nSemana 1 · Organización\n\nDel desorden a una estructura de proyecto\n\n\n02\n\nSemana 1 · Organización\n\nDatos, scripts y resultados en R\n\n\n03\n\nSemana 2 · Documentación\n\nDocumentar para comprender y reutilizar\n\n\n04\n\nSemana 2 · Reproducibilidad\n\nDe los datos originales a los resultados\n\n\n05\n\nSemana 3 · Versiones\n\nIntroducción a Git y GitHub\n\n\n06\n\nSemana 3 · Integración\n\nIntegración y revisión del proyecto"
   },
   {
-    "objectID": "index.html#información-práctica",
-    "href": "index.html#información-práctica",
+    "objectID": "index.html#cuándo-y-dónde",
+    "href": "index.html#cuándo-y-dónde",
     "title": "Del caos al orden",
-    "section": "Información práctica",
-    "text": "Información práctica\n\n\n\n\n\n\n\nModalidad\nPresencial, teórico-práctico\n\n\nLugar\nFacultad de Ciencias Marinas (UNComa), San Antonio Oeste\n\n\nFechas\nA confirmar\n\n\nDuración\n6 encuentros de 90 minutos (9 horas)\n\n\nCosto\nGratuito\n\n\nInscripción\nFormulario disponible próximamente\n\n\n\n\n\n\n\n\n\nTipAntes del primer encuentro\n\n\n\nTraé tu computadora con R, RStudio y Git instalados. Seguí la guía de instalación; si algo no funciona, escribime y lo resolvemos antes de empezar."
+    "section": "Cuándo y dónde",
+    "text": "Cuándo y dónde\n\n\nModalidad\nPresencial, teórico-práctico\n\n\nLugar\nFacultad de Ciencias Marinas (UNComa), San Antonio Oeste\n\n\nFechas\nA confirmar\n\n\nDuración\n6 encuentros de 90 minutos (9 horas)\n\n\nCosto\nGratuito\n\n\nInscripción\nFormulario disponible próximamente\n\n\n\n\n\n\n\n\nTipAntes del primer encuentro\n\n\n\nTraé tu computadora con R, RStudio y GitHub Desktop instalados. Seguí la guía de instalación; si algo no funciona, escribime y lo resolvemos antes de empezar."
   },
   {
-    "objectID": "index.html#materiales-y-licencia",
-    "href": "index.html#materiales-y-licencia",
+    "objectID": "index.html#abiertos-y-reutilizables",
+    "href": "index.html#abiertos-y-reutilizables",
     "title": "Del caos al orden",
-    "section": "Materiales y licencia",
-    "text": "Materiales y licencia\nTodos los materiales (guías, scripts, datos de ejemplo y checklist) están en el repositorio del taller bajo licencia Creative Commons Atribución-CompartirIgual 4.0 Internacional (CC BY-SA 4.0). Podés usarlos, adaptarlos y compartirlos citando la fuente.\n\nCómo citar\n\nBarrena, M. A. (2026). Del caos al orden: organización de proyectos de investigación en R (Versión 1.0) [Material didáctico]. Zenodo. https://doi.org/XX.XXXX/zenodo.XXXXXXX"
+    "section": "Abiertos y reutilizables",
+    "text": "Abiertos y reutilizables\nTodos los materiales (guías, scripts, datos de ejemplo y checklist) están en el repositorio del taller bajo licencia Creative Commons Atribución-CompartirIgual 4.0 Internacional (CC BY-SA 4.0). Podés usarlos, adaptarlos y compartirlos citando la fuente.\n\nCómo citar\n\nBarrena, M. A. (2026). Del caos al orden: organización de proyectos de investigación en R (Versión 1.0) [Material didáctico]. Zenodo. https://doi.org/XX.XXXX/zenodo.XXXXXXX\n\n\n\n\n\n\n\nNotaEnglish summary\n\n\n\n\n\nFrom Messy Folders to Reproducible Research is a six-session, in-person workshop (Spanish) held at the Facultad de Ciencias Marinas, Universidad Nacional del Comahue (San Antonio Oeste, Argentina). Participants learn to structure, document and version-control research projects in R. It was developed as part of the instructor certification of the LMU Open Science Center Summer School 2026. All materials are openly licensed under CC BY-SA 4.0."
   },
   {
     "objectID": "index.html#sobre-la-instructora",
     "href": "index.html#sobre-la-instructora",
     "title": "Del caos al orden",
     "section": "Sobre la instructora",
-    "text": "Sobre la instructora\nMaité A. Barrena es licenciada en Biología Marina y doctoranda en Biología (Universidad Nacional del Comahue). Estudia los ensambles de peces e invertebrados de la Bahía San Antonio, se forma como instructora en ciencia abierta en el LMU Open Science Center y se especializa en gestión de datos de investigación.\nContacto: maibarrena7@gmail.com"
-  },
-  {
-    "objectID": "index.html#agradecimientos",
-    "href": "index.html#agradecimientos",
-    "title": "Del caos al orden",
-    "section": "Agradecimientos",
-    "text": "Agradecimientos\nEste taller fue diseñado en el marco del Open Science Summer School 2026 del LMU Open Science Center y se nutre de recursos de The Turing Way, Happy Git and GitHub for the useR y R for Data Science."
+    "text": "Sobre la instructora\nMaité A. Barrena es licenciada en Biología Marina y doctoranda en Biología (Universidad Nacional del Comahue). Estudia los ensambles de peces e invertebrados de la Bahía San Antonio, se forma como instructora en ciencia abierta en el LMU Open Science Center y se especializa en gestión de datos de investigación.\nContacto: maibarrena7@gmail.com\nEste taller fue diseñado en el marco del Open Science Summer School 2026 del LMU Open Science Center y se nutre de recursos de The Turing Way, Happy Git and GitHub for the useR y R for Data Science."
   },
   {
     "objectID": "instalacion/index.html",

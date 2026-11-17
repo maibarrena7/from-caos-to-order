@@ -6,8 +6,8 @@ lang: es
 format:
   revealjs:
     theme: [default, ../../assets/slides.scss]
-    slide-number: true
-    footer: "Del caos al orden · Encuentro 2 · CC BY-SA 4.0"
+    slide-number: c/t
+    footer: "Del caos al orden · Encuentro 02"
     transition: fade
     highlight-style: github-dark
     hash-type: number
@@ -134,7 +134,7 @@ Los paquetes se instalan [una vez]{.hl}, desde la consola. En el script se usan 
 
 Las instrucciones de instalación van en el README (encuentro 3).
 
-## La mudanza {background-color="#B5E3C0" .seccion .center}
+## La mudanza {.seccion .center}
 
 ## Mudanza guiada
 

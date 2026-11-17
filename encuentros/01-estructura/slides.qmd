@@ -6,8 +6,8 @@ lang: es
 format:
   revealjs:
     theme: [default, ../../assets/slides.scss]
-    slide-number: true
-    footer: "Del caos al orden · Encuentro 1 · CC BY-SA 4.0"
+    slide-number: c/t
+    footer: "Del caos al orden · Encuentro 01"
     transition: fade
     highlight-style: github-dark
     hash-type: number
@@ -209,7 +209,7 @@ Es el piso: si no podemos reproducir nuestro propio análisis, ¿cómo lo va a r
 No profundizar en la crisis de replicabilidad: es contexto. Lo importante es que la organización del proyecto es el primer escalón de la reproducibilidad, y está en nuestras manos.
 :::
 
-## Búsqueda del tesoro {background-color="#B5E3C0" .seccion .center}
+## Búsqueda del tesoro {.seccion .center}
 
 ## El proyecto de hoy {.smaller}
 
@@ -271,7 +271,7 @@ Completar la tabla en el pizarrón con lo que digan ellos ANTES de mostrar esta 
 Anticipar: cada categoría se resuelve en un encuentro distinto.
 :::
 
-## ¿Cómo lo ordenamos? {background-color="#B5E3C0" .seccion .center}
+## ¿Cómo lo ordenamos? {.seccion .center}
 
 ## Principios {.smaller}
 

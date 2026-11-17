@@ -1,146 +1,194 @@
 /*-- scss:defaults --*/
-// Tema de slides del taller "Del caos al orden"
-// Fondo oscuro + verdes pastel. Para destacar: resaltador pastel, no negrita.
+// =============================================================================
+// Tema de slides "Del caos al orden"
+// Carbón empolvado + beige tostado + verdes pastel. Títulos con serif editorial.
+// Para destacar: resaltador pastel [texto]{.hl} o itálica en los títulos (*texto*).
+// =============================================================================
 
-// Paleta
-$fondo:        #141614;   // casi negro, apenas verdoso
-$fondo-caja:   #1E2620;   // cajas de actividad y código
-$texto:        #E9EEE8;
-$texto-suave:  #A3AEA5;
-$menta:        #B5E3C0;   // títulos
-$salvia:       #CFE8C3;   // resaltador principal
-$pastel:       #8FCB9B;   // acentos, links
+// ---- Paleta ------------------------------------------------------------------
+$carbon:       #1A1B19;
+$carbon-2:     #22231F;
+$linea:        #3A3934;
+$texto:        #ECE7DE;
+$texto-suave:  #A7A298;
+$beige:        #C9A97C;
+$beige-claro:  #DCC6A3;
+$salvia:       #CFE8C3;
+$menta:        #B5E3C0;
+$verde:        #8FCB9B;
 $rosa:         #F4C6D0;
 $amarillo:     #F3E3A2;
 $lila:         #D8CCF0;
 $durazno:      #F6CDB4;
 
-$body-bg: $fondo;
+// ---- Tipografías -------------------------------------------------------------
+$serif: '"Playfair Display"', Georgia, serif;
+$sans:  '"Inter"', system-ui, sans-serif;
+$mono:  '"IBM Plex Mono"', ui-monospace, monospace;
+
+$body-bg: $carbon;
 $body-color: $texto;
-$link-color: $pastel;
-$presentation-heading-color: $menta;
-$presentation-heading-font-weight: 600;
-$presentation-font-size-root: 34px;
-$font-family-sans-serif: '"Source Sans 3"', system-ui, sans-serif;
-$code-block-bg: $fondo-caja;
+$link-color: $verde;
+$presentation-heading-color: $texto;
+$presentation-heading-font: $serif;
+$presentation-heading-font-weight: 400;
+$presentation-heading-line-height: 1.12;
+$presentation-font-size-root: 32px;
+$font-family-sans-serif: $sans;
+$font-family-monospace: $mono;
+$code-block-bg: $carbon-2;
 $code-color: $salvia;
-$selection-bg: $pastel;
-$table-border-color: #3A443C;
+$selection-bg: $beige;
+$table-border-color: $linea;
 
 /*-- scss:rules --*/
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
-.reveal { font-weight: 400; }
-.reveal strong, .reveal b { font-weight: 600; }
+// ---- Fondo empolvado: degradé suave + grano ---------------------------------
+.reveal-viewport {
+  background:
+    radial-gradient(ellipse at 15% 0%, rgba(201, 169, 124, 0.08), transparent 55%),
+    radial-gradient(ellipse at 100% 100%, rgba(143, 203, 155, 0.06), transparent 50%),
+    $carbon;
+}
+.reveal-viewport::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.08;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyMjAnIGhlaWdodD0nMjIwJz48ZmlsdGVyIGlkPSduJz48ZmVUdXJidWxlbmNlIHR5cGU9J2ZyYWN0YWxOb2lzZScgYmFzZUZyZXF1ZW5jeT0nMC44NScgbnVtT2N0YXZlcz0nMycgc3RpdGNoVGlsZXM9J3N0aXRjaCcvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPScxMDAlJyBoZWlnaHQ9JzEwMCUnIGZpbHRlcj0ndXJsKCNuKScvPjwvc3ZnPg==");
+}
 
-// Slide de título
-.reveal .quarto-title-block .title { color: $menta; font-weight: 600; }
-.reveal .quarto-title-block .subtitle { color: $pastel; }
-.reveal .quarto-title-block .quarto-title-author-name { color: $texto-suave; }
+.reveal { font-weight: 300; }
+.reveal strong, .reveal b { font-weight: 500; }
+.reveal p, .reveal li { line-height: 1.5; }
 
-// ---- Resaltadores pastel ------------------------------------------------
-// Uso en el .qmd:  [texto]{.hl}  [texto]{.hl-rosa}  [texto]{.hl-amarillo}  [texto]{.hl-lila}
+// Títulos: serif; lo escrito en *itálica* sale en beige
+.reveal h1, .reveal h2, .reveal h3 { font-weight: 400; letter-spacing: -0.01em; }
+.reveal h2 { font-size: 1.6em; margin-bottom: 0.7em; }
+.reveal .slides section:not(.seccion) > h2:first-child { margin-top: 1em; }
+.reveal h1 em, .reveal h2 em, .reveal h3 em { color: $beige; font-style: italic; }
+
+// ---- Etiqueta arriba a la izquierda (el "footer") y número de slide --------
+.reveal .footer {
+  top: 26px !important; bottom: auto !important; left: 64px !important; right: auto !important;
+  width: auto !important; text-align: left !important; font-family: $mono; font-size: 13px !important;
+  letter-spacing: 0.28em; text-transform: uppercase; color: $beige;
+}
+.reveal .slide-number {
+  top: 22px; bottom: auto; right: 48px;
+  font-family: $mono; font-size: 13px; letter-spacing: 0.2em;
+  color: $texto-suave; background: transparent;
+}
+.reveal .slide-number a { color: $texto-suave; }
+
+// ---- Slide de título ---------------------------------------------------------
+.reveal .quarto-title-block { border-left: 1px solid $beige; padding-left: 1.2em; }
+.reveal .quarto-title-block .title { font-size: 2.6em; font-weight: 400; color: $texto; line-height: 1.05; }
+.reveal .quarto-title-block .subtitle {
+  font-family: $mono; font-size: 0.55em; letter-spacing: 0.28em; text-transform: uppercase;
+  color: $beige; margin-top: 1.2em;
+}
+.reveal .quarto-title-block .quarto-title-author-name { font-family: $sans; font-size: 0.7em; color: $texto-suave; }
+
+// ---- Slides de sección --------------------------------------------------------
+.reveal .slides section.seccion h2 {
+  font-size: 2.8em; font-style: italic; color: $beige; text-align: left;
+  border-left: 1px solid $beige; padding-left: 0.6em;
+}
+
+// ---- Resaltadores pastel ------------------------------------------------------
+// Uso:  [texto]{.hl}  [texto]{.hl-rosa}  [texto]{.hl-amarillo}  [texto]{.hl-lila}  [texto]{.hl-beige}
 %resaltador {
-  color: $fondo;
+  color: $carbon;
   padding: 0.02em 0.28em;
-  border-radius: 0.25em;
+  border-radius: 0.2em;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
+  font-weight: 400;
 }
 .hl          { @extend %resaltador; background: $salvia; }
 .hl-rosa     { @extend %resaltador; background: $rosa; }
 .hl-amarillo { @extend %resaltador; background: $amarillo; }
 .hl-lila     { @extend %resaltador; background: $lila; }
 .hl-durazno  { @extend %resaltador; background: $durazno; }
-.hl code, [class^="hl"] code { color: $fondo; background: transparent; }
+.hl-beige    { @extend %resaltador; background: $beige-claro; }
+[class^="hl"] code { color: $carbon; background: transparent; }
 
-// Subtítulos de columna: en color, sin negrita
+// Subtítulos de columna: etiqueta en mayúsculas espaciadas
 .subtitulo {
-  display: inline-block;
-  color: $pastel;
-  font-size: 0.8em;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  margin-bottom: 0.2em;
+  display: inline-block; font-family: $mono; font-size: 0.6em; letter-spacing: 0.22em;
+  text-transform: uppercase; color: $beige; margin-bottom: 0.4em;
 }
+.subtitulo::before { content: "— "; }
 
-// ---- Slides de sección --------------------------------------------------
-.reveal .slides section.seccion h1,
-.reveal .slides section.seccion h2 { color: $fondo; font-weight: 600; }
-
-// ---- Caja de actividad --------------------------------------------------
+// ---- Caja de actividad -----------------------------------------------------
 .actividad {
-  background: $fondo-caja;
-  border-left: 6px solid $pastel;
-  border-radius: 8px;
-  padding: 0.6em 0.9em;
-  margin-top: 0.4em;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid $linea;
+  border-left: 2px solid $verde;
+  border-radius: 6px;
+  padding: 0.7em 1em;
+  margin-top: 0.5em;
 }
-.etiqueta { color: $pastel; font-weight: 500; }
+.etiqueta { font-family: $mono; font-size: 0.7em; letter-spacing: 0.2em; text-transform: uppercase; color: $verde; }
 
 // Reloj de la actividad
 .tiempo {
-  display: inline-block;
-  background: $salvia;
-  color: $fondo;
-  border-radius: 999px;
-  padding: 0.05em 0.6em;
-  font-size: 0.72em;
-  font-weight: 500;
-  vertical-align: middle;
+  display: inline-block; border: 1px solid $verde; color: $verde; background: transparent;
+  border-radius: 999px; padding: 0.02em 0.7em; font-family: $mono; font-size: 0.6em;
+  letter-spacing: 0.1em; vertical-align: middle; margin-left: 0.4em;
 }
 
 // Ejemplos buenos / malos
-.bien { color: $pastel; }
-.mal  { color: #F2A7A0; text-decoration: line-through; }
+.bien { color: $verde; }
+.mal  { color: #E7A49A; text-decoration: line-through; }
 
 // Cita de la fuente
 .fuente {
-  display: block;
-  margin-top: 1.2em;
-  font-size: 0.45em;
-  line-height: 1.3;
-  color: $texto-suave;
+  display: block; margin-top: 1.4em; font-family: $mono; font-size: 0.48em;
+  letter-spacing: 0.02em; line-height: 1.4; color: $texto-suave;
 }
 
-// ---- Código y árboles de carpetas ---------------------------------------
-.reveal pre { font-size: 0.66em; line-height: 1.35; box-shadow: none; border: 1px solid #2C352E; border-radius: 8px; }
-.reveal pre code, .reveal div.sourceCode pre code { font-size: 1em !important; line-height: 1.35; background: $fondo-caja; color: $texto; }
-.reveal div.sourceCode { background: $fondo-caja; border: none; }
-.reveal code { color: $salvia; }
-.reveal pre code span.co { color: #7F8C82; font-style: italic; }   // comentarios
-.reveal pre code span.st { color: $amarillo; }                      // texto entre comillas
-.reveal pre code span.fu { color: $menta; }                         // funciones
-.reveal pre code span.dv, .reveal pre code span.fl { color: $durazno; }  // números
+// ---- Código y árboles de carpetas -------------------------------------------
+.reveal pre { font-size: 0.62em; line-height: 1.4; box-shadow: none; border: 1px solid $linea; border-radius: 6px; }
+.reveal pre code, .reveal div.sourceCode pre code { font-size: 1em !important; line-height: 1.4; background: $carbon-2; color: $texto; }
+.reveal div.sourceCode { background: $carbon-2; border: none; }
+.reveal code { color: $salvia; font-family: $mono; }
+.reveal pre code span.co { color: #7F8A80; font-style: italic; }
+.reveal pre code span.st { color: $amarillo; }
+.reveal pre code span.fu { color: $menta; }
+.reveal pre code span.dv, .reveal pre code span.fl { color: $durazno; }
 .reveal pre code span.kw, .reveal pre code span.ot { color: $lila; }
 .reveal pre code span.at { color: $rosa; }
 .reveal .code-with-copy .code-copy-button { color: $texto-suave; }
-.reveal pre.sourceCode code a { color: #5A675D; }   // números de línea
 
-// ---- Tablas -------------------------------------------------------------
-.reveal table th { color: $menta; font-weight: 500; border-bottom: 1px solid $pastel; }
-.reveal table td { border-bottom: 1px solid #2C352E; }
+// ---- Tablas -------------------------------------------------------------------
+.reveal table th {
+  font-family: $mono; font-size: 0.6em; letter-spacing: 0.16em; text-transform: uppercase;
+  color: $beige; font-weight: 400; border-bottom: 1px solid $beige;
+}
+.reveal table td { border-bottom: 1px solid $linea; }
 
-// ---- Citas --------------------------------------------------------------
+// ---- Citas --------------------------------------------------------------------
 .reveal blockquote {
-  background: $fondo-caja;
-  border-left: 4px solid $menta;
-  color: $texto;
-  box-shadow: none;
+  background: transparent; border-left: 1px solid $beige; box-shadow: none;
+  font-family: $serif; font-style: italic; font-size: 1.15em; color: $texto; padding-left: 1em;
 }
 
-// ---- Escalera de la ciencia abierta -------------------------------------
+// ---- Escalera de la ciencia abierta --------------------------------------------
 .escalera { display: flex; align-items: flex-end; gap: 0.4em; height: 9em; margin: 0.6em 0; }
 .escalera > div {
-  flex: 1; background: $fondo-caja; border-top: 6px solid $pastel; border-radius: 8px 8px 0 0;
-  padding: 0.35em 0.5em; font-size: 0.6em; line-height: 1.3; color: $texto;
+  flex: 1; background: rgba(255, 255, 255, 0.025); border: 1px solid $linea; border-top: 2px solid $verde;
+  border-radius: 6px 6px 0 0; padding: 0.4em 0.55em; font-size: 0.58em; line-height: 1.35; color: $texto;
 }
-.escalera .esc-t { color: $menta; font-size: 1.3em; font-weight: 500; }
-.escalera > div.fuera { border-top-color: $lila; }
-.escalera > div.fuera .esc-t { color: $lila; }
+.escalera .esc-t { font-family: $serif; color: $texto; font-size: 1.45em; }
+.escalera em { font-family: $mono; font-style: normal; font-size: 0.85em; letter-spacing: 0.08em; color: $beige; }
+.escalera > div.fuera { border-top-color: $beige; }
+.escalera > div.fuera .esc-t { font-style: italic; color: $beige; }
 
-// ---- Pie y controles ----------------------------------------------------
-.reveal .footer { color: $texto-suave; }
-.reveal .slide-number { color: $texto-suave; background: transparent; }
-.reveal .progress { color: $pastel; }
-.reveal .controls { color: $pastel; }
+// ---- Controles ---------------------------------------------------------------
+.reveal .progress { color: $beige; height: 2px; }
+.reveal .controls { color: $beige; }

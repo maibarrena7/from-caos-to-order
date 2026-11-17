@@ -1,128 +1,249 @@
 /*-- scss:defaults --*/
-// Tema del sitio "Del caos al orden": fondo oscuro + verdes pastel (igual que las slides)
+// =============================================================================
+// Tema del sitio "Del caos al orden"
+// Carbón empolvado + beige tostado + verdes pastel. Títulos con serif editorial.
+// =============================================================================
 
-$fondo:        #141614;
-$fondo-caja:   #1E2620;
-$texto:        #E9EEE8;
-$texto-suave:  #A3AEA5;
+// ---- Paleta ------------------------------------------------------------------
+$carbon:       #1A1B19;   // fondo base (no negro puro)
+$carbon-2:     #21221F;   // superficies (cajas, código)
+$linea:        #3A3934;   // líneas finas
+$texto:        #ECE7DE;   // blanco cálido
+$texto-suave:  #A7A298;
+$beige:        #C9A97C;   // acento principal (itálicas, etiquetas)
+$beige-claro:  #DCC6A3;
+$salvia:       #CFE8C3;   // resaltador
 $menta:        #B5E3C0;
-$salvia:       #CFE8C3;
-$pastel:       #8FCB9B;
+$verde:        #8FCB9B;   // links, detalles
 $rosa:         #F4C6D0;
 $amarillo:     #F3E3A2;
 $lila:         #D8CCF0;
 $durazno:      #F6CDB4;
 
-$body-bg:      $fondo;
-$body-color:   $texto;
-$primary:      $pastel;
-$secondary:    $texto-suave;
-$link-color:   $pastel;
-$headings-color: $menta;
-$headings-font-weight: 600;
+// ---- Tipografías ---------------------------------------------------------------
+$serif: '"Playfair Display"', Georgia, serif;
+$sans:  '"Inter"', system-ui, sans-serif;
+$mono:  '"IBM Plex Mono"', ui-monospace, monospace;
+
+$body-bg: $carbon;
+$body-color: $texto;
+$primary: $verde;
+$secondary: $texto-suave;
+$link-color: $verde;
+$headings-color: $texto;
+$headings-font-family: $serif;
+$headings-font-weight: 400;
+$font-family-sans-serif: $sans;
+$font-family-monospace: $mono;
 $font-weight-bold: 600;
-$font-family-sans-serif: '"Source Sans 3"', system-ui, sans-serif;
+$font-size-root: 17px;
+$line-height-base: 1.65;
 
-$navbar-bg:    #0F110F;
-$navbar-fg:    $texto;
-$navbar-hl:    $menta;
-$footer-bg:    #0F110F;
-$footer-fg:    $texto-suave;
+$navbar-bg: transparent;
+$navbar-fg: $texto-suave;
+$navbar-hl: $beige;
+$footer-bg: transparent;
+$footer-fg: $texto-suave;
 
-$code-color:   $salvia;
-$code-bg:      #243026;
-$code-block-bg: $fondo-caja;
-$table-border-color: #2C352E;
-$border-color: #2C352E;
-$input-bg: $fondo-caja;
-$dropdown-bg: #0F110F;
+$code-color: $salvia;
+$code-bg: #2A2B27;
+$code-block-bg: $carbon-2;
+$table-border-color: $linea;
+$border-color: $linea;
+$input-bg: $carbon-2;
+$dropdown-bg: #1E1F1C;
 $dropdown-link-color: $texto;
-$dropdown-link-hover-bg: $fondo-caja;
-$dropdown-link-hover-color: $menta;
+$dropdown-link-hover-bg: $carbon-2;
+$dropdown-link-hover-color: $beige;
 
 /*-- scss:rules --*/
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+// ---- Fondo empolvado: degradé suave + grano ---------------------------------
+body {
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(201, 169, 124, 0.06), transparent 55%),
+    radial-gradient(ellipse at 90% 100%, rgba(143, 203, 155, 0.05), transparent 50%),
+    $carbon;
+  background-attachment: fixed;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyMjAnIGhlaWdodD0nMjIwJz48ZmlsdGVyIGlkPSduJz48ZmVUdXJidWxlbmNlIHR5cGU9J2ZyYWN0YWxOb2lzZScgYmFzZUZyZXF1ZW5jeT0nMC44NScgbnVtT2N0YXZlcz0nMycgc3RpdGNoVGlsZXM9J3N0aXRjaCcvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPScxMDAlJyBoZWlnaHQ9JzEwMCUnIGZpbHRlcj0ndXJsKCNuKScvPjwvc3ZnPg==");
+}
+#quarto-content, .nav-footer { position: relative; z-index: 1; }
+#quarto-header { z-index: 10; }
+
+// En la portada no se muestra el bloque de título estándar
+body:has(.portada) #title-block-header { display: none; }
 
 strong, b { font-weight: 600; }
+p, li { font-weight: 300; }
 
-// Portada
-.hero {
-  background: $fondo-caja;
-  border-left: 6px solid $pastel;
-  padding: 1.5rem 1.75rem;
-  border-radius: 8px;
-  margin-bottom: 2rem;
+// ---- Itálicas en títulos = acento beige ---------------------------------------
+h1 em, h2 em, h3 em, .display em { color: $beige; font-style: italic; }
+
+// ---- Navegación --------------------------------------------------------------
+.navbar {
+  border-bottom: 1px solid $linea;
+  backdrop-filter: blur(6px);
+  background: rgba(26, 27, 25, 0.85) !important;
 }
-.hero h2 { margin-top: 0; border-bottom: none; color: $menta; }
+.navbar-brand .navbar-title { font-family: $serif; font-size: 1.25rem; color: $texto; }
+.navbar .nav-link {
+  font-family: $mono; font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase;
+}
+.dropdown-menu { border: 1px solid $linea; }
+.dropdown-header { font-family: $mono; font-size: 0.7rem; letter-spacing: 0.14em; color: $beige; text-transform: uppercase; }
 
-h2 { border-bottom: 1px solid #2C352E; padding-bottom: .3rem; }
-.quarto-title .title { color: $menta; }
-.quarto-title .subtitle { color: $pastel; }
+// ---- Bloque de título de cada página ----------------------------------------
+.quarto-title-block .title {
+  font-family: $serif; font-weight: 400; font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.1;
+}
+.quarto-title-block .subtitle {
+  font-family: $mono; font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: $beige; margin-top: 0.8rem;
+}
+header#title-block-header { border-bottom: 1px solid $linea; padding-bottom: 1.5rem; margin-bottom: 2.5rem; }
 
-// Resaltadores pastel: [texto]{.hl}, {.hl-rosa}, {.hl-amarillo}, {.hl-lila}, {.hl-durazno}
+// ---- Encabezados del contenido ------------------------------------------------
+h1, h2, h3, h4 { font-weight: 400 !important; }
+h2 { font-size: 1.9rem; margin-top: 3rem; border-bottom: none; padding-bottom: 0; }
+h2::before {
+  content: ""; display: block; width: 2.2rem; height: 1px; background: $beige; margin-bottom: 0.9rem;
+}
+h3 { font-size: 1.35rem; font-style: italic; color: $beige-claro; }
+
+// ---- Etiquetas tipo "CAPÍTULO 03" -------------------------------------------
+.kicker {
+  font-family: $mono; font-size: 0.74rem; letter-spacing: 0.24em; text-transform: uppercase; color: $beige;
+}
+.kicker::before { content: "— "; }
+
+// ---- Resaltadores pastel: [texto]{.hl}, {.hl-rosa}, {.hl-amarillo}, {.hl-lila}, {.hl-beige}
 %resaltador {
-  color: $fondo;
-  padding: 0.02em 0.28em;
-  border-radius: 0.25em;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
+  color: $carbon; padding: 0.02em 0.3em; border-radius: 0.2em;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone; font-weight: 400;
 }
 .hl          { @extend %resaltador; background: $salvia; }
 .hl-rosa     { @extend %resaltador; background: $rosa; }
 .hl-amarillo { @extend %resaltador; background: $amarillo; }
 .hl-lila     { @extend %resaltador; background: $lila; }
 .hl-durazno  { @extend %resaltador; background: $durazno; }
+.hl-beige    { @extend %resaltador; background: $beige-claro; }
 
-// Botones de descarga
+// Nombres de botones y menús de programas: [Download]{.ui}
+.ui {
+  display: inline-block; border: 1px solid $linea; border-radius: 4px; padding: 0 0.4em;
+  font-family: $mono; font-size: 0.8em; color: $beige-claro; background: rgba(201, 169, 124, 0.06);
+  white-space: nowrap;
+}
+
+// ---- Botones de descarga -----------------------------------------------------
 .btn-primary {
-  background: $salvia; border-color: $salvia; color: $fondo; font-weight: 500;
-  &:hover, &:focus { background: $menta; border-color: $menta; color: $fondo; }
+  background: transparent; border: 1px solid $beige; color: $beige; border-radius: 999px;
+  font-family: $mono; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.6rem 1.4rem;
+  &:hover, &:focus { background: $beige; border-color: $beige; color: $carbon; }
 }
 
-// Código
-div.sourceCode, pre { background: $fondo-caja; border: 1px solid #2C352E; border-radius: 8px; }
+// ---- Código ------------------------------------------------------------------
+div.sourceCode, pre { background: $carbon-2; border: 1px solid $linea; border-radius: 6px; }
 pre code { color: $texto; }
-code { color: $salvia; }
 :not(pre) > code, p code:not(.sourceCode), li code:not(.sourceCode), td code:not(.sourceCode), a code {
-  background-color: #243026 !important;
-  color: $salvia !important;
-  padding: 0.1em 0.3em;
-  border-radius: 4px;
+  background-color: #2A2B27 !important; color: $salvia !important; padding: 0.1em 0.35em; border-radius: 4px;
 }
-pre code span.co { color: #7F8C82; font-style: italic; }
+pre code span.co { color: #7F8A80; font-style: italic; }
 pre code span.st { color: $amarillo; }
 pre code span.fu { color: $menta; }
 pre code span.dv, pre code span.fl { color: $durazno; }
 pre code span.kw, pre code span.ot { color: $lila; }
 pre code span.at { color: $rosa; }
 
-// Tablas
+// ---- Tablas -------------------------------------------------------------------
 .table { color: $texto; --bs-table-color: #{$texto}; --bs-table-bg: transparent; }
-.table th { color: $menta; font-weight: 500; border-bottom: 1px solid $pastel; }
+.table th {
+  font-family: $mono; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: $beige; font-weight: 400; border-bottom: 1px solid $beige;
+}
+.table td { border-bottom: 1px solid $linea; font-weight: 300; }
 
-// Callouts sobre fondo oscuro
-.callout { background: $fondo-caja; border-color: #2C352E; }
-.callout.callout-style-default .callout-header { background: transparent; }
-.callout-note    { border-left-color: $pastel !important; }
-.callout-tip     { border-left-color: $menta !important; }
-.callout-warning { border-left-color: $amarillo !important; }
+// ---- Callouts: sobrios, con línea lateral -------------------------------------
+.callout {
+  background: rgba(255, 255, 255, 0.02) !important; border: 1px solid $linea !important;
+  border-left: 3px solid $beige !important; border-radius: 6px;
+}
+.callout .callout-header { background: transparent !important; }
+.callout .callout-title-container { font-family: $mono; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: $beige; }
+.callout-tip       { border-left-color: $verde !important; }
+.callout-tip .callout-title-container { color: $verde; }
+.callout-warning   { border-left-color: $amarillo !important; }
+.callout-warning .callout-title-container { color: $amarillo; }
 .callout-important { border-left-color: $rosa !important; }
+.callout-important .callout-title-container { color: $rosa; }
 
-// Casillas de la checklist
-input[type="checkbox"] { accent-color: $pastel; }
+// ---- Índice lateral -----------------------------------------------------------
+#TOC .toc-title, #toc-title { font-family: $mono; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: $beige; }
+.sidebar nav[role="doc-toc"] ul > li > a { font-size: 0.85rem; color: $texto-suave; }
+.sidebar nav[role="doc-toc"] ul > li > a.active { color: $beige; border-left-color: $beige; }
 
-// Navegación
-.navbar { border-bottom: 1px solid #2C352E; }
-.sidebar nav[role="doc-toc"] ul > li > a.active { color: $menta; border-left-color: $menta; }
+// ---- Casillas de la checklist -------------------------------------------------
+input[type="checkbox"] { accent-color: $verde; }
 
-// Nombres de botones y menús de programas: [Download]{.ui}
-.ui {
-  display: inline-block;
-  border: 1px solid #4A5A4E;
-  border-radius: 6px;
-  padding: 0 0.35em;
-  font-size: 0.92em;
-  color: $menta;
-  background: rgba(181, 227, 192, 0.06);
-  white-space: nowrap;
+// ---- Pie ---------------------------------------------------------------------
+.nav-footer { border-top: 1px solid $linea; font-family: $mono; font-size: 0.72rem; letter-spacing: 0.06em; }
+
+// =============================================================================
+// PORTADA
+// =============================================================================
+.portada { max-width: 1180px; margin: 2rem auto 0; padding: 0 2rem; }
+
+.hero {
+  display: grid; grid-template-columns: 1.15fr 1px 0.85fr; gap: 3rem; align-items: center;
+  padding: 3rem 0 3.5rem; border-bottom: 1px solid $linea;
+}
+.hero-divisor { background: $linea; align-self: stretch; }
+.display {
+  font-family: $serif; font-weight: 400; font-size: clamp(3rem, 7vw, 5.2rem); line-height: 1.02;
+  margin: 1.2rem 0 1.6rem; color: $texto;
+}
+.display::before { display: none; }
+.bajada { font-size: 1.15rem; color: $texto-suave; max-width: 34rem; }
+.hero-datos { display: flex; flex-direction: column; gap: 2.2rem; }
+.dato .kicker { color: $beige; }
+.dato .numero { font-family: $serif; font-size: 3.2rem; line-height: 1; margin: 0.4rem 0 0.5rem; color: $texto; }
+.dato .detalle { font-size: 0.92rem; color: $texto-suave; margin: 0; }
+
+.bloque { display: grid; grid-template-columns: 14rem 1fr; gap: 2.5rem; padding: 3rem 0; border-bottom: 1px solid $linea; }
+.bloque > .kicker { padding-top: 0.5rem; }
+.bloque h2 { margin-top: 0; }
+.bloque h2::before { display: none; }
+
+// Tarjetas del programa
+.programa { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: $linea; border: 1px solid $linea; margin-top: 1rem; }
+.programa > div { background: $carbon; padding: 1.6rem 1.4rem; transition: background 0.2s; }
+.programa > div:hover { background: $carbon-2; }
+.programa .num { font-family: $serif; font-style: italic; color: $beige; font-size: 2rem; line-height: 1; }
+.programa .semana { font-family: $mono; font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: $texto-suave; margin: 0.9rem 0 0.4rem; }
+.programa p { margin: 0; }
+.programa a { color: $texto; text-decoration: none; font-family: $serif; font-size: 1.2rem; line-height: 1.3; }
+.programa a:hover { color: $beige; }
+
+// Ficha práctica
+.ficha { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem 2rem; }
+.ficha .kicker::before { content: ""; }
+.ficha p { margin: 0.3rem 0 0; }
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; gap: 2rem; }
+  .hero-divisor { display: none; }
+  .bloque { grid-template-columns: 1fr; gap: 1rem; }
+  .programa, .ficha { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .programa, .ficha { grid-template-columns: 1fr; }
 }

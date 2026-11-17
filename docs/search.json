@@ -1,0 +1,555 @@
+[
+  {
+    "objectID": "checklist/index.html",
+    "href": "checklist/index.html",
+    "title": "Checklist de organización y reproducibilidad",
+    "section": "",
+    "text": "Usá esta lista para revisar tu propio proyecto o el de otra persona. No hace falta cumplir todo: cada ítem tildado es un paso más hacia un proyecto reproducible."
+  },
+  {
+    "objectID": "checklist/index.html#estructura",
+    "href": "checklist/index.html#estructura",
+    "title": "Checklist de organización y reproducibilidad",
+    "section": "📂 Estructura",
+    "text": "📂 Estructura\n\nHay un solo archivo .Rproj, en la raíz del proyecto.\nDatos, código, productos y documentación están en carpetas separadas.\nLos nombres de archivos y carpetas no tienen espacios, tildes ni caracteres especiales.\nLas fechas en los nombres siguen el formato AAAA-MM-DD y los scripts están numerados (01_, 02_…).\nNo hay versiones manuales (_final, _v2, _ok, (1)) ni archivos duplicados."
+  },
+  {
+    "objectID": "checklist/index.html#datos",
+    "href": "checklist/index.html#datos",
+    "title": "Checklist de organización y reproducibilidad",
+    "section": "📊 Datos",
+    "text": "📊 Datos\n\nLos datos crudos están en data/raw/ y no se modifican (están marcados como solo lectura).\nHay un diccionario de datos con la descripción, el tipo y la unidad de cada variable.\nLos códigos de dato faltante están documentados.\nNinguna información depende de colores o formatos de la planilla."
+  },
+  {
+    "objectID": "checklist/index.html#código",
+    "href": "checklist/index.html#código",
+    "title": "Checklist de organización y reproducibilidad",
+    "section": "💻 Código",
+    "text": "💻 Código\n\nNo hay setwd() ni rutas absolutas (C:/Users/...): las rutas usan here().\nNo hay install.packages() dentro de los scripts.\nEl análisis corre de punta a punta en una sesión nueva (Session → Restart R y correr todo).\nRStudio está configurado para no guardar ni cargar .RData.\nLa limpieza de los datos está hecha con código, no a mano."
+  },
+  {
+    "objectID": "checklist/index.html#resultados",
+    "href": "checklist/index.html#resultados",
+    "title": "Checklist de organización y reproducibilidad",
+    "section": "📈 Resultados",
+    "text": "📈 Resultados\n\nSi borro outputs/, se regenera completo corriendo los scripts.\nNinguna tabla ni número del informe está copiado a mano."
+  },
+  {
+    "objectID": "checklist/index.html#documentación",
+    "href": "checklist/index.html#documentación",
+    "title": "Checklist de organización y reproducibilidad",
+    "section": "📝 Documentación",
+    "text": "📝 Documentación\n\nHay un README.md que dice qué es el proyecto, quién lo hizo y cómo contactarle.\nEl README explica la estructura de carpetas y cómo reproducir los resultados (en qué orden se corren los scripts, qué paquetes hacen falta).\nLas decisiones y correcciones sobre los datos están registradas."
+  },
+  {
+    "objectID": "checklist/index.html#control-de-versiones",
+    "href": "checklist/index.html#control-de-versiones",
+    "title": "Checklist de organización y reproducibilidad",
+    "section": "🔁 Control de versiones",
+    "text": "🔁 Control de versiones\n\nEl proyecto es un repositorio de Git.\nHay un .gitignore que excluye archivos de sesión y productos regenerables.\nLos mensajes de commit dicen qué cambió y por qué.\nNo hay documentos sensibles (datos personales, firmas, contraseñas) en el repositorio, ni en su historial."
+  },
+  {
+    "objectID": "checklist/index.html#para-compartir-próximos-pasos",
+    "href": "checklist/index.html#para-compartir-próximos-pasos",
+    "title": "Checklist de organización y reproducibilidad",
+    "section": "🌍 Para compartir (próximos pasos)",
+    "text": "🌍 Para compartir (próximos pasos)\n\nEl proyecto tiene una licencia (por ejemplo, CC BY 4.0 para datos y MIT para código).\nEstá listo para depositarse en un repositorio con DOI (Zenodo, OSF o el repositorio institucional).\n\n\nBasada en Wilson, G. et al. (2017). Good enough practices in scientific computing. PLOS Computational Biology, 13(6), e1005510; y en Broman, K. W. & Woo, K. H. (2018). Data organization in spreadsheets. The American Statistician, 72(1), 2–10."
+  },
+  {
+    "objectID": "encuentros/06-integracion/index.html",
+    "href": "encuentros/06-integracion/index.html",
+    "title": "Encuentro 6 · Integración y revisión del proyecto",
+    "section": "",
+    "text": "NotaDiapositivas\n\n\n\nAbrir las diapositivas del encuentro (en pantalla completa con la tecla F)."
+  },
+  {
+    "objectID": "encuentros/06-integracion/index.html#al-terminar-este-encuentro-vas-a-poder",
+    "href": "encuentros/06-integracion/index.html#al-terminar-este-encuentro-vas-a-poder",
+    "title": "Encuentro 6 · Integración y revisión del proyecto",
+    "section": "Al terminar este encuentro vas a poder",
+    "text": "Al terminar este encuentro vas a poder\n\nEvaluar la organización y reproducibilidad de un proyecto con una checklist.\nDar y recibir devoluciones sobre un proyecto.\nIdentificar los próximos pasos para compartir datos y código.\nPlanificar una práctica concreta para un proyecto propio."
+  },
+  {
+    "objectID": "encuentros/06-integracion/index.html#actividad-1-revisión-cruzada",
+    "href": "encuentros/06-integracion/index.html#actividad-1-revisión-cruzada",
+    "title": "Encuentro 6 · Integración y revisión del proyecto",
+    "section": "Actividad 1: revisión cruzada",
+    "text": "Actividad 1: revisión cruzada\nEn parejas, 30 minutos.\n\nIntercambiá tu proyecto con otra persona (por GitHub, pendrive o zip).\nTratá de correr su análisis usando solo el README, sin preguntarle nada.\nRecorré la checklist.\nDejale dos comentarios: una cosa que funciona y una que mejorarías."
+  },
+  {
+    "objectID": "encuentros/06-integracion/index.html#actividad-2-comparar-con-la-referencia",
+    "href": "encuentros/06-integracion/index.html#actividad-2-comparar-con-la-referencia",
+    "title": "Encuentro 6 · Integración y revisión del proyecto",
+    "section": "Actividad 2: comparar con la referencia",
+    "text": "Actividad 2: comparar con la referencia\nDescargá el proyecto de referencia y comparalo con el tuyo. ¿Tomaste decisiones distintas? ¿Por qué?\n\n⬇ Descargar ordenado.zip\n\n\n\n\n\n\n\nTipNo hay una única respuesta\n\n\n\nordenado/ es una forma de resolverlo. Si tu proyecto cumple la checklist y tus decisiones están documentadas, está bien."
+  },
+  {
+    "objectID": "encuentros/06-integracion/index.html#el-siguiente-escalón-compartir",
+    "href": "encuentros/06-integracion/index.html#el-siguiente-escalón-compartir",
+    "title": "Encuentro 6 · Integración y revisión del proyecto",
+    "section": "El siguiente escalón: compartir",
+    "text": "El siguiente escalón: compartir\n\n\n\n\nOpciones\n\n\n\n\nDónde depositar\nZenodo, OSF, CONICET Digital o el repositorio de tu institución\n\n\nCómo obtener un DOI\nZenodo y OSF lo asignan; un release de GitHub se puede conectar con Zenodo\n\n\nLicencia para datos\nCC BY 4.0 o CC0\n\n\nLicencia para código\nMIT o GPL\n\n\nVersiones de paquetes\n{renv}"
+  },
+  {
+    "objectID": "encuentros/06-integracion/index.html#mi-compromiso",
+    "href": "encuentros/06-integracion/index.html#mi-compromiso",
+    "title": "Encuentro 6 · Integración y revisión del proyecto",
+    "section": "Mi compromiso",
+    "text": "Mi compromiso\nEscribí una práctica que vas a aplicar en tu proyecto esta semana. Pegala donde la veas."
+  },
+  {
+    "objectID": "encuentros/06-integracion/index.html#encuesta",
+    "href": "encuentros/06-integracion/index.html#encuesta",
+    "title": "Encuentro 6 · Integración y revisión del proyecto",
+    "section": "Encuesta",
+    "text": "Encuesta\nCompletá la encuesta anónima del taller: [LINK A LA ENCUESTA]. ¡Gracias!"
+  },
+  {
+    "objectID": "encuentros/06-integracion/index.html#para-seguir-leyendo",
+    "href": "encuentros/06-integracion/index.html#para-seguir-leyendo",
+    "title": "Encuentro 6 · Integración y revisión del proyecto",
+    "section": "Para seguir leyendo",
+    "text": "Para seguir leyendo\n\nLMU Open Science Center. Code Publishing (CC BY-SA 4.0).\nLMU Open Science Center. FAIR Data Management (CC BY-SA 4.0).\nLMU Open Science Center. Introduction to {renv} (CC BY-SA 4.0).\nThe Turing Way. Guide for reproducible research."
+  },
+  {
+    "objectID": "encuentros/05-git-github/index.html",
+    "href": "encuentros/05-git-github/index.html",
+    "title": "Encuentro 5 · Introducción a Git y GitHub",
+    "section": "",
+    "text": "NotaDiapositivas\n\n\n\nAbrir las diapositivas del encuentro (en pantalla completa con la tecla F)."
+  },
+  {
+    "objectID": "encuentros/05-git-github/index.html#al-terminar-este-encuentro-vas-a-poder",
+    "href": "encuentros/05-git-github/index.html#al-terminar-este-encuentro-vas-a-poder",
+    "title": "Encuentro 5 · Introducción a Git y GitHub",
+    "section": "Al terminar este encuentro vas a poder",
+    "text": "Al terminar este encuentro vas a poder\n\nExplicar qué es el control de versiones y para qué sirve.\nDistinguir entre Git y GitHub.\nRegistrar cambios en un proyecto (commits) y recorrer su historial.\nDecidir qué archivos van (y cuáles no) a un repositorio."
+  },
+  {
+    "objectID": "encuentros/05-git-github/index.html#antes-de-empezar",
+    "href": "encuentros/05-git-github/index.html#antes-de-empezar",
+    "title": "Encuentro 5 · Introducción a Git y GitHub",
+    "section": "Antes de empezar",
+    "text": "Antes de empezar\n\nInstalá GitHub Desktop (trae Git incluido).\nCreá una cuenta gratuita en github.com e iniciá sesión en GitHub Desktop (File → Options → Accounts)."
+  },
+  {
+    "objectID": "encuentros/05-git-github/index.html#vocabulario-mínimo",
+    "href": "encuentros/05-git-github/index.html#vocabulario-mínimo",
+    "title": "Encuentro 5 · Introducción a Git y GitHub",
+    "section": "Vocabulario mínimo",
+    "text": "Vocabulario mínimo\n\n\n\nPalabra\nQué es\n\n\n\n\nRepositorio\nUna carpeta cuyo historial está registrado por Git\n\n\nCommit\nUna “foto” del proyecto, con un mensaje que dice qué cambió\n\n\nHistorial\nLa lista de todos los commits\n\n\nPush\nSubir los commits de tu compu a GitHub\n\n\nPull\nBajar a tu compu los commits que están en GitHub\n\n\n.gitignore\nLa lista de archivos que Git no debe registrar"
+  },
+  {
+    "objectID": "encuentros/05-git-github/index.html#paso-1-el-.gitignore",
+    "href": "encuentros/05-git-github/index.html#paso-1-el-.gitignore",
+    "title": "Encuentro 5 · Introducción a Git y GitHub",
+    "section": "Paso 1: el .gitignore",
+    "text": "Paso 1: el .gitignore\n⬇ Descargar la plantilla de .gitignore\nGuardala en la raíz del proyecto con el nombre .gitignore (con el punto adelante y sin .txt al final).\n\n\n\n\n\n\nImportanteAntes del primer commit\n\n\n\nEl .gitignore tiene que estar antes del primer commit. Si un archivo ya quedó registrado, ignorarlo después no lo saca del historial."
+  },
+  {
+    "objectID": "encuentros/05-git-github/index.html#paso-2-crear-el-repositorio",
+    "href": "encuentros/05-git-github/index.html#paso-2-crear-el-repositorio",
+    "title": "Encuentro 5 · Introducción a Git y GitHub",
+    "section": "Paso 2: crear el repositorio",
+    "text": "Paso 2: crear el repositorio\nEn GitHub Desktop: File → Add local repository → elegí la carpeta del proyecto. Como todavía no es un repositorio, va a aparecer el aviso “This directory does not appear to be a Git repository”: hacé clic en create a repository y después en Create repository."
+  },
+  {
+    "objectID": "encuentros/05-git-github/index.html#paso-3-commits",
+    "href": "encuentros/05-git-github/index.html#paso-3-commits",
+    "title": "Encuentro 5 · Introducción a Git y GitHub",
+    "section": "Paso 3: commits",
+    "text": "Paso 3: commits\n\nA la izquierda vas a ver la lista de archivos. Revisá que no aparezcan outputs/, .RData ni nada que no deba ir.\nAbajo a la izquierda, escribí un mensaje (por ejemplo, “Proyecto organizado”) y hacé clic en Commit to main.\nAbrí README.md, cambiá algo y guardá. Volvé a GitHub Desktop: vas a ver el cambio resaltado. Hacé un segundo commit con un mensaje claro."
+  },
+  {
+    "objectID": "encuentros/05-git-github/index.html#paso-4-historial-y-volver-atrás",
+    "href": "encuentros/05-git-github/index.html#paso-4-historial-y-volver-atrás",
+    "title": "Encuentro 5 · Introducción a Git y GitHub",
+    "section": "Paso 4: historial y volver atrás",
+    "text": "Paso 4: historial y volver atrás\n\nPestaña History: todos los commits, con fecha, autoría y qué cambió.\nClic derecho sobre un commit → Revert changes in commit: deshace ese cambio (y queda registrado como un commit nuevo)."
+  },
+  {
+    "objectID": "encuentros/05-git-github/index.html#paso-5-subir-a-github-opcional",
+    "href": "encuentros/05-git-github/index.html#paso-5-subir-a-github-opcional",
+    "title": "Encuentro 5 · Introducción a Git y GitHub",
+    "section": "Paso 5: subir a GitHub (opcional)",
+    "text": "Paso 5: subir a GitHub (opcional)\nPublish repository → dejá tildado Keep this code private → Publish. Entrá a github.com y buscá tu repositorio: el README aparece como portada."
+  },
+  {
+    "objectID": "encuentros/05-git-github/index.html#para-la-próxima",
+    "href": "encuentros/05-git-github/index.html#para-la-próxima",
+    "title": "Encuentro 5 · Introducción a Git y GitHub",
+    "section": "Para la próxima",
+    "text": "Para la próxima\nHacé al menos un commit más en el proyecto, con un mensaje claro. Si lo publicaste, hacé también Push origin."
+  },
+  {
+    "objectID": "encuentros/05-git-github/index.html#para-seguir-leyendo",
+    "href": "encuentros/05-git-github/index.html#para-seguir-leyendo",
+    "title": "Encuentro 5 · Introducción a Git y GitHub",
+    "section": "Para seguir leyendo",
+    "text": "Para seguir leyendo\n\nLMU Open Science Center. Introduction to version control with Git in RStudio (slides, CC BY-SA 4.0).\nLMU Open Science Center. Introduction to Version Control within RStudio (tutorial, CC BY-SA 4.0).\nBryan, J. Happy Git and GitHub for the useR."
+  },
+  {
+    "objectID": "encuentros/04-flujo-reproducible/index.html",
+    "href": "encuentros/04-flujo-reproducible/index.html",
+    "title": "Encuentro 4 · De los datos originales a los resultados",
+    "section": "",
+    "text": "NotaDiapositivas\n\n\n\nAbrir las diapositivas del encuentro (en pantalla completa con la tecla F)."
+  },
+  {
+    "objectID": "encuentros/04-flujo-reproducible/index.html#al-terminar-este-encuentro-vas-a-poder",
+    "href": "encuentros/04-flujo-reproducible/index.html#al-terminar-este-encuentro-vas-a-poder",
+    "title": "Encuentro 4 · De los datos originales a los resultados",
+    "section": "Al terminar este encuentro vas a poder",
+    "text": "Al terminar este encuentro vas a poder\n\nDescribir un flujo de trabajo reproducible: datos crudos → procesados → resultados.\nLeer un script de limpieza e identificar qué problema resuelve cada parte.\nRegenerar todos los resultados de un proyecto con un solo comando.\nExplicar por qué los resultados no se copian a mano."
+  },
+  {
+    "objectID": "encuentros/04-flujo-reproducible/index.html#antes-de-empezar",
+    "href": "encuentros/04-flujo-reproducible/index.html#antes-de-empezar",
+    "title": "Encuentro 4 · De los datos originales a los resultados",
+    "section": "Antes de empezar",
+    "text": "Antes de empezar\nInstalá los paquetes que usan los scripts desde la consola (una sola vez):\ninstall.packages(c(\"tidyverse\", \"here\"))\nDescargá los scripts y copiá su contenido dentro de tu proyecto: la carpeta R/ en tu R/ y informe.qmd en tu docs/.\n\n⬇ Descargar scripts-encuentro4.zip\n\nLos scripts esperan encontrar los datos crudos en:\ndata/raw/2023-03_campo_plantas.xlsx\ndata/raw/sitios_muestreo.xlsx"
+  },
+  {
+    "objectID": "encuentros/04-flujo-reproducible/index.html#el-flujo",
+    "href": "encuentros/04-flujo-reproducible/index.html#el-flujo",
+    "title": "Encuentro 4 · De los datos originales a los resultados",
+    "section": "El flujo",
+    "text": "El flujo\n\n\n\n\n\n\n\n\nScript\nLee\nGenera\n\n\n\n\n01_limpieza.R\ndata/raw/2023-03_campo_plantas.xlsx\ndata/processed/plantas_limpio.csv\n\n\n02_analisis.R\ndata/processed/plantas_limpio.csv\noutputs/tablas/*.csv\n\n\n03_figuras.R\noutputs/tablas/ y data/raw/sitios_muestreo.xlsx\noutputs/figuras/*.png\n\n\n00_correr_todo.R\n—\ncorre los tres, en orden"
+  },
+  {
+    "objectID": "encuentros/04-flujo-reproducible/index.html#actividad-1-lectura-guiada",
+    "href": "encuentros/04-flujo-reproducible/index.html#actividad-1-lectura-guiada",
+    "title": "Encuentro 4 · De los datos originales a los resultados",
+    "section": "Actividad 1: lectura guiada",
+    "text": "Actividad 1: lectura guiada\nEn parejas, 20 minutos. Abrí R/01_limpieza.R y leelo sección por sección. Para cada sección, anotá qué problema del Excel resuelve. ¿Hay algo del diccionario de datos del encuentro 3 que no esté resuelto en el script?"
+  },
+  {
+    "objectID": "encuentros/04-flujo-reproducible/index.html#actividad-2-correr-todo",
+    "href": "encuentros/04-flujo-reproducible/index.html#actividad-2-correr-todo",
+    "title": "Encuentro 4 · De los datos originales a los resultados",
+    "section": "Actividad 2: correr todo",
+    "text": "Actividad 2: correr todo\nIndividual, 15 minutos.\n\nEn la consola: source(\"R/00_correr_todo.R\")\nMirá qué apareció en data/processed/ y en outputs/.\nBorrá la carpeta outputs/ completa.\nVolvé a correr 00_correr_todo.R. ¿Qué pasó?"
+  },
+  {
+    "objectID": "encuentros/04-flujo-reproducible/index.html#actividad-3-comparar",
+    "href": "encuentros/04-flujo-reproducible/index.html#actividad-3-comparar",
+    "title": "Encuentro 4 · De los datos originales a los resultados",
+    "section": "Actividad 3: comparar",
+    "text": "Actividad 3: comparar\nCompará la prevalencia de Zumbatrix aurea que da el flujo nuevo (outputs/tablas/) con la del script viejo del encuentro 2 y con la Tabla I_Nota.docx de la carpeta desordenado/. ¿Coinciden?"
+  },
+  {
+    "objectID": "encuentros/04-flujo-reproducible/index.html#el-informe",
+    "href": "encuentros/04-flujo-reproducible/index.html#el-informe",
+    "title": "Encuentro 4 · De los datos originales a los resultados",
+    "section": "El informe",
+    "text": "El informe\nAbrí docs/informe.qmd y tocá Render. Ningún número del informe está escrito a mano: todos salen de las tablas que generó el código."
+  },
+  {
+    "objectID": "encuentros/04-flujo-reproducible/index.html#para-la-próxima",
+    "href": "encuentros/04-flujo-reproducible/index.html#para-la-próxima",
+    "title": "Encuentro 4 · De los datos originales a los resultados",
+    "section": "Para la próxima",
+    "text": "Para la próxima\nEn R/03_figuras.R, cambiá un color, un título o el tamaño de una figura. Corré 00_correr_todo.R y renderizá docs/informe.qmd. ¿Se actualizó solo?"
+  },
+  {
+    "objectID": "encuentros/04-flujo-reproducible/index.html#para-seguir-leyendo",
+    "href": "encuentros/04-flujo-reproducible/index.html#para-seguir-leyendo",
+    "title": "Encuentro 4 · De los datos originales a los resultados",
+    "section": "Para seguir leyendo",
+    "text": "Para seguir leyendo\n\nLMU Open Science Center. Introduction to Quarto (CC BY-SA 4.0).\nLMU Open Science Center. Readable Code (CC BY-SA 4.0).\nWickham, H., Çetinkaya-Rundel, M. & Grolemund, G. (2023). R for Data Science (2.ª ed.), capítulo “Workflow: scripts and projects”."
+  },
+  {
+    "objectID": "encuentros/03-documentacion/index.html",
+    "href": "encuentros/03-documentacion/index.html",
+    "title": "Encuentro 3 · Documentar para comprender y reutilizar",
+    "section": "",
+    "text": "NotaDiapositivas\n\n\n\nAbrir las diapositivas del encuentro (en pantalla completa con la tecla F)."
+  },
+  {
+    "objectID": "encuentros/03-documentacion/index.html#al-terminar-este-encuentro-vas-a-poder",
+    "href": "encuentros/03-documentacion/index.html#al-terminar-este-encuentro-vas-a-poder",
+    "title": "Encuentro 3 · Documentar para comprender y reutilizar",
+    "section": "Al terminar este encuentro vas a poder",
+    "text": "Al terminar este encuentro vas a poder\n\nEscribir un README que explique un proyecto.\nConstruir un diccionario de datos para un conjunto de datos.\nRegistrar las decisiones y correcciones hechas sobre los datos."
+  },
+  {
+    "objectID": "encuentros/03-documentacion/index.html#plantillas",
+    "href": "encuentros/03-documentacion/index.html#plantillas",
+    "title": "Encuentro 3 · Documentar para comprender y reutilizar",
+    "section": "Plantillas",
+    "text": "Plantillas\n\n⬇ Plantilla de README (README-plantilla.md)\n⬇ Plantilla de diccionario de datos (diccionario-plantilla.csv)\n\nGuardá el README en la raíz del proyecto y el diccionario en docs/."
+  },
+  {
+    "objectID": "encuentros/03-documentacion/index.html#actividad-1-diccionario-de-datos",
+    "href": "encuentros/03-documentacion/index.html#actividad-1-diccionario-de-datos",
+    "title": "Encuentro 3 · Documentar para comprender y reutilizar",
+    "section": "Actividad 1: diccionario de datos",
+    "text": "Actividad 1: diccionario de datos\nEn parejas, 30 minutos. Completá el diccionario de data/raw/2023-03_campo_plantas.xlsx. Para cada variable:\n\n\n\nColumna\nQué poner\n\n\n\n\ndescripcion\nQué mide, en una oración\n\n\ntipo\nnúmero, entero, texto, fecha\n\n\nunidad\ncm, m², individuos…\n\n\nvalores_permitidos\nRango o lista de valores posibles\n\n\ncodigo_faltante\nCómo aparecen los datos faltantes en el crudo\n\n\nnotas\nCualquier otra cosa que haga falta saber\n\n\n\n\n\n\n\n\n\nTipPista\n\n\n\nRecorré el Excel columna por columna. Hay cuatro formas distintas de anotar un dato faltante. Y no te olvides del amarillo."
+  },
+  {
+    "objectID": "encuentros/03-documentacion/index.html#actividad-2-readme",
+    "href": "encuentros/03-documentacion/index.html#actividad-2-readme",
+    "title": "Encuentro 3 · Documentar para comprender y reutilizar",
+    "section": "Actividad 2: README",
+    "text": "Actividad 2: README\nIndividual, 20 minutos. Con la plantilla, escribí el README.md del proyecto. Incluí una sección de decisiones y correcciones con lo que decidiste en la mudanza del encuentro 2 (qué Excel usaste, qué descartaste, qué dudas quedaron).\nPodés escribirlo en RStudio: File → New File → Markdown File.\n\nMarkdown básico\n# Título\n## Subtítulo\n**negrita**, *cursiva*, `código`\n- ítem de lista"
+  },
+  {
+    "objectID": "encuentros/03-documentacion/index.html#para-la-próxima",
+    "href": "encuentros/03-documentacion/index.html#para-la-próxima",
+    "title": "Encuentro 3 · Documentar para comprender y reutilizar",
+    "section": "Para la próxima",
+    "text": "Para la próxima\nEscribí un README de 5 líneas para un proyecto propio: qué es, qué hay en la carpeta y cómo se usa."
+  },
+  {
+    "objectID": "encuentros/03-documentacion/index.html#para-seguir-leyendo",
+    "href": "encuentros/03-documentacion/index.html#para-seguir-leyendo",
+    "title": "Encuentro 3 · Documentar para comprender y reutilizar",
+    "section": "Para seguir leyendo",
+    "text": "Para seguir leyendo\n\nBroman, K. W. & Woo, K. H. (2018). Data organization in spreadsheets. The American Statistician, 72(1), 2–10.\nLMU Open Science Center. Data Documentation & Validation in R (CC BY-SA 4.0).\nThe Turing Way. Documentation."
+  },
+  {
+    "objectID": "encuentros/02-datos-scripts/index.html",
+    "href": "encuentros/02-datos-scripts/index.html",
+    "title": "Encuentro 2 · Datos, scripts y resultados en R",
+    "section": "",
+    "text": "NotaDiapositivas\n\n\n\nAbrir las diapositivas del encuentro (en pantalla completa con la tecla F)."
+  },
+  {
+    "objectID": "encuentros/02-datos-scripts/index.html#al-terminar-este-encuentro-vas-a-poder",
+    "href": "encuentros/02-datos-scripts/index.html#al-terminar-este-encuentro-vas-a-poder",
+    "title": "Encuentro 2 · Datos, scripts y resultados en R",
+    "section": "Al terminar este encuentro vas a poder",
+    "text": "Al terminar este encuentro vas a poder\n\nCrear un proyecto de RStudio y explicar para qué sirve.\nReorganizar un proyecto separando datos, código y productos.\nReemplazar rutas absolutas por rutas relativas con here().\nConfigurar RStudio para no depender del workspace."
+  },
+  {
+    "objectID": "encuentros/02-datos-scripts/index.html#antes-de-empezar",
+    "href": "encuentros/02-datos-scripts/index.html#antes-de-empezar",
+    "title": "Encuentro 2 · Datos, scripts y resultados en R",
+    "section": "Antes de empezar",
+    "text": "Antes de empezar\n\nTené a mano la carpeta desordenado/ y la estructura vacía que creaste en el encuentro 1.\nInstalá el paquete here desde la consola (no en un script):\n\ninstall.packages(\"here\")"
+  },
+  {
+    "objectID": "encuentros/02-datos-scripts/index.html#configurar-rstudio-una-sola-vez",
+    "href": "encuentros/02-datos-scripts/index.html#configurar-rstudio-una-sola-vez",
+    "title": "Encuentro 2 · Datos, scripts y resultados en R",
+    "section": "Configurar RStudio (una sola vez)",
+    "text": "Configurar RStudio (una sola vez)\nTools → Global Options → General:\n\nDestildá Restore .RData into workspace at startup.\nEn Save workspace to .RData on exit, elegí Never.\n\nAsí cada sesión arranca de cero y tus resultados dependen solo del código."
+  },
+  {
+    "objectID": "encuentros/02-datos-scripts/index.html#guía-de-mudanza",
+    "href": "encuentros/02-datos-scripts/index.html#guía-de-mudanza",
+    "title": "Encuentro 2 · Datos, scripts y resultados en R",
+    "section": "Guía de mudanza",
+    "text": "Guía de mudanza\n35 minutos. Esta es una propuesta: si decidís distinto y tenés un buen motivo, ¡vale!\n\n1. Crear el proyecto\nFile → New Project → Existing Directory y elegí la carpeta raíz de tu estructura (por ejemplo, visitantes-florales/). Se crea el archivo .Rproj.\n\n\n2. Mover (y renombrar) lo que se queda\n\n\n\n\n\n\n\n\nArchivo en desordenado/\nVa a\nCon el nombre\n\n\n\n\nDatos_campo_plantas_COMPLETO.xlsx\ndata/raw/\n2023-03_campo_plantas.xlsx\n\n\nmapa/sitios_muestreo_2.xlsx\ndata/raw/\nsitios_muestreo.xlsx\n\n\nanalisis_prevalencia.R\nR/\nanalisis_prevalencia.R\n\n\nmapa/mapa.R\nR/\nmapa.R\n\n\nversion final/Final_final/final final final final/ → manuscrito y tablas\ndocs/manuscrito/\n(sin cambios por ahora)\n\n\nversion final/Final_final/final final final final/Fig_2_visitantes.pdf\noutputs/figuras/\nfig2_visitantes.pdf\n\n\n\nDespués, marcá los archivos de data/raw/ como solo lectura:\n\nWindows: clic derecho → Propiedades → tildar Solo lectura.\nmacOS: clic derecho → Obtener información → tildar Bloqueado.\n\n\n\n3. Lo que se va (y por qué)\n\n\n\n\n\n\n\nArchivo\nMotivo\n\n\n\n\nDatos_campo_plantas.xlsx\nVersión vieja e incompleta del crudo\n\n\nanalisis_prevalencia_v2_OK.R\nNo sabemos si es mejor: anotalo para el README\n\n\nPrev_especies.xlsx, Tabla I_Nota.docx\nTablas hechas a mano: el código las va a generar\n\n\nTodos los mapas (.png, .svg, .pdf) y grafico prevalencia nuevo.png\nSe regeneran con el código\n\n\nmapa/Mapa Sitios de muestreo.r, mapa/nuevomapa2024.R\nPruebas y un script vacío\n\n\n.RData, .Rhistory, los dos .Rproj sueltos\nEl proyecto nuevo los reemplaza\n\n\nBorradores, rev_AB_2024/ y versiones viejas del manuscrito\nDe esto se encarga Git (encuentro 5)\n\n\n0.1 Bibliografia/, Referencias_nota_AB.docx\nVan a un gestor de referencias (por ej. Zotero), no al proyecto\n\n\nCONVENIO_permiso_colecta_FIRMADO.docx\nDatos personales: fuera del proyecto y nunca a un repositorio\n\n\n\n\n\n\n\n\n\nTip¿Miedo a borrar?\n\n\n\nSi te da miedo, en vez de borrar mové todo eso a una carpeta fuera del proyecto (por ejemplo, viejo_no_tocar/ en el Escritorio)."
+  },
+  {
+    "objectID": "encuentros/02-datos-scripts/index.html#hacer-correr-el-script",
+    "href": "encuentros/02-datos-scripts/index.html#hacer-correr-el-script",
+    "title": "Encuentro 2 · Datos, scripts y resultados en R",
+    "section": "Hacer correr el script",
+    "text": "Hacer correr el script\n15 minutos. Abrí el proyecto (doble clic en el .Rproj) y después R/analisis_prevalencia.R:\n\nBorrá la línea setwd(...) (y cualquier install.packages(...), si hubiera).\nCambiá la lectura de datos y el guardado de la figura por:\n\ndatos &lt;- readxl::read_excel(here::here(\"data\", \"raw\", \"2023-03_campo_plantas.xlsx\"), skip = 1)\n\nggplot2::ggsave(here::here(\"outputs\", \"figuras\", \"grafico_prevalencia.png\"))\n\nCorré el script completo (Ctrl/Cmd + Shift + Enter). Mirá la tabla prev que aparece en la consola.\n\n🤔 ¿Cuántos sitios había en el estudio? ¿Cuántos aparecen en la tabla?"
+  },
+  {
+    "objectID": "encuentros/02-datos-scripts/index.html#para-la-próxima",
+    "href": "encuentros/02-datos-scripts/index.html#para-la-próxima",
+    "title": "Encuentro 2 · Datos, scripts y resultados en R",
+    "section": "Para la próxima",
+    "text": "Para la próxima\n\nDesactivá el guardado de .RData en tu RStudio (si no lo hiciste hoy).\nCreá un proyecto de RStudio para un trabajo propio y reemplazá un setwd() por here()."
+  },
+  {
+    "objectID": "encuentros/02-datos-scripts/index.html#para-seguir-leyendo",
+    "href": "encuentros/02-datos-scripts/index.html#para-seguir-leyendo",
+    "title": "Encuentro 2 · Datos, scripts y resultados en R",
+    "section": "Para seguir leyendo",
+    "text": "Para seguir leyendo\n\nBryan, J. (2017). Project-oriented workflow. Tidyverse blog.\nDocumentación del paquete here.\nLMU Open Science Center. Introduction to Version Control within RStudio, sección “Creating an RStudio project” (CC BY-SA 4.0)."
+  },
+  {
+    "objectID": "encuentros/01-estructura/index.html",
+    "href": "encuentros/01-estructura/index.html",
+    "title": "Encuentro 1 · Del desorden a una estructura de proyecto",
+    "section": "",
+    "text": "NotaDiapositivas\n\n\n\nAbrir las diapositivas del encuentro (en pantalla completa con la tecla F)."
+  },
+  {
+    "objectID": "encuentros/01-estructura/index.html#al-terminar-este-encuentro-vas-a-poder",
+    "href": "encuentros/01-estructura/index.html#al-terminar-este-encuentro-vas-a-poder",
+    "title": "Encuentro 1 · Del desorden a una estructura de proyecto",
+    "section": "Al terminar este encuentro vas a poder",
+    "text": "Al terminar este encuentro vas a poder\n\nReconocer los problemas típicos de un proyecto desordenado.\nExplicar por qué afectan la reproducibilidad.\nDiseñar una estructura de carpetas para un proyecto.\nAplicar una regla para nombrar archivos."
+  },
+  {
+    "objectID": "encuentros/01-estructura/index.html#antes-de-empezar",
+    "href": "encuentros/01-estructura/index.html#antes-de-empezar",
+    "title": "Encuentro 1 · Del desorden a una estructura de proyecto",
+    "section": "Antes de empezar",
+    "text": "Antes de empezar\nDescargá la carpeta del proyecto de ejemplo y descomprimila en algún lugar que encuentres fácil (por ejemplo, el Escritorio):\n\n⬇ Descargar desordenado.zip\n\n\n\n\n\n\n\nAdvertenciaLos datos son simulados\n\n\n\nLas especies, los sitios, las personas y los documentos de esta carpeta son ficticios. La carpeta está desordenada a propósito."
+  },
+  {
+    "objectID": "encuentros/01-estructura/index.html#actividad-1-búsqueda-del-tesoro",
+    "href": "encuentros/01-estructura/index.html#actividad-1-búsqueda-del-tesoro",
+    "title": "Encuentro 1 · Del desorden a una estructura de proyecto",
+    "section": "Actividad 1: búsqueda del tesoro",
+    "text": "Actividad 1: búsqueda del tesoro\nEn parejas, 30 minutos. Abran desordenado/ y traten de responder:\n\n¿Cuál es el archivo de datos crudos “bueno”?\n¿Qué script generó la Figura 2?\n¿Cuál es la versión final del manuscrito?\n¿Qué significan las celdas amarillas del Excel?\n¿Hay algún archivo que no debería estar acá?\n\nMientras buscan, anoten cada problema que encuentren."
+  },
+  {
+    "objectID": "encuentros/01-estructura/index.html#principios-para-ordenar-un-proyecto",
+    "href": "encuentros/01-estructura/index.html#principios-para-ordenar-un-proyecto",
+    "title": "Encuentro 1 · Del desorden a una estructura de proyecto",
+    "section": "Principios para ordenar un proyecto",
+    "text": "Principios para ordenar un proyecto\n\nUn proyecto = una carpeta. Todo lo necesario está adentro, nada afuera.\nLos datos crudos no se tocan. Se guardan una vez y se tratan como de solo lectura.\nSeparar datos, código, productos y documentación.\nLos productos son descartables. Si borro una figura, el código la vuelve a generar.\nUna carpeta se explica sola, con un README.\n\nUna estructura posible:\nvisitantes-florales/\n├── README.md                ← qué es esto y cómo se usa\n├── visitantes-florales.Rproj\n├── data/\n│   ├── raw/                 ← datos originales (solo lectura)\n│   └── processed/           ← datos limpios (los genera el código)\n├── R/                       ← scripts, numerados en orden\n├── outputs/\n│   ├── figuras/\n│   └── tablas/\n└── docs/                    ← diccionario de datos, informe, notas\n\nNombrar archivos\n\nLegible para máquinas: sin espacios, tildes ni caracteres especiales.\nLegible para personas: que el nombre diga qué es.\nSe ordena solo: fechas como AAAA-MM-DD y números con ceros al inicio (01_, 02_…)."
+  },
+  {
+    "objectID": "encuentros/01-estructura/index.html#actividad-2-diseñen-su-estructura",
+    "href": "encuentros/01-estructura/index.html#actividad-2-diseñen-su-estructura",
+    "title": "Encuentro 1 · Del desorden a una estructura de proyecto",
+    "section": "Actividad 2: diseñen su estructura",
+    "text": "Actividad 2: diseñen su estructura\nEn parejas, 15 minutos.\n\nEn papel, diseñen la estructura de carpetas para el proyecto de las plantas.\nDecidan en qué carpeta iría cada archivo de desordenado/, y cuáles se descartan.\nCreen esa estructura, todavía vacía, en su computadora. Los archivos los movemos en el encuentro 2."
+  },
+  {
+    "objectID": "encuentros/01-estructura/index.html#para-la-próxima",
+    "href": "encuentros/01-estructura/index.html#para-la-próxima",
+    "title": "Encuentro 1 · Del desorden a una estructura de proyecto",
+    "section": "Para la próxima",
+    "text": "Para la próxima\nMirá una carpeta de un proyecto tuyo y anotá 3 problemas que reconozcas de los de hoy. No hace falta arreglarlos: solo identificarlos. (Máximo 30 minutos.)"
+  },
+  {
+    "objectID": "encuentros/01-estructura/index.html#para-seguir-leyendo",
+    "href": "encuentros/01-estructura/index.html#para-seguir-leyendo",
+    "title": "Encuentro 1 · Del desorden a una estructura de proyecto",
+    "section": "Para seguir leyendo",
+    "text": "Para seguir leyendo\n\nWilson, G. et al. (2017). Good enough practices in scientific computing. PLOS Computational Biology, 13(6), e1005510.\nBryan, J. (2015). Naming things.\nThe Turing Way Community. Guide for reproducible research.\nLMU Open Science Center. Threats to credible research (CC BY-SA 4.0)."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Del caos al orden",
+    "section": "",
+    "text": "Un taller práctico de seis encuentros para pasar de carpetas llenas de datos_final_v2_DEFINITIVO.xlsx a un proyecto que vos, tu equipo, o vos dentro de dos años puedan entender y volver a ejecutar."
+  },
+  {
+    "objectID": "index.html#tu-proyecto-ordenado-documentado-y-reproducible",
+    "href": "index.html#tu-proyecto-ordenado-documentado-y-reproducible",
+    "title": "Del caos al orden",
+    "section": "",
+    "text": "Un taller práctico de seis encuentros para pasar de carpetas llenas de datos_final_v2_DEFINITIVO.xlsx a un proyecto que vos, tu equipo, o vos dentro de dos años puedan entender y volver a ejecutar."
+  },
+  {
+    "objectID": "index.html#de-qué-se-trata",
+    "href": "index.html#de-qué-se-trata",
+    "title": "Del caos al orden",
+    "section": "¿De qué se trata?",
+    "text": "¿De qué se trata?\nInvestigar implica colectar datos, escribir código, generar figuras y tomar decisiones metodológicas. Con el tiempo, todo eso se acumula en carpetas sin una estructura clara: versiones duplicadas, scripts que solo funcionan en una computadora y resultados cuyo origen nadie recuerda.\nEn este taller vamos a ordenar, paso a paso, un proyecto de investigación real con datos ecológicos. Vamos a separar datos, código y resultados, documentarlo y registrar sus cambios con Git. La idea es que después puedas aplicar lo mismo a tu propio trabajo."
+  },
+  {
+    "objectID": "index.html#para-quién-es",
+    "href": "index.html#para-quién-es",
+    "title": "Del caos al orden",
+    "section": "¿Para quién es?",
+    "text": "¿Para quién es?\nPara estudiantes avanzados de grado, estudiantes de posgrado y docentes/investigadores en formación que hayan participado en proyectos de investigación y trabajado con datos.\n\nNecesitás: conocimientos básicos de R (crear objetos, usar funciones, correr un script).\nNo necesitás: experiencia previa con Git, GitHub ni flujos de trabajo reproducibles."
+  },
+  {
+    "objectID": "index.html#al-terminar-vas-a-tener",
+    "href": "index.html#al-terminar-vas-a-tener",
+    "title": "Del caos al orden",
+    "section": "Al terminar vas a tener",
+    "text": "Al terminar vas a tener\n\nUn proyecto con una estructura de carpetas clara y consistente.\nDocumentación inicial: un README y un diccionario de datos.\nUn flujo de trabajo reproducible en R, desde los datos originales hasta una figura final.\nUn repositorio con el historial de cambios de tu proyecto."
+  },
+  {
+    "objectID": "index.html#programa",
+    "href": "index.html#programa",
+    "title": "Del caos al orden",
+    "section": "Programa",
+    "text": "Programa\n\n\n\nSemana\nEncuentro\nTema\n\n\n\n\n1\n1\nDel desorden a una estructura de proyecto\n\n\n1\n2\nDatos, scripts y resultados en R\n\n\n2\n3\nDocumentar para comprender y reutilizar\n\n\n2\n4\nDe los datos originales a los resultados\n\n\n3\n5\nIntroducción a Git y GitHub\n\n\n3\n6\nIntegración y revisión del proyecto"
+  },
+  {
+    "objectID": "index.html#información-práctica",
+    "href": "index.html#información-práctica",
+    "title": "Del caos al orden",
+    "section": "Información práctica",
+    "text": "Información práctica\n\n\n\n\n\n\n\nModalidad\nPresencial, teórico-práctico\n\n\nLugar\nFacultad de Ciencias Marinas (UNComa), San Antonio Oeste\n\n\nFechas\nA confirmar\n\n\nDuración\n6 encuentros de 90 minutos (9 horas)\n\n\nCosto\nGratuito\n\n\nInscripción\nFormulario disponible próximamente\n\n\n\n\n\n\n\n\n\nTipAntes del primer encuentro\n\n\n\nTraé tu computadora con R, RStudio y Git instalados. Seguí la guía de instalación; si algo no funciona, escribime y lo resolvemos antes de empezar."
+  },
+  {
+    "objectID": "index.html#materiales-y-licencia",
+    "href": "index.html#materiales-y-licencia",
+    "title": "Del caos al orden",
+    "section": "Materiales y licencia",
+    "text": "Materiales y licencia\nTodos los materiales (guías, scripts, datos de ejemplo y checklist) están en el repositorio del taller bajo licencia Creative Commons Atribución-CompartirIgual 4.0 Internacional (CC BY-SA 4.0). Podés usarlos, adaptarlos y compartirlos citando la fuente.\n\nCómo citar\n\nBarrena, M. A. (2026). Del caos al orden: organización de proyectos de investigación en R (Versión 1.0) [Material didáctico]. Zenodo. https://doi.org/XX.XXXX/zenodo.XXXXXXX"
+  },
+  {
+    "objectID": "index.html#sobre-la-instructora",
+    "href": "index.html#sobre-la-instructora",
+    "title": "Del caos al orden",
+    "section": "Sobre la instructora",
+    "text": "Sobre la instructora\nMaité A. Barrena es licenciada en Biología Marina y doctoranda en Biología (Universidad Nacional del Comahue). Estudia los ensambles de peces e invertebrados de la Bahía San Antonio, se forma como instructora en ciencia abierta en el LMU Open Science Center y se especializa en gestión de datos de investigación.\nContacto: maibarrena7@gmail.com"
+  },
+  {
+    "objectID": "index.html#agradecimientos",
+    "href": "index.html#agradecimientos",
+    "title": "Del caos al orden",
+    "section": "Agradecimientos",
+    "text": "Agradecimientos\nEste taller fue diseñado en el marco del Open Science Summer School 2026 del LMU Open Science Center y se nutre de recursos de The Turing Way, Happy Git and GitHub for the useR y R for Data Science."
+  },
+  {
+    "objectID": "instalacion/index.html",
+    "href": "instalacion/index.html",
+    "title": "Antes del taller",
+    "section": "",
+    "text": "Para aprovechar los encuentros necesitás tener cuatro cosas instaladas y funcionando en la computadora que vas a traer. Hacelo con tiempo, y con buena conexión a internet: algunas descargas son pesadas."
+  },
+  {
+    "objectID": "instalacion/index.html#paso-1-instalar-r",
+    "href": "instalacion/index.html#paso-1-instalar-r",
+    "title": "Antes del taller",
+    "section": "Paso 1: instalar R",
+    "text": "Paso 1: instalar R\nR tiene que instalarse antes que RStudio.\n\nWindowsmacOSLinux\n\n\n\nEntrá a https://cran.r-project.org.\nHacé clic en Download R for Windows y después en base.\nHacé clic en Download R-x.x.x for Windows (el número es la versión más nueva).\nAbrí el archivo descargado (R-x.x.x-win.exe).\nSi Windows pregunta si permitís que la aplicación haga cambios, decí Sí.\nElegí el idioma y dejá todas las opciones como vienen: Siguiente hasta el final y Finalizar.\n\n\n\n\nEntrá a https://cran.r-project.org.\nHacé clic en Download R for macOS.\nElegí el instalador que corresponde a tu computadora:\n\nMac con chip Apple (M1, M2, M3, M4…): el que dice arm64.\nMac con procesador Intel: el que dice x86_64.\n¿No sabés cuál tenés? Menú → Acerca de esta Mac → mirá si dice “Chip Apple” o “Procesador Intel”.\n\nAbrí el archivo .pkg descargado y seguí los pasos con las opciones que vienen por defecto.\n\n\n\nSeguí las instrucciones de tu distribución en https://cran.r-project.org/bin/linux/. Si usás Ubuntu, hay instrucciones paso a paso en https://cran.r-project.org/bin/linux/ubuntu/."
+  },
+  {
+    "objectID": "instalacion/index.html#paso-2-instalar-rstudio",
+    "href": "instalacion/index.html#paso-2-instalar-rstudio",
+    "title": "Antes del taller",
+    "section": "Paso 2: instalar RStudio",
+    "text": "Paso 2: instalar RStudio\n\nEntrá a https://posit.co/download/rstudio-desktop/.\nComo ya instalaste R, salteá el paso 1 de esa página y hacé clic en el botón azul Download RStudio Desktop (la página detecta tu sistema operativo).\nInstalalo:\n\nWindows: abrí el .exe descargado y Siguiente hasta el final.\nmacOS: abrí el .dmg y arrastrá el ícono de RStudio a la carpeta Aplicaciones.\n\nAbrí RStudio (no “R”). Tiene que verse más o menos así: una ventana dividida en paneles, con la Consola abajo a la izquierda.\n\n\n\n\n\n\n\nNotaR y RStudio: ¿cuál abro?\n\n\n\nSiempre RStudio. R trabaja “por detrás”: RStudio lo usa solo. Es como el motor (R) y el tablero del auto (RStudio)."
+  },
+  {
+    "objectID": "instalacion/index.html#paso-3-instalar-los-paquetes",
+    "href": "instalacion/index.html#paso-3-instalar-los-paquetes",
+    "title": "Antes del taller",
+    "section": "Paso 3: instalar los paquetes",
+    "text": "Paso 3: instalar los paquetes\n\nEn RStudio, hacé clic en la Consola (el panel de abajo a la izquierda, donde aparece el símbolo &gt;).\nCopiá esta línea completa, pegala en la Consola y apretá Enter:\n\ninstall.packages(c(\"tidyverse\", \"here\"))\n\nVan a aparecer muchas líneas de texto en rojo: es normal, no son errores. tidyverse es un “paquete de paquetes” (trae todo lo necesario para leer, ordenar y graficar datos), así que puede tardar varios minutos. Esperá a que vuelva a aparecer el &gt;.\n\n\n\n\n\n\n\nTip¿Te pregunta algo mientras instala?\n\n\n\n\n\n\n“Would you like to use a personal library instead?” → escribí yes y Enter.\n“Do you want to install from sources the packages which need compilation?” → escribí no y Enter.\nSi te pide elegir un “CRAN mirror” (un servidor), elegí cualquiera; por ejemplo, el primero de la lista (0-Cloud)."
+  },
+  {
+    "objectID": "instalacion/index.html#paso-4-comprobar-que-todo-funciona",
+    "href": "instalacion/index.html#paso-4-comprobar-que-todo-funciona",
+    "title": "Antes del taller",
+    "section": "Paso 4: comprobar que todo funciona",
+    "text": "Paso 4: comprobar que todo funciona\n\nDescargá el script de prueba:\n\n\n⬇ Descargar prueba-instalacion.R\n\n\nEn RStudio: File → Open File… y abrí prueba-instalacion.R.\nArriba a la derecha del script, hacé clic en el botón Source.\nMirá la Consola. Si todo está bien, vas a ver algo así:\n\n✔ R 4.x.x instalado.\n✔ Estás usando RStudio.\n✔ Los 8 paquetes del taller están instalados.\n✔ R puede leer datos, transformarlos y guardar una figura.\n\n🎉 ¡Todo listo para el taller!\nSi aparece alguna ✘, el mismo mensaje te dice qué hacer. Si no te sale, escribime."
+  },
+  {
+    "objectID": "instalacion/index.html#paso-5-github-desktop-y-cuenta-de-github",
+    "href": "instalacion/index.html#paso-5-github-desktop-y-cuenta-de-github",
+    "title": "Antes del taller",
+    "section": "Paso 5: GitHub Desktop y cuenta de GitHub",
+    "text": "Paso 5: GitHub Desktop y cuenta de GitHub\nEsto lo usamos recién en el encuentro 5, pero conviene dejarlo listo.\n\n5a. Crear una cuenta de GitHub\n\nEntrá a https://github.com/signup.\nPoné tu correo, una contraseña y un nombre de usuario.\n\nElegí un nombre que te sirva en lo profesional: por ejemplo nombreapellido. Lo van a ver otras personas.\n\nConfirmá tu correo con el código que te llega.\nSi te ofrece planes pagos, elegí el gratuito (Free). Alcanza y sobra.\n\n\n\n5b. Instalar GitHub Desktop\nGitHub Desktop es un programa con botones para usar Git, sin escribir comandos. Ya trae Git incluido: no hace falta instalar nada más.\n\nEntrá a https://desktop.github.com/.\nHacé clic en Download (detecta Windows o macOS).\nInstalalo:\n\nWindows: abrí el .exe. Se instala solo, sin preguntar nada.\nmacOS: descomprimí el .zip y arrastrá GitHub Desktop a Aplicaciones.\n\nAbrilo y hacé clic en Sign in to GitHub.com. Se abre el navegador: iniciá sesión y autorizá la aplicación.\nCuando te pregunte por Configure Git, dejá tu nombre y tu correo (los de tu cuenta) y hacé clic en Finish.\n\n\n\n\n\n\n\nNota¿Usás Linux?\n\n\n\nGitHub Desktop no tiene versión oficial para Linux. Instalá Git (sudo apt install git en Ubuntu) y en el encuentro 5 usamos la pestaña Git de RStudio."
+  },
+  {
+    "objectID": "instalacion/index.html#lista-final",
+    "href": "instalacion/index.html#lista-final",
+    "title": "Antes del taller",
+    "section": "Lista final",
+    "text": "Lista final\nAntes del primer encuentro, verificá que puedas tildar todo:\n\nAbro RStudio y veo la Consola.\nEl script prueba-instalacion.R termina con 🎉.\nTengo una cuenta de GitHub y recuerdo mi usuario y contraseña.\nAbro GitHub Desktop y aparece mi cuenta (en File → Options → Accounts en Windows, o GitHub Desktop → Settings → Accounts en Mac)."
+  },
+  {
+    "objectID": "instalacion/index.html#problemas-frecuentes",
+    "href": "instalacion/index.html#problemas-frecuentes",
+    "title": "Antes del taller",
+    "section": "Problemas frecuentes",
+    "text": "Problemas frecuentes\n\n\n\n\n\n\nTip“No such file or directory” o problemas con carpetas\n\n\n\n\n\nEvitá guardar los proyectos del taller en carpetas sincronizadas (OneDrive, Google Drive, Dropbox) o con espacios y tildes en el nombre. Una buena opción es crear una carpeta taller-r directamente en Documentos.\n\n\n\n\n\n\n\n\n\nTipEl paquete no se instala (“installation of package had non-zero exit status”)\n\n\n\n\n\n\nCerrá RStudio y volvé a abrirlo.\nVolvé a correr el install.packages(...) solo con el paquete que falló.\nSi sigue fallando, copiá el mensaje de error completo y mandámelo.\n\n\n\n\n\n\n\n\n\n\nTipMi versión de R es vieja\n\n\n\n\n\nInstalá la nueva encima (paso 1): no hace falta desinstalar la anterior. Después, en RStudio: Tools → Global Options → General → R version y elegí la nueva. Vas a tener que volver a instalar los paquetes (paso 3).\n\n\n\n\n\n\n\n\n\nTipNo tengo computadora para traer\n\n\n\n\n\nAvisame cuando confirmes tu inscripción y vemos cómo resolverlo (por ejemplo, trabajar en pareja)."
+  },
+  {
+    "objectID": "instalacion/index.html#ayuda",
+    "href": "instalacion/index.html#ayuda",
+    "title": "Antes del taller",
+    "section": "Ayuda",
+    "text": "Ayuda\nSi algo no funciona, escribime a maibarrena7@gmail.com con:\n\ntu sistema operativo (Windows, macOS, Linux),\nen qué paso te trabaste,\nuna captura de pantalla del error.\n\nTambién vamos a tener un horario de consulta antes del primer encuentro (te aviso por mail).\n\nBasada en LMU Open Science Center, Introduction to Version Control within RStudio (CC BY-SA 4.0), y en Bryan, J., Happy Git and GitHub for the useR."
+  }
+]

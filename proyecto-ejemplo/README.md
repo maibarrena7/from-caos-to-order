@@ -4,7 +4,7 @@
 
 ## El estudio
 
-En marzo de 2023 se muestrearon 38 plantas de *Inventia patagonica* (un arbusto inventado) en tres sitios ficticios: Loma del Viento, Bajo Fantasma y Pampa Imaginaria. En cada planta se midió la altura, la cobertura y el número de flores, y se contaron los insectos visitantes de cuatro especies (también inventadas): *Zumbatrix aurea*, *Polinia rapida*, *Florivora nocturna* y *Mieliphila minima*.
+En marzo de 2023 se muestrearon 38 plantas de *Inventia patagonica* en tres sitios ficticios: Loma del Viento, Bajo Fantasma y Pampa Imaginaria. En cada planta se midió la altura, la cobertura y el número de flores, y se contaron los insectos visitantes de cuatro especies: *Zumbatrix aurea*, *Polinia rapida*, *Florivora nocturna* y *Mieliphila minima*.
 
 Con esos datos se calculó la **prevalencia** (porcentaje de plantas visitadas por cada especie) y la **abundancia media** (visitantes por planta), y se hizo un mapa de los sitios.
 

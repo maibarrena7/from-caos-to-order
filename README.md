@@ -11,7 +11,7 @@ Materiales del taller **Del caos al orden**, dictado en la Facultad de Ciencias 
 ## Contenido
 
 | Carpeta | Qué hay |
-|:--|:--|
+|:---|:---|
 | `index.qmd`, `instalacion/`, `checklist/` | Páginas del sitio web |
 | `encuentros/` | Las seis sesiones: guía (`index.qmd`), diapositivas (`slides.qmd`) y materiales para descargar |
 | `proyecto-ejemplo/desordenado/` | Proyecto de investigación ficticio, desordenado a propósito (punto de partida) |
@@ -22,25 +22,25 @@ Materiales del taller **Del caos al orden**, dictado en la Facultad de Ciencias 
 
 ## Programa
 
-| Semana | Encuentro | Tema |
-|:--:|:--:|:--|
-| 1 | 1 | Del desorden a una estructura de proyecto |
-| 1 | 2 | Datos, scripts y resultados en R |
-| 2 | 3 | Documentar para comprender y reutilizar |
-| 2 | 4 | De los datos originales a los resultados |
-| 3 | 5 | Introducción a Git y GitHub |
-| 3 | 6 | Integración y revisión del proyecto |
+| Semana | Encuentro | Tema                                      |
+|:------:|:---------:|:------------------------------------------|
+|   1    |     1     | Del desorden a una estructura de proyecto |
+|   1    |     2     | Datos, scripts y resultados en R          |
+|   2    |     3     | Documentar para comprender y reutilizar   |
+|   2    |     4     | De los datos originales a los resultados  |
+|   3    |     5     | Introducción a Git y GitHub               |
+|   3    |     6     | Integración y revisión del proyecto       |
 
 ## Cómo construir el sitio
 
 Requiere [R](https://cran.r-project.org), [RStudio](https://posit.co/download/rstudio-desktop/) y [Quarto](https://quarto.org).
 
-1. Abrir `from-caos-to-order.Rproj`.
-2. **Build → Render Website** (o `quarto render` en la terminal). El sitio se genera en `_site/`.
+1.  Abrir `from-caos-to-order.Rproj`.
+2.  **Build → Render Website** (o `quarto render` en la terminal). El sitio se genera en `_site/`.
 
 ## Cómo citar
 
-Barrena, M. A. (2026). *Del caos al orden: organización de proyectos de investigación en R* [Material didáctico]. https://github.com/maibarrena7/from-caos-to-order
+Barrena, M. A. (2026). *Del caos al orden: organización de proyectos de investigación en R* \[Material didáctico\]. https://github.com/maibarrena7/from-caos-to-order
 
 ## Agradecimientos
 

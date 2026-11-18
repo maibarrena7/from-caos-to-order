@@ -222,7 +222,8 @@ Maité A. Barrena
 6 NA                 NaN     NaN</code></pre>
 <p>El script corría… pero ¿daba bien?</p>
 <aside class="notes">
-<p>Fase R. Retomar la pregunta que quedó abierta en el encuentro 2. Dejar que lo descubran: “Loma del viento” con un espacio al final y “Pampa imaginaria” en minúscula son tratados como sitios distintos. La fila NA es la nota escrita debajo de los datos.</p>
+<p>Fase de activación. Retomo la pregunta que quedó abierta en el encuentro 2. Dejo que lo descubran solos.</p>
+<p>Qué pasa: R compara texto de forma literal. “Loma del viento” (con un espacio al final) y “Loma del Viento” son, para R, dos sitios distintos. Lo mismo “Pampa imaginaria” en minúscula. La fila <code>NA</code> es la nota escrita debajo de los datos (“amarillo = corregido…”), que R leyó como si fuera una planta.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -244,6 +245,19 @@ Maité A. Barrena
 <li>Regenerar todos los resultados de un proyecto con un solo comando</li>
 <li>Explicar por qué los resultados no se copian a mano</li>
 </ol>
+<aside class="notes">
+<p>Objetivos del encuentro. Es el encuentro más “técnico” en R, pero ellos no programan: leen, corren y comparan.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2">
 <h2>Un flujo en tres pasos</h2>
@@ -264,7 +278,16 @@ Maité A. Barrena
 <li><code>00_correr_todo.R</code> corre los tres</li>
 </ul>
 <aside class="notes">
-<p>Insistir: el crudo NUNCA se modifica. Todo lo que cambia queda escrito en 01_limpieza.R, que es la documentación ejecutable de la limpieza.</p>
+<p>Definición de flujo de trabajo reproducible (<em>reproducible workflow</em> o <em>pipeline</em>): una secuencia de pasos, escritos en código, que va desde los datos originales hasta los resultados finales sin intervención manual. Cualquier persona puede correrlo y obtener lo mismo.</p>
+<ul>
+<li>01_limpieza.R: datos crudos → datos procesados.</li>
+<li>02_analisis.R: datos procesados → tablas.</li>
+<li>03_figuras.R: tablas → figuras.</li>
+<li>00_correr_todo.R: corre los tres en orden.</li>
+</ul>
+<p>Principio clave: el crudo nunca se modifica. Todo lo que cambia queda escrito en <code>01_limpieza.R</code>, que funciona como documentación ejecutable de la limpieza.</p>
+<p>Por qué separar en varios scripts y no uno solo: cada uno tiene una sola responsabilidad, se puede revisar por separado y, si cambia la figura, no hace falta rehacer la limpieza.</p>
+<p>Para proyectos grandes existen herramientas que automatizan esto y solo rehacen lo que cambió, como el paquete <code>targets</code> en R. Para empezar, scripts numerados alcanzan.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -297,6 +320,23 @@ Maité A. Barrena
 </ul>
 <p><strong>El script <em>es</em> la documentación</strong> de la limpieza.</p>
 </div></div>
+<aside class="notes">
+<ul>
+<li>A mano: abrir el Excel y corregir, o borrar filas con <code>datos[-10, ]</code>. No queda registro de qué se cambió ni por qué. Si llegan datos nuevos, hay que acordarse de hacer todo de nuevo.</li>
+<li>Con código: cada corrección es una línea con un comentario. Se puede revisar, discutir, deshacer y volver a correr.</li>
+</ul>
+<p>Ejemplo concreto: <code>datos[-10, ]</code> borra “la fila 10”. ¿Y si el orden de las filas cambia? Borra otra planta, sin avisar. En cambio, “la altura 999 es un dato faltante” es una regla, y sigue funcionando aunque cambie el orden.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2 smaller">
 <h2>Leamos <code>01_limpieza.R</code></h2>
@@ -316,7 +356,13 @@ Maité A. Barrena
 <span id="cb2-14"><a aria-label="14"></a>altura_cm <span class="ot">=</span> dplyr<span class="sc">::</span><span class="fu">if_else</span>(altura_cm <span class="sc">==</span> <span class="dv">999</span>, <span class="cn">NA_real_</span>, altura_cm)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>¿Qué problema de la <span class="hl">búsqueda del tesoro</span> resuelve cada bloque?</p>
 <aside class="notes">
-<p>No hace falta que entiendan cada función. Lo importante es conectar cada bloque con un problema concreto de la lista del encuentro 1 y con el diccionario del encuentro 3.</p>
+<p>No hace falta que entiendan cada función. Lo importante es conectar cada bloque con un problema concreto de la búsqueda del tesoro y del diccionario del encuentro 3.</p>
+<ul>
+<li><code>stringr::str_squish()</code> saca los espacios de más; <code>stringr::str_to_lower()</code> pasa todo a minúscula. Así “Loma del viento” y “loma del viento” quedan iguales.</li>
+<li><code>dplyr::case_when()</code> es como un “si pasa esto, poné aquello”, para varias condiciones.</li>
+<li><code>dplyr::if_else(altura_cm == 999, NA_real_, altura_cm)</code>: si la altura es 999, se convierte en dato faltante; si no, queda igual.</li>
+</ul>
+<p>Los encabezados con <code>----</code> al final (por ejemplo <code># 3. Unificar los nombres de los sitios ----</code>) crean secciones con título en RStudio: aparecen en el índice del script, abajo del editor.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -340,6 +386,19 @@ Maité A. Barrena
 <li>¿Hay algo del diccionario de datos que no esté resuelto en el script?</li>
 </ol>
 </div>
+<aside class="notes">
+<p>Mientras leen, circulo. La pregunta clave: ¿hay algo del diccionario de datos que no esté resuelto en el script? (Respuesta: el script no usa la información del amarillo, porque los valores corregidos ya están en el crudo.)</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2">
 <h2>Correr todo</h2>
@@ -353,8 +412,13 @@ Maité A. Barrena
 </ol>
 </div>
 <aside class="notes">
-<p>El momento del “¡ah!”: borrar los resultados no da miedo, porque se regeneran. Ese es el principio 4 del encuentro 1 (los productos son descartables).</p>
-<p>Si falta algún paquete: install.packages() en la consola.</p>
+<p>El momento del “¡ah!”: borrar <code>outputs/</code> no da miedo, porque se regenera en segundos. Es el principio 4 del encuentro 1: los productos son descartables.</p>
+<p>Errores típicos:</p>
+<ul>
+<li><code>there is no package called ...</code> → falta instalar <code>tidyverse</code> o <code>here</code>: <code>install.packages(c("tidyverse", "here"))</code> en la consola.</li>
+<li><code>No existe .../plantas_limpio.csv. Primero hay que correr R/01_limpieza.R</code> → corrieron un script fuera de orden. Que usen <code>00_correr_todo.R</code>.</li>
+<li><code>path does not exist</code> → el Excel crudo no se llama <code>2023-03_campo_plantas.xlsx</code> o no está en <code>data/raw/</code>.</li>
+</ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -399,7 +463,13 @@ Maité A. Barrena
 <div class="fragment">
 <p>El script viejo partía los sitios. La tabla de Word se copió de <span class="hl">una versión anterior</span>. Y eso fue lo que se publicó.</p>
 <aside class="notes">
-<p>Discusión (10 min): ¿cuántos papers tendrán este problema? ¿Cómo lo habrían detectado los revisores? No lo habrían detectado: no tenían ni los datos ni el código.</p>
+<p>Los números (los verifiqué):</p>
+<ul>
+<li>Script viejo: <em>Z. aurea</em> en Loma del Viento = 87,5 % (porque partía el sitio en dos).</li>
+<li>Flujo nuevo: Loma del Viento = 92,9 %; total = 73,7 %.</li>
+<li><code>Tabla I_Nota.docx</code>: total = 76,2 %, porque se copió a mano de una versión anterior.</li>
+</ul>
+<p>Discusión (10 min): ¿cuántos papers tendrán este problema? ¿Cómo lo habrían detectado los revisores? No lo habrían detectado: no tenían ni los datos ni el código. Por eso compartirlos importa.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -421,7 +491,10 @@ Maité A. Barrena
 <p>Si cambian los datos → se corren los scripts → se renderiza el informe → <span class="hl">todo se actualiza solo</span>.</p>
 <p><span class="fuente">Ver: LMU Open Science Center, <em>Introduction to Quarto</em> (CC BY-SA 4.0).</span></p>
 <aside class="notes">
-<p>Demostración en vivo: renderizar docs/informe.qmd. Después cambiar un color en 03_figuras.R, correr todo de nuevo y volver a renderizar.</p>
+<p>Definición, programación literaria (<em>literate programming</em>, Knuth 1984): escribir texto y código juntos en un mismo documento, de forma que el documento se genera corriendo el código. Quarto (y antes R Markdown) es una implementación de esa idea.</p>
+<p>Demostración en vivo: renderizo <code>docs/informe.qmd</code>. Después cambio un color en <code>03_figuras.R</code>, corro todo de nuevo, vuelvo a renderizar y muestro que el informe se actualizó solo.</p>
+<p>Los números del texto se escriben con código en línea: <code>`r tabla2$prevalencia[1]`</code>. Si cambian los datos, el número cambia solo.</p>
+<p>Fuente: LMU, <em>Introduction to Quarto</em>.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -442,6 +515,20 @@ Maité A. Barrena
 </div>
 <p><br></p>
 <p>Pregunta de salida: <em>¿Qué paso manual de tu trabajo podría ser un script?</em></p>
+<aside class="notes">
+<p>Cierre y pregunta de salida: “¿Qué paso manual de tu trabajo podría ser un script?”.</p>
+<p>Aviso que el próximo encuentro es Git: que instalen GitHub Desktop y creen su cuenta de GitHub antes de venir (está en la guía “Antes del taller”, paso 5). Es lo que más tiempo puede hacer perder si no está listo.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2 smaller">
 <h2>Créditos</h2>

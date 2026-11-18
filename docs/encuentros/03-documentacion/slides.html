@@ -218,8 +218,8 @@ Maité A. Barrena
 <p>¿Qué necesitarías saber para poder <span class="hl">usar</span> la carpeta que ordenamos la semana pasada?</p>
 </div>
 <aside class="notes">
-<p>Fase R. Anotar en el pizarrón. Aparecen: qué es cada archivo, qué significan las columnas, en qué unidades, qué script corro primero, de dónde salen los datos, quién los tomó…</p>
-<p>Retomar las dudas de la mudanza: ¿cuál de los dos Excel?, ¿cuál de los dos scripts?, ¿qué eran las celdas amarillas? Todo eso es información que nadie documentó.</p>
+<p>Fase de activación. Anoto en el pizarrón lo que digan. Suele aparecer: qué es cada archivo, qué significan las columnas, en qué unidades, qué script corro primero, de dónde salen los datos, quién los tomó.</p>
+<p>Retomo las dudas de la mudanza: ¿cuál de los dos Excel?, ¿cuál de los dos scripts?, ¿qué eran las celdas amarillas? Todo eso es información que nadie documentó.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -240,6 +240,19 @@ Maité A. Barrena
 <li>Construir un diccionario de datos para un conjunto de datos</li>
 <li>Registrar las decisiones y correcciones hechas sobre los datos</li>
 </ol>
+<aside class="notes">
+<p>Objetivos del encuentro. Hoy no se corre código: se escribe. Es un buen encuentro para quienes se sienten menos cómodos con R.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2 smaller">
 <h2>Documentar es para vos</h2>
@@ -262,6 +275,24 @@ Maité A. Barrena
 </ul>
 </div></div>
 <p><span class="fuente">Ver también: LMU Open Science Center, <em>Data Documentation &amp; Validation in R</em> (CC BY-SA 4.0).</span></p>
+<aside class="notes">
+<p>Definiciones:</p>
+<ul>
+<li>Documentación: toda la información que permite que otra persona (o yo en el futuro) entienda, use y reproduzca un proyecto.</li>
+<li>Metadatos: “datos sobre los datos”: quién los tomó, dónde, cuándo, con qué método, qué significa cada variable, en qué unidad.</li>
+</ul>
+<p>Sin metadatos, un conjunto de datos es una tabla de números que nadie puede interpretar. Es la “R” de los principios FAIR: para que los datos sean reutilizables, tienen que estar bien descriptos.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2 smaller">
 <h2>El README</h2>
@@ -302,7 +333,10 @@ Maité A. Barrena
 </table>
 <p>Formato <span class="hl">Markdown</span> (<code>.md</code>): texto plano, se lee en cualquier lado y GitHub lo muestra lindo.</p>
 <aside class="notes">
-<p>Mostrar un README real de un repositorio de GitHub (por ejemplo, el del proyecto <code>ordenado/</code> del taller) para que vean cómo se ve renderizado.</p>
+<p>Qué es: un archivo de texto que se llama literalmente “léeme” (<em>read me</em>) y es lo primero que alguien abre. Es una convención del mundo del software desde hace décadas: GitHub lo muestra automáticamente como portada del repositorio.</p>
+<p>Muestro el README de <code>ordenado/</code> en GitHub para que vean cómo se ve renderizado.</p>
+<p>Lo mínimo que tiene que tener: qué es, quién lo hizo, qué hay en cada carpeta, cómo se reproduce y bajo qué licencia se puede usar.</p>
+<p>Lo escribimos en Markdown (<code>.md</code>) porque es texto plano: se lee en cualquier programa, pesa poco, Git puede ver sus cambios línea por línea y no depende de Word.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -327,6 +361,20 @@ Maité A. Barrena
 <span id="cb1-8"><a aria-label="8"></a></span>
 <span id="cb1-9"><a aria-label="9"></a>Código en línea: <span class="in">`data/raw/`</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Es el mismo formato que usan Quarto, GitHub y este sitio.</p>
+<aside class="notes">
+<p>Qué es Markdown: un lenguaje de marcado muy simple: se escribe texto común y con unos pocos símbolos se indica el formato (<code>#</code> para títulos, <code>*</code> para cursiva, <code>-</code> para listas). Es el mismo que usan Quarto, GitHub y este sitio.</p>
+<p>Si alguien ya usó Quarto o R Markdown, ya sabe Markdown.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2 smaller">
 <h2>El diccionario de datos</h2>
@@ -379,6 +427,22 @@ Maité A. Barrena
 </table>
 <p>En un CSV, al lado de los datos: <code>docs/diccionario_datos.csv</code>.</p>
 <p><span class="fuente">Basado en LMU Open Science Center, <em>Data Documentation &amp; Validation in R</em>; Broman, K. W. &amp; Woo, K. H. (2018). Data organization in spreadsheets. <em>The American Statistician</em>, 72(1), 2–10.</span></p>
+<aside class="notes">
+<p>Definición: un diccionario de datos (o <em>codebook</em>) es una tabla que describe cada variable de un conjunto de datos: nombre, descripción, tipo, unidad, valores permitidos y cómo se codifican los datos faltantes.</p>
+<p>Por qué en CSV y no en Word: porque es una tabla que se puede leer con R, comparar con los datos y validar automáticamente.</p>
+<p>Para quien trabaja con biodiversidad: existe un estándar internacional, Darwin Core, con nombres de variables acordados para registros de especies (<code>scientificName</code>, <code>eventDate</code>, <code>decimalLatitude</code>…). Lo usa GBIF, el portal global de datos de biodiversidad. Usar esos nombres desde el principio hace los datos mucho más interoperables (la “I” de FAIR).</p>
+<p>Fuentes: LMU, <em>Data Documentation &amp; Validation in R</em>; Broman &amp; Woo (2018).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2 smaller">
 <h2>Planillas que se entienden</h2>
@@ -404,8 +468,20 @@ Maité A. Barrena
 </div></div>
 <p><span class="fuente">Broman, K. W. &amp; Woo, K. H. (2018). Data organization in spreadsheets. <em>The American Statistician</em>, 72(1), 2–10.</span></p>
 <aside class="notes">
-<p>No vamos a modificar el crudo (es de solo lectura): lo documentamos tal como está. La limpieza se hace con código en el encuentro 4.</p>
-<p>Para sus PRÓXIMAS planillas de campo, en cambio, esto se aplica desde el día 1.</p>
+<p>Basado en Broman &amp; Woo (2018), <em>Data organization in spreadsheets</em> (The American Statistician). Sus reglas principales:</p>
+<ol type="1">
+<li>Ser consistente (mismos códigos, mismos nombres, mismo formato de fecha).</li>
+<li>Fechas en formato ISO 8601: AAAA-MM-DD.</li>
+<li>Una sola cosa por celda (no “12 cm aprox.”).</li>
+<li>Que sea un rectángulo: una fila de encabezado y los datos abajo, sin títulos ni notas alrededor.</li>
+<li>Crear un diccionario de datos.</li>
+<li>No hacer cálculos en el archivo de datos crudos.</li>
+<li>No usar colores ni formato como información: el color no se puede leer desde R.</li>
+<li>Elegir buenos nombres para las variables.</li>
+<li>Hacer copias de respaldo y guardar los datos en formatos simples (CSV).</li>
+</ol>
+<p>Concepto relacionado, datos ordenados (<em>tidy data</em>, Wickham 2014): cada variable es una columna, cada observación es una fila, cada valor es una celda.</p>
+<p>Aclaro: no vamos a modificar el crudo, que es de solo lectura. Lo documentamos tal como está y la limpieza la hacemos con código en el encuentro 4. Pero para sus próximas planillas de campo, esto se aplica desde el día 1.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -431,7 +507,9 @@ Maité A. Barrena
 <span id="cb2-8"><a aria-label="8"></a>  planta 14. No se sabe por qué. Se usa la versión 1.</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Una sección del README, o un archivo <code>docs/decisiones.md</code>.</p>
 <aside class="notes">
-<p>Lo más valioso de la documentación no es lo obvio, sino las decisiones: lo que solo vos sabés.</p>
+<p>Lo más valioso de la documentación no es lo obvio, sino las decisiones: lo que solo yo sé. ¿Por qué excluí esa planta? ¿Por qué usé esa versión de los datos? ¿Qué significa ese código?</p>
+<p>Algunos grupos llevan un cuaderno de laboratorio electrónico o un archivo <code>docs/decisiones.md</code> con fecha. Lo importante es que esté dentro del proyecto, no en un mail ni en la cabeza.</p>
+<p>Cuando lleguemos a Git (encuentro 5), los mensajes de commit van a ser otra forma de registrar decisiones.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -457,7 +535,9 @@ Maité A. Barrena
 </ul>
 </div>
 <aside class="notes">
-<p>Pista: abrir el Excel y recorrer columna por columna. Hay faltantes escondidos: “-” en altura, “NA” en cobertura, “s/d” en P. rapida, 999 en altura.</p>
+<p>Pista para quien se traba: abrir el Excel y recorrerlo columna por columna.</p>
+<p>Faltantes escondidos que tienen que encontrar: <code>-</code> en la altura, <code>NA</code> en la cobertura, <code>s/d</code> en <em>P. rapida</em>, y <code>999</code> en la altura de la planta P10. Y el amarillo: “valor corregido tras revisar fotos”.</p>
+<p>Si alguien termina rápido: que piense qué tipo tiene cada variable (número, entero, texto, fecha).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -483,7 +563,8 @@ Maité A. Barrena
 </ul>
 </div>
 <aside class="notes">
-<p>Se puede escribir en RStudio: File → New File → Markdown File. Guardar como README.md en la raíz del proyecto.</p>
+<p>Se puede escribir en RStudio: File → New File → Markdown File. Guardar como <code>README.md</code> en la raíz del proyecto (al lado del <code>.Rproj</code>).</p>
+<p>Pueden inventar la autoría y el contexto, pero las decisiones de la mudanza tienen que ser las reales: es lo más importante del README.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -502,6 +583,19 @@ Maité A. Barrena
 <p><span class="etiqueta">En parejas</span> <span class="tiempo">10 min</span></p>
 <p>Leé el README de tu compañero/a y marcá <span class="hl">una cosa que no se entiende</span>.</p>
 </div>
+<aside class="notes">
+<p>Revisión entre pares: cada uno lee el README del compañero y marca una cosa que no se entiende. Es un ensayo de lo que hacemos en el encuentro 6, con la checklist.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2">
 <h2>Bonus: diccionarios automáticos</h2>
@@ -509,7 +603,9 @@ Maité A. Barrena
 <p>Genera un resumen de cada variable (tipo, valores, faltantes). <span class="hl">No reemplaza</span> el diccionario: no sabe qué significa cada columna ni en qué unidad está.</p>
 <p><span class="fuente">Basado en LMU Open Science Center, <em>Data Documentation &amp; Validation in R</em>, “Automated Creation with R” (CC BY-SA 4.0).</span></p>
 <aside class="notes">
-<p>Solo mostrar si sobra tiempo. Sirve para chequear que no se escape ningún valor raro.</p>
+<p>Solo si sobra tiempo.</p>
+<p><code>datawizard::data_codebook()</code> genera un resumen de cada variable: tipo, valores, cantidad de faltantes. Sirve para chequear que no se escape ningún valor raro, pero no reemplaza el diccionario: no sabe qué significa cada columna ni en qué unidad está.</p>
+<p>Fuente: LMU, <em>Data Documentation &amp; Validation in R</em>, sección “Automated Creation with R”.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -530,6 +626,19 @@ Maité A. Barrena
 </div>
 <p><br></p>
 <p>Pregunta de salida: <em>¿Qué información de tus datos está hoy solo en tu cabeza?</em></p>
+<aside class="notes">
+<p>Cierre y pregunta de salida: “¿Qué información de tus datos está hoy solo en tu cabeza?”. Suele generar respuestas muy honestas.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2 smaller">
 <h2>Créditos</h2>

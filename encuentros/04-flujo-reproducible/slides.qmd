@@ -29,8 +29,11 @@ format:
 El script corría... pero ¿daba bien?
 
 ::: notes
-Fase R. Retomar la pregunta que quedó abierta en el encuentro 2. Dejar que lo descubran: "Loma del viento " con un espacio al final y "Pampa imaginaria" en minúscula son tratados como sitios distintos. La fila NA es la nota escrita debajo de los datos.
+Fase de activación. Retomo la pregunta que quedó abierta en el encuentro 2. Dejo que lo descubran solos.
+
+Qué pasa: R compara texto de forma literal. "Loma del viento " (con un espacio al final) y "Loma del Viento" son, para R, dos sitios distintos. Lo mismo "Pampa imaginaria" en minúscula. La fila `NA` es la nota escrita debajo de los datos ("amarillo = corregido..."), que R leyó como si fuera una planta.
 :::
+
 
 ## Hoy
 
@@ -40,6 +43,11 @@ Al terminar este encuentro vas a poder:
 2. Leer un script de limpieza e identificar qué problema resuelve cada parte
 3. Regenerar todos los resultados de un proyecto con un solo comando
 4. Explicar por qué los resultados no se copian a mano
+
+::: notes
+Objetivos del encuentro. Es el encuentro más "técnico" en R, pero ellos no programan: leen, corren y comparan.
+:::
+
 
 ## Un flujo en tres pasos
 
@@ -54,8 +62,20 @@ Al terminar este encuentro vas a poder:
 - `00_correr_todo.R` corre los tres
 
 ::: notes
-Insistir: el crudo NUNCA se modifica. Todo lo que cambia queda escrito en 01_limpieza.R, que es la documentación ejecutable de la limpieza.
+Definición de flujo de trabajo reproducible (*reproducible workflow* o *pipeline*): una secuencia de pasos, escritos en código, que va desde los datos originales hasta los resultados finales sin intervención manual. Cualquier persona puede correrlo y obtener lo mismo.
+
+- 01_limpieza.R: datos crudos → datos procesados.
+- 02_analisis.R: datos procesados → tablas.
+- 03_figuras.R: tablas → figuras.
+- 00_correr_todo.R: corre los tres en orden.
+
+Principio clave: el crudo nunca se modifica. Todo lo que cambia queda escrito en `01_limpieza.R`, que funciona como documentación ejecutable de la limpieza.
+
+Por qué separar en varios scripts y no uno solo: cada uno tiene una sola responsabilidad, se puede revisar por separado y, si cambia la figura, no hace falta rehacer la limpieza.
+
+Para proyectos grandes existen herramientas que automatizan esto y solo rehacen lo que cambió, como el paquete `targets` en R. Para empezar, scripts numerados alcanzan.
 :::
+
 
 ## La limpieza se hace con código {.smaller}
 
@@ -81,6 +101,14 @@ Insistir: el crudo NUNCA se modifica. Todo lo que cambia queda escrito en 01_lim
 :::
 ::::
 
+::: notes
+- A mano: abrir el Excel y corregir, o borrar filas con `datos[-10, ]`. No queda registro de qué se cambió ni por qué. Si llegan datos nuevos, hay que acordarse de hacer todo de nuevo.
+- Con código: cada corrección es una línea con un comentario. Se puede revisar, discutir, deshacer y volver a correr.
+
+Ejemplo concreto: `datos[-10, ]` borra "la fila 10". ¿Y si el orden de las filas cambia? Borra otra planta, sin avisar. En cambio, "la altura 999 es un dato faltante" es una regla, y sigue funcionando aunque cambie el orden.
+:::
+
+
 ## Leamos `01_limpieza.R` {.smaller}
 
 ```r
@@ -103,8 +131,15 @@ altura_cm = dplyr::if_else(altura_cm == 999, NA_real_, altura_cm)
 ¿Qué problema de la [búsqueda del tesoro]{.hl} resuelve cada bloque?
 
 ::: notes
-No hace falta que entiendan cada función. Lo importante es conectar cada bloque con un problema concreto de la lista del encuentro 1 y con el diccionario del encuentro 3.
+No hace falta que entiendan cada función. Lo importante es conectar cada bloque con un problema concreto de la búsqueda del tesoro y del diccionario del encuentro 3.
+
+- `stringr::str_squish()` saca los espacios de más; `stringr::str_to_lower()` pasa todo a minúscula. Así "Loma del viento " y "loma del viento" quedan iguales.
+- `dplyr::case_when()` es como un "si pasa esto, poné aquello", para varias condiciones.
+- `dplyr::if_else(altura_cm == 999, NA_real_, altura_cm)`: si la altura es 999, se convierte en dato faltante; si no, queda igual.
+
+Los encabezados con `----` al final (por ejemplo `# 3. Unificar los nombres de los sitios ----`) crean secciones con título en RStudio: aparecen en el índice del script, abajo del editor.
 :::
+
 
 ## Lectura guiada
 
@@ -116,6 +151,11 @@ No hace falta que entiendan cada función. Lo importante es conectar cada bloque
 3. Para cada sección, anotá: [¿qué problema del Excel resuelve?]{.hl}
 4. ¿Hay algo del diccionario de datos que no esté resuelto en el script?
 :::
+
+::: notes
+Mientras leen, circulo. La pregunta clave: ¿hay algo del diccionario de datos que no esté resuelto en el script? (Respuesta: el script no usa la información del amarillo, porque los valores corregidos ya están en el crudo.)
+:::
+
 
 ## Correr todo
 
@@ -129,10 +169,15 @@ No hace falta que entiendan cada función. Lo importante es conectar cada bloque
 :::
 
 ::: notes
-El momento del "¡ah!": borrar los resultados no da miedo, porque se regeneran. Ese es el principio 4 del encuentro 1 (los productos son descartables).
+El momento del "¡ah!": borrar `outputs/` no da miedo, porque se regenera en segundos. Es el principio 4 del encuentro 1: los productos son descartables.
 
-Si falta algún paquete: install.packages() en la consola.
+Errores típicos:
+
+- `there is no package called ...` → falta instalar `tidyverse` o `here`: `install.packages(c("tidyverse", "here"))` en la consola.
+- `No existe .../plantas_limpio.csv. Primero hay que correr R/01_limpieza.R` → corrieron un script fuera de orden. Que usen `00_correr_todo.R`.
+- `path does not exist` → el Excel crudo no se llama `2023-03_campo_plantas.xlsx` o no está en `data/raw/`.
 :::
+
 
 ## ¿Qué número es el bueno? {.smaller}
 
@@ -149,8 +194,15 @@ Prevalencia de *Zumbatrix aurea*:
 El script viejo partía los sitios. La tabla de Word se copió de [una versión anterior]{.hl}. Y eso fue lo que se publicó.
 
 ::: notes
-Discusión (10 min): ¿cuántos papers tendrán este problema? ¿Cómo lo habrían detectado los revisores? No lo habrían detectado: no tenían ni los datos ni el código.
+Los números (los verifiqué):
+
+- Script viejo: *Z. aurea* en Loma del Viento = 87,5 % (porque partía el sitio en dos).
+- Flujo nuevo: Loma del Viento = 92,9 %; total = 73,7 %.
+- `Tabla I_Nota.docx`: total = 76,2 %, porque se copió a mano de una versión anterior.
+
+Discusión (10 min): ¿cuántos papers tendrán este problema? ¿Cómo lo habrían detectado los revisores? No lo habrían detectado: no tenían ni los datos ni el código. Por eso compartirlos importa.
 :::
+
 
 ## Ningún número a mano
 
@@ -166,8 +218,15 @@ Si cambian los datos → se corren los scripts → se renderiza el informe → [
 <span class="fuente">Ver: LMU Open Science Center, *Introduction to Quarto* (CC BY-SA 4.0).</span>
 
 ::: notes
-Demostración en vivo: renderizar docs/informe.qmd. Después cambiar un color en 03_figuras.R, correr todo de nuevo y volver a renderizar.
+Definición, programación literaria (*literate programming*, Knuth 1984): escribir texto y código juntos en un mismo documento, de forma que el documento se genera corriendo el código. Quarto (y antes R Markdown) es una implementación de esa idea.
+
+Demostración en vivo: renderizo `docs/informe.qmd`. Después cambio un color en `03_figuras.R`, corro todo de nuevo, vuelvo a renderizar y muestro que el informe se actualizó solo.
+
+Los números del texto se escriben con código en línea: `` `r tabla2$prevalencia[1]` ``. Si cambian los datos, el número cambia solo.
+
+Fuente: LMU, *Introduction to Quarto*.
 :::
+
 
 ## Para la próxima {.smaller}
 
@@ -180,6 +239,13 @@ En `R/03_figuras.R`, cambiá un [color]{.hl}, un título o el tamaño de una fig
 <br>
 
 Pregunta de salida: *¿Qué paso manual de tu trabajo podría ser un script?*
+
+::: notes
+Cierre y pregunta de salida: "¿Qué paso manual de tu trabajo podría ser un script?".
+
+Aviso que el próximo encuentro es Git: que instalen GitHub Desktop y creen su cuenta de GitHub antes de venir (está en la guía "Antes del taller", paso 5). Es lo que más tiempo puede hacer perder si no está listo.
+:::
+
 
 ## Créditos {.smaller}
 

@@ -26,10 +26,13 @@ version final/
 ¿Quién usó Git alguna vez? 🙋
 
 ::: notes
-Fase R. Volver a la carpeta del proyecto desordenado. ¿Cómo sabíamos cuál era la versión buena? No lo sabíamos.
+Fase de activación. Vuelvo a la carpeta `final final final final/` del proyecto desordenado: ¿cómo sabíamos cuál era la versión buena? No lo sabíamos.
 
-Encuesta rápida de manos para calibrar el ritmo: si nadie usó Git, ir más despacio en la demo.
+Encuesta de manos: "¿quién usó Git alguna vez?". Si casi nadie, voy más despacio en la demo. Lo cruzo con lo que respondieron en el formulario de inscripción.
+
+Lo que quiero que se lleven hoy: Git reemplaza a la carpeta "final final final". En vez de guardar copias, guardo una sola versión del proyecto con su historia.
 :::
+
 
 ## Hoy
 
@@ -39,6 +42,11 @@ Al terminar este encuentro vas a poder:
 2. Distinguir entre Git y GitHub
 3. Registrar cambios en un proyecto (*commits*) y recorrer su historial
 4. Decidir qué archivos van (y cuáles no) a un repositorio
+
+::: notes
+Objetivos del encuentro. Les digo la verdad: Git es la parte que más cuesta al principio, a todo el mundo. Hoy no van a ser expertos. El objetivo es que pierdan el miedo y puedan hacer lo básico: guardar versiones y volver atrás.
+:::
+
 
 ## Control de versiones
 
@@ -59,6 +67,23 @@ informe_v1.docx  informe_v2.docx  informe_final.docx  informe_final_ok.docx
 Cada punto es una foto del proyecto, con fecha, autor y un mensaje. Podés volver a cualquiera.
 
 <span class="fuente">Basado en Von Grebmer zu Wolfsthurn, S., Edelsbrunner, P., Ihle, M. & Schönbrodt, F. (2026). *Introduction to version control with Git in RStudio* [Quarto slides]. LMU Open Science Center (CC BY-SA 4.0).</span>
+
+::: notes
+Definición: un sistema de control de versiones registra los cambios que se hacen en un conjunto de archivos a lo largo del tiempo, de forma que se pueda ver qué cambió, cuándo, quién lo cambió y volver a cualquier versión anterior.
+
+La metáfora que uso: cada commit es una foto del proyecto completo, con fecha, autoría y un mensaje que dice qué cambió. El historial es el álbum de fotos. Puedo mirar cualquier foto vieja y volver a ella.
+
+Diferencia con el "historial de versiones" de Google Drive o Dropbox (lo van a preguntar):
+
+- Drive guarda versiones automáticamente, cada tanto, sin mensaje, archivo por archivo, y por tiempo limitado.
+- Git guarda versiones cuando yo decido (en un momento con sentido), con un mensaje que explica el cambio, del proyecto entero a la vez, y para siempre.
+- Git además muestra exactamente qué líneas cambiaron entre una versión y otra.
+
+Un poco de historia: Git lo creó Linus Torvalds en 2005 para coordinar el desarrollo del sistema operativo Linux. Hoy es el estándar en el desarrollo de software y cada vez más en ciencia.
+
+Fuente: LMU, *Introduction to version control with Git in RStudio* (Von Grebmer zu Wolfsthurn et al.).
+:::
+
 
 ## Git y GitHub no son lo mismo
 
@@ -82,6 +107,21 @@ Cada punto es una foto del proyecto, con fecha, autor y un mensaje. Podés volve
 
 *Git es como el programa que saca las fotos; GitHub, como el álbum compartido en la nube.*
 
+::: notes
+Es la confusión más común. Lo digo despacio:
+
+- Git es un programa que se instala en la compu. Trabaja localmente, sin internet. Lleva el registro de los cambios de una carpeta. Es gratuito y de código abierto.
+- GitHub es una página web (una empresa, de Microsoft desde 2018) que guarda una copia de repositorios Git en la nube. Sirve para tener un respaldo, colaborar con otras personas y compartir.
+- GitHub Desktop es un programa con botones para usar Git (y conectarse con GitHub) sin escribir comandos. Es lo que usamos en el taller. Ya trae Git incluido.
+
+Metáfora: Git es la cámara de fotos; GitHub es el álbum compartido en la nube; GitHub Desktop es una app amigable para manejar la cámara.
+
+Hay alternativas a GitHub: GitLab, Codeberg, Bitbucket. Git funciona igual con todas.
+
+Pregunta que siempre aparece: "¿Git sube mis datos a internet?" No. Git trabaja en la compu. Solo se sube algo a internet cuando yo hago push a GitHub, y solo lo que no está en el `.gitignore`.
+:::
+
+
 ## Vocabulario mínimo {.smaller}
 
 | Palabra | Qué es |
@@ -95,6 +135,28 @@ Cada punto es una foto del proyecto, con fecha, autor y un mensaje. Podés volve
 
 <span class="fuente">Basado en LMU Open Science Center, *Introduction to version control with Git in RStudio* (CC BY-SA 4.0).</span>
 
+::: notes
+Repaso cada palabra con un ejemplo concreto del proyecto:
+
+- Repositorio (repo): una carpeta "vigilada" por Git. Técnicamente, una carpeta que tiene adentro una subcarpeta oculta `.git/` donde se guarda todo el historial. Si borro `.git/`, pierdo el historial (los archivos quedan, pero dejan de ser un repo).
+- Commit: una foto del proyecto, con un mensaje. Cada commit tiene un identificador único (un código largo de letras y números, llamado *hash* o *SHA*), autoría y fecha.
+- Historial (history / log): la lista de todos los commits, del más nuevo al más viejo.
+- Push: subir a GitHub los commits que hice en mi compu.
+- Pull: bajar a mi compu los commits nuevos que están en GitHub (por ejemplo, los que hizo una coautora).
+- `.gitignore`: archivo de texto con la lista de cosas que Git no tiene que vigilar.
+
+Palabras que pueden aparecer en GitHub Desktop y conviene saber:
+
+- Branch (rama): una línea de trabajo paralela. La principal se llama `main`. Hoy trabajamos siempre en `main`; las ramas quedan para más adelante.
+- Remote / origin: la copia del repo en GitHub. "Push origin" = subir a GitHub.
+- Fetch: preguntarle a GitHub si hay algo nuevo, sin bajarlo todavía.
+- Clone (clonar): descargar un repositorio de GitHub a la compu, con todo su historial.
+- Diff: la comparación entre dos versiones. En GitHub Desktop, las líneas en verde se agregaron y las líneas en rojo se borraron.
+
+Lo que pasa "por detrás" de un commit, en tres zonas (solo si preguntan): 1) la carpeta de trabajo (donde edito), 2) el área de preparación o *staging* (lo que marco para incluir en el próximo commit, en GitHub Desktop son las casillas tildadas de la lista de cambios) y 3) el repositorio (los commits guardados).
+:::
+
+
 ## ¿Qué NO va a un repositorio?
 
 ::: {.actividad}
@@ -106,10 +168,20 @@ En `desordenado/` había un archivo `CONVENIO_permiso_colecta_FIRMADO.docx`.
 :::
 
 ::: notes
-Llegar a la lista: datos personales o sensibles (convenios, DNI, datos de participantes), archivos muy pesados (fotos, videos, datos crudos enormes), productos que se regeneran (outputs/, data/processed/), archivos de sesión (.RData, .Rhistory), contraseñas o tokens.
+Discusión (10 min). Llego con ellos a esta lista:
 
-Aclarar: un repositorio privado tampoco es lugar para documentos sensibles.
+- Datos personales o sensibles: convenios firmados, DNI, datos de personas, ubicación exacta de especies amenazadas o de nidos.
+- Contraseñas, claves, tokens de acceso (por ejemplo, el token de una API).
+- Archivos muy pesados: fotos, videos, datos crudos enormes. GitHub rechaza archivos de más de 100 MB y avisa a partir de 50 MB. Para eso se usan repositorios de datos (Zenodo, OSF) o herramientas como Git LFS.
+- Productos que se regeneran: `outputs/`, `data/processed/`. Si el código los genera, no hace falta guardarlos.
+- Archivos de sesión: `.RData`, `.Rhistory`, `.Rproj.user/`.
+
+Aclaraciones clave:
+
+- Un repositorio privado tampoco es lugar para documentos sensibles: lo pueden ver colaboradores, y si algún día se hace público, se ve todo el historial.
+- Lo que entra al historial queda en el historial, aunque después se borre el archivo. Por eso el `.gitignore` va antes del primer commit. Si alguna vez se sube una contraseña por error, hay que cambiar la contraseña: borrarla del repo no alcanza.
 :::
+
 
 ## El `.gitignore`
 
@@ -130,10 +202,30 @@ outputs/
 Un archivo de texto en la [raíz]{.hl} del proyecto. Cada línea = algo que Git ignora.
 
 ::: notes
-Ojo: el .gitignore no "borra" nada, solo hace que Git no lo registre. Y hay que crearlo ANTES del primer commit: si un archivo ya fue registrado, ignorarlo después no lo saca del historial.
+Qué es: un archivo de texto llamado exactamente `.gitignore` (con punto adelante y sin extensión), en la raíz del proyecto. Cada línea es un patrón de archivos o carpetas que Git ignora.
+
+Cómo se leen los patrones:
+
+- `outputs/` → ignora la carpeta entera.
+- `.RData` → ignora ese archivo, esté donde esté.
+- `*FIRMADO*` → el asterisco es un comodín: ignora cualquier archivo cuyo nombre contenga "FIRMADO".
+- Las líneas que empiezan con `#` son comentarios.
+
+Ojo con dos cosas:
+
+1. El `.gitignore` no borra nada: solo hace que Git no lo registre. El archivo sigue en la compu.
+2. Si un archivo ya fue commiteado, agregarlo después al `.gitignore` no lo saca del historial. Por eso va primero.
+
+Error típico en Windows: al descargar la plantilla se guarda como `gitignore-plantilla.txt` o `.gitignore.txt`. Tiene que llamarse exactamente `.gitignore`. Si Windows oculta las extensiones, activar en el Explorador: Vista → Mostrar → Extensiones de nombre de archivo.
 :::
 
+
 ## Manos a la obra {.seccion .center}
+
+::: notes
+Slide de transición. Antes de empezar, chequeo con las notitas: "verde si tienen GitHub Desktop abierto y con su cuenta iniciada, rosa si no". Los que tengan rosa trabajan en pareja con alguien que tenga verde.
+:::
+
 
 ## Primer repositorio
 
@@ -149,10 +241,39 @@ Ojo: el .gitignore no "borra" nada, solo hace que Git no lo registre. Y hay que 
 :::
 
 ::: notes
-Demostración en vivo con proyector, paso a paso, y que lo repliquen. Ir al ritmo del más lento: en la encuesta de inscripción vimos quién nunca usó Git.
+Demostración en vivo, paso a paso, con el proyector. Voy al ritmo de la persona más lenta. Después de cada paso, pido verde/rosa.
 
-Alternativa para quien prefiera: pestaña Git de RStudio (requiere Git instalado aparte). GitHub Desktop trae Git incluido.
+1. Guardar el `.gitignore`: descargar la plantilla de la página y guardarla en la raíz del proyecto como `.gitignore`.
+
+2. Crear el repositorio: GitHub Desktop → File → *Add local repository* → *Choose…* → elegir la carpeta del proyecto. Aparece el aviso "This directory does not appear to be a Git repository" → clic en *create a repository*. En la ventana que se abre:
+- *Name*: el nombre de la carpeta (no lo cambien).
+- *Git ignore*: dejar en None (ya tenemos el nuestro).
+- *License*: None.
+- → *Create repository*.
+
+Si después la pestaña *Changes* queda vacía y en *History* aparece un "Initial commit", es porque GitHub Desktop ya hizo el primer commit solo. Está bien: pasamos al paso 4. Lo pruebo en mi ensayo para saber exactamente qué muestra.
+
+3. Primer commit: a la izquierda, la lista de archivos. Revisar que no aparezcan `outputs/`, `.RData` ni el convenio. Mensaje abajo a la izquierda ("Proyecto organizado") → *Commit to main*.
+
+4. Segundo commit: abrir `README.md`, cambiar algo y guardar. En GitHub Desktop aparece el cambio: muestro el diff (verde = agregado, rojo = borrado). Mensaje claro → *Commit to main*.
+
+5. Historial: pestaña *History*. Muestro los commits con fecha, autoría y qué cambió.
+
+6. Volver atrás: clic derecho sobre el último commit → *Revert changes in commit*. Explico que revert no borra el commit: crea un commit nuevo que deshace el cambio. Así el historial nunca se pierde.
+
+Errores típicos y cómo los resuelvo:
+
+- *"Please configure your name and email"* o los commits salen sin autoría → File → Options → Git: completar nombre y mail.
+- *"Cannot add local repository / this is not a git repository"* → es normal la primera vez: hay que hacer clic en *create a repository*.
+- Aparece `outputs/` o `.RData` en la lista → el `.gitignore` está mal nombrado (`.gitignore.txt`) o no está en la raíz. Arreglarlo antes de commitear. Si ya lo commitearon: lo más simple es borrar el repositorio (la carpeta oculta `.git`) y empezar de nuevo; en un proyecto de práctica no se pierde nada.
+- Quieren deshacer el último commit y todavía no hicieron push → History → clic derecho → *Undo commit*. Para commits más viejos o ya subidos, siempre *Revert*.
+- Quieren descartar cambios que no commitearon → clic derecho sobre el archivo en *Changes* → *Discard changes*. Ojo: eso sí borra los cambios sin guardar.
+- El proyecto está en OneDrive/Google Drive → puede dar conflictos de sincronización. Para el taller, mejor una carpeta común en Documentos.
+- Aparece un aviso sobre "LF will be replaced by CRLF" → es un tema de saltos de línea entre Windows y Mac/Linux. Se puede ignorar.
+
+Alternativa para quien prefiera: la pestaña *Git* de RStudio (necesita Git instalado aparte). Para quien usa Linux, es la opción.
 :::
+
 
 ## Buenos mensajes de commit {.smaller}
 
@@ -163,6 +284,19 @@ Alternativa para quien prefiera: pestaña Git de RStudio (requiere Git instalado
 | `final` | `Agrego la figura 2 (prevalencia por sitio)` |
 
 El mensaje responde: [¿qué cambió y por qué?]{.hl} Lo va a leer tu "yo" de dentro de seis meses.
+
+::: notes
+Regla práctica: el mensaje completa la frase "Si aplico este commit, va a…": "…unificar los nombres de los sitios", "…corregir la unidad de la altura".
+
+- Corto (menos de unos 50 caracteres) y en verbo.
+- Dice qué cambió y, si no es obvio, por qué.
+- Un commit = un cambio con sentido. Mejor varios commits chicos que uno gigante con "cambios varios".
+
+Lo va a leer mi "yo" de dentro de seis meses (vuelvo a la frase del encuentro 1).
+
+Los mensajes de commit también son una forma de registrar decisiones (encuentro 3): "Excluyo la planta P14 por daño en la muestra" queda para siempre en el historial, con fecha.
+:::
+
 
 ## Subir a GitHub
 
@@ -175,8 +309,25 @@ El mensaje responde: [¿qué cambió y por qué?]{.hl} Lo va a leer tu "yo" de d
 :::
 
 ::: notes
-Si no da el tiempo o falla internet, hacerlo como demostración. Se retoma en el encuentro 6 para la revisión cruzada.
+Si no da el tiempo o falla internet, lo hago como demostración.
+
+Paso a paso: *Publish repository* (arriba) → dejar tildado *Keep this code private* → *Publish repository*. Después, en el navegador, github.com → su perfil → el repositorio. El README aparece como portada.
+
+Después de publicar, el ciclo de trabajo es siempre el mismo:
+
+1. Cambio algo en la compu y guardo.
+2. En GitHub Desktop: mensaje → *Commit to main*.
+3. *Push origin* (sube a GitHub).
+
+Si trabajan desde dos compus, o con otra persona: antes de empezar, *Fetch origin* y después *Pull origin*, para bajar lo nuevo.
+
+Error típico: *Push* rechazado ("rejected" o "Newer commits on remote") → hay cambios en GitHub que no están en la compu. Solución: *Pull origin* primero, después *Push*.
+
+Pregunta frecuente: "¿Privado o público?" Para el taller, privado. Se puede cambiar cuando quieran: en github.com → Settings → General → abajo de todo, *Change visibility*.
+
+Para la revisión cruzada del encuentro 6 pueden invitar al compañero: Settings → Collaborators → *Add people*.
 :::
+
 
 ## Para la próxima {.smaller}
 
@@ -189,6 +340,20 @@ Hacé [al menos un commit más]{.hl} en el proyecto, con un mensaje claro. Si lo
 <br>
 
 Pregunta de salida: *¿Qué carpeta tuya reemplazarías con Git?*
+
+::: notes
+Cierre y pregunta de salida: "¿Qué carpeta tuya reemplazarías con Git?".
+
+Preguntas frecuentes que pueden aparecer al final:
+
+- "¿Puedo usar Git para mi tesis en Word?" Puede guardar las versiones, pero no ve qué cambió adentro del .docx (es un archivo binario). Git brilla con archivos de texto: scripts, `.qmd`, `.md`, `.csv`. Por eso escribir en Quarto se lleva tan bien con Git.
+- "¿Y si trabajo con mi directora en el mismo repo?" Se la invita como colaboradora en GitHub. Cada una hace commit y push; antes de trabajar, pull. Si las dos cambian la misma línea del mismo archivo, Git avisa un conflicto y hay que elegir a mano qué versión queda. Es menos grave de lo que suena.
+- "¿Es gratis?" Git sí, siempre. GitHub tiene un plan gratuito con repositorios públicos y privados ilimitados, que alcanza para casi todo.
+- "¿Qué es un fork?" Una copia de un repositorio de otra persona en tu propia cuenta de GitHub, para modificarla sin tocar el original.
+
+Recursos para seguir: *Happy Git and GitHub for the useR* (Jenny Bryan) y el tutorial de LMU *Introduction to Version Control within RStudio*.
+:::
+
 
 ## Créditos {.smaller}
 

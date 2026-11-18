@@ -24,8 +24,12 @@ format:
 :::
 
 ::: notes
-Fase R. 2 o 3 voluntarios. Ir sumando problemas nuevos a la lista del encuentro 1 (tenerla a mano en papel o en una foto del pizarrón).
+Fase de activación. Retomo la tarea: 2 o 3 voluntarios cuentan sus 3 problemas.
+
+- Tengo a mano la foto del pizarrón del encuentro 1 y voy sumando los problemas nuevos a la lista.
+- Si nadie hizo la tarea, no pasa nada: pregunto "¿cuál de los problemas de la semana pasada reconocieron en sus carpetas?".
 :::
+
 
 ## Hoy
 
@@ -35,6 +39,11 @@ Al terminar este encuentro vas a poder:
 2. Reorganizar un proyecto separando datos, código y productos
 3. Reemplazar rutas absolutas por rutas relativas con `here()`
 4. Configurar RStudio para no depender del *workspace*
+
+::: notes
+Objetivos del encuentro. Hoy es el primer día en que se corre código, así que aviso que las notitas rosas van a ser más necesarias que la semana pasada.
+:::
+
 
 ## "En mi compu funciona"
 
@@ -55,10 +64,17 @@ Error in setwd("C:/Users/usuario/Desktop/nota plantas"):
 Y en tu misma computadora, si [movés la carpeta]{.hl} o cambiás de compu, también.
 
 ::: notes
-Preguntar: ¿alguna vez les pasó? Clásico al pasarle el script al director/a.
+Pregunto: ¿alguna vez le pasaron un script a su director/a y no le corrió? Es el problema más común cuando alguien intenta reproducir un análisis.
 
-`setwd()` con una ruta absoluta ata el código a una computadora y a una ubicación. Es el problema más común cuando alguien intenta reproducir un análisis.
+Definiciones:
+
+- Directorio de trabajo (*working directory*): la carpeta desde donde R busca y guarda archivos cuando le doy un nombre sin ruta completa. Se ve con `getwd()`.
+- Ruta absoluta: la dirección completa desde la raíz del disco, como `C:/Users/usuario/Desktop/...`. Solo existe en una computadora.
+- Ruta relativa: la dirección desde la carpeta del proyecto, como `data/raw/datos.xlsx`. Funciona en cualquier computadora que tenga el proyecto.
+
+`setwd()` con una ruta absoluta ata el código a una persona, una computadora y una ubicación. Basta con mover la carpeta, o cambiar de usuario, para que se rompa.
 :::
+
 
 ## Proyectos de RStudio
 
@@ -75,10 +91,19 @@ Al abrirlo, RStudio:
 <span class="fuente">Basado en LMU Open Science Center, *Introduction to Version Control within RStudio*, sección "Creating an RStudio project" (CC BY-SA 4.0); Bryan, J. (2017). *Project-oriented workflow*. Tidyverse blog.</span>
 
 ::: notes
-Demostración en vivo: File → New Project → Existing Directory. Mostrar que getwd() da la carpeta del proyecto.
+Demostración en vivo: File → New Project → Existing Directory → elijo la carpeta. Muestro que `getwd()` ahora devuelve la carpeta del proyecto, sin haber escrito ningún `setwd()`.
 
-En el proyecto de ejemplo hay DOS .Rproj sueltos en subcarpetas: preguntar qué problema genera eso.
+Qué es un proyecto de RStudio: un archivo `.Rproj` en la raíz de la carpeta. Al abrirlo (doble clic), RStudio:
+
+- fija el directorio de trabajo en esa carpeta;
+- recuerda los scripts abiertos y la configuración de ese proyecto;
+- separa un proyecto de otro (cada uno en su ventana).
+
+Pregunto: en el proyecto de ejemplo hay dos `.Rproj` sueltos en subcarpetas. ¿Qué problema genera eso? (Respuesta: no está claro cuál es la raíz del proyecto, y cada uno fija un directorio de trabajo distinto.)
+
+Fuente: LMU, *Introduction to Version Control within RStudio* (sección "Creating an RStudio project"), y Jenny Bryan, *Project-oriented workflow* (2017).
 :::
+
 
 ## Rutas relativas con `here()`
 
@@ -95,10 +120,17 @@ datos <- readxl::read_excel(here::here("data", "raw", "2023-03_campo_plantas.xls
 <span class="fuente">Müller, K. (2020). *here: A Simpler Way to Find Your Files*. R package. <https://here.r-lib.org></span>
 
 ::: notes
-Ventaja extra: funciona igual en Windows, macOS y Linux (las barras / y \).
+Qué hace `here::here()`: busca hacia arriba, desde donde está el script, hasta encontrar el archivo `.Rproj` (o un archivo `.here`), y arma la ruta desde ahí. Por eso funciona:
 
-Funciona aunque el script esté en una subcarpeta (R/), porque busca el .Rproj hacia arriba.
+- aunque el script esté en una subcarpeta (`R/`);
+- en Windows, Mac y Linux (se encarga de las barras `/` y `\`);
+- en la compu de cualquier persona.
+
+Por qué escribo `here::here()` y no solo `here()`: la sintaxis `paquete::función()` dice explícitamente de qué paquete viene cada función. No hace falta cargar el paquete con `library()`, y quien lee el código sabe de dónde sale cada cosa.
+
+Si alguien pregunta "¿y si no uso RStudio?": `here` también funciona sin RStudio, siempre que haya un `.Rproj` o un `.here` en la raíz.
 :::
+
 
 ## El *workspace* no es el proyecto {.smaller}
 
@@ -118,10 +150,20 @@ Funciona aunque el script esté en una subcarpeta (R/), porque busca el .Rproj h
 :::
 
 ::: notes
-Hacerlo todos juntos ahora, en vivo. Es un cambio de 30 segundos que previene muchos problemas.
+Definición: el *workspace* (espacio de trabajo) es el conjunto de objetos que tengo cargados en la sesión de R (lo que veo en el panel *Environment*). El archivo `.RData` es una "foto" de ese espacio de trabajo que RStudio ofrece guardar al cerrar.
 
-Atajo para "empezar de cero": Session → Restart R (Ctrl/Cmd + Shift + F10).
+Por qué es un problema: si al abrir R se cargan objetos viejos, mis resultados pueden depender de cosas que no están en el código. Por ejemplo, un objeto que creé a mano en la consola hace dos semanas. El script parece funcionar, pero en otra compu no corre.
+
+Regla: el código es la fuente; los objetos se recrean corriendo el código.
+
+Lo hacemos todos juntos ahora (30 segundos): Tools → Global Options → General:
+
+- destildar *Restore .RData into workspace at startup*;
+- *Save workspace to .RData on exit*: Never.
+
+Atajo para empezar de cero: Session → Restart R (Ctrl/Cmd + Shift + F10).
 :::
+
 
 ## Tampoco adentro del script
 
@@ -134,7 +176,23 @@ Los paquetes se instalan [una vez]{.hl}, desde la consola. En el script se usan 
 
 Las instrucciones de instalación van en el README (encuentro 3).
 
+::: notes
+- `install.packages()` instala el paquete (lo descarga a la compu). Se hace una sola vez, desde la consola.
+- `library()` lo carga en la sesión. Se hace cada vez que abro R.
+- `paquete::función()` usa una función sin cargar todo el paquete. Es lo que usamos en los scripts del taller.
+
+Si `install.packages()` queda adentro del script, cada persona que lo corra reinstala el paquete: es lento, necesita internet y a veces cambia la versión sin avisar.
+
+Las instrucciones de instalación van en el README (encuentro 3).
+:::
+
+
 ## La mudanza {.seccion .center}
+
+::: notes
+Slide de transición. Ahora sí se mueven archivos.
+:::
+
 
 ## Mudanza guiada
 
@@ -150,10 +208,21 @@ Con la [guía de mudanza]{.hl} de la página del encuentro:
 :::
 
 ::: notes
-Fase P, la más larga. Circular. La guía es una propuesta: si alguien decide distinto con un buen argumento, perfecto.
+Fase de práctica, la más larga del encuentro (35 min). Circulo por las mesas.
 
-Solo lectura: Windows → clic derecho → Propiedades → Solo lectura. macOS → Obtener información → Bloqueado.
+La guía de la página del encuentro es una propuesta: si alguien decide distinto con un buen argumento, perfecto. Lo importante es que la decisión quede anotada.
+
+Solo lectura:
+
+- Windows: clic derecho sobre el archivo → Propiedades → tildar *Solo lectura*.
+- Mac: clic derecho → Obtener información → tildar *Bloqueado*.
+
+Errores típicos:
+
+- Crean el `.Rproj` dentro de una subcarpeta en vez de en la raíz → lo borran y lo vuelven a crear.
+- Les da miedo borrar → que muevan todo lo descartado a una carpeta `viejo_no_tocar/` fuera del proyecto.
 :::
+
 
 ## Decisiones difíciles {.smaller}
 
@@ -167,10 +236,13 @@ Solo lectura: Windows → clic derecho → Propiedades → Solo lectura. macOS �
 | `CONVENIO_..._FIRMADO.docx` | Fuera del proyecto. Nunca a un repositorio |
 
 ::: notes
-Esta slide se discute DESPUÉS de la actividad, no antes.
+Esta slide se discute después de la actividad, no antes.
 
-Lo importante: cada duda que no podemos resolver es información que faltó documentar. La anotamos para el README del encuentro 3.
+Mensaje central: cada duda que no podemos resolver es información que faltó documentar. No sabemos cuál de los dos Excel se usó, ni por qué el `v2_OK` saca la planta 14. Eso lo anotamos para el README del encuentro 3.
+
+Sobre la bibliografía en PDF: va a un gestor de referencias (Zotero es gratuito y de código abierto), no adentro del proyecto. Sobre el convenio firmado: va a una carpeta administrativa personal, nunca a un repositorio (lo retomo en el encuentro 5).
 :::
+
 
 ## ¿Corre?
 
@@ -195,8 +267,13 @@ ggplot2::ggsave(here::here("outputs", "figuras", "grafico_prevalencia.png"))
 ::: notes
 Es el único cambio de código del encuentro, y se los doy hecho.
 
-Si alguien no tiene `here`: install.packages("here") en la consola (¡no en el script!).
+Errores típicos:
+
+- `could not find function "here"` o `there is no package called 'here'` → falta instalar: `install.packages("here")` en la consola, no en el script.
+- `path does not exist` → el Excel no está en `data/raw/` o tiene otro nombre. Revisar con el panel *Files*.
+- `here()` apunta a otra carpeta → abrieron el script sin abrir el proyecto. Cerrar RStudio y abrir el `.Rproj` con doble clic.
 :::
+
 
 ## Corre... ¿pero da bien? {.center}
 
@@ -213,10 +290,13 @@ Si alguien no tiene `here`: install.packages("here") en la consola (¡no en el s
 🤔 ¿Cuántos sitios había?
 
 ::: notes
-Dejar la pregunta abierta. NO resolverla: se retoma en el encuentro 4.
+Dejo la pregunta abierta. No la resuelvo: se retoma en el encuentro 4.
 
-Que corra sin errores no significa que el resultado sea correcto.
+Que corra sin errores no significa que el resultado sea correcto. Si alguien lo descubre ("¡hay 5 sitios en vez de 3!"), lo felicito y le pido que no lo cuente.
+
+(Lo que pasa: "Loma del viento " con un espacio al final y "Pampa imaginaria" en minúscula se tratan como sitios distintos; la fila `NA` es la nota escrita debajo de los datos.)
 :::
+
 
 ## Para la próxima {.smaller}
 
@@ -230,6 +310,13 @@ Que corra sin errores no significa que el resultado sea correcto.
 <br>
 
 Pregunta de salida: *¿Qué decidiste descartar y por qué?*
+
+::: notes
+Cierre: pregunta de salida en papelito. Vuelvo a los objetivos.
+
+Recuerdo: la tarea es crear un proyecto de RStudio para un trabajo propio. Es el primer paso para llevar esto a su tesis.
+:::
+
 
 ## Créditos {.smaller}
 

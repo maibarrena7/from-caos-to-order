@@ -23,10 +23,11 @@ format:
 :::
 
 ::: notes
-Fase R. Anotar en el pizarrón. Aparecen: qué es cada archivo, qué significan las columnas, en qué unidades, qué script corro primero, de dónde salen los datos, quién los tomó...
+Fase de activación. Anoto en el pizarrón lo que digan. Suele aparecer: qué es cada archivo, qué significan las columnas, en qué unidades, qué script corro primero, de dónde salen los datos, quién los tomó.
 
-Retomar las dudas de la mudanza: ¿cuál de los dos Excel?, ¿cuál de los dos scripts?, ¿qué eran las celdas amarillas? Todo eso es información que nadie documentó.
+Retomo las dudas de la mudanza: ¿cuál de los dos Excel?, ¿cuál de los dos scripts?, ¿qué eran las celdas amarillas? Todo eso es información que nadie documentó.
 :::
+
 
 ## Hoy
 
@@ -35,6 +36,11 @@ Al terminar este encuentro vas a poder:
 1. Escribir un README que explique un proyecto
 2. Construir un diccionario de datos para un conjunto de datos
 3. Registrar las decisiones y correcciones hechas sobre los datos
+
+::: notes
+Objetivos del encuentro. Hoy no se corre código: se escribe. Es un buen encuentro para quienes se sienten menos cómodos con R.
+:::
+
 
 ## Documentar es para vos {.smaller}
 
@@ -60,6 +66,16 @@ Al terminar este encuentro vas a poder:
 
 <span class="fuente">Ver también: LMU Open Science Center, *Data Documentation & Validation in R* (CC BY-SA 4.0).</span>
 
+::: notes
+Definiciones:
+
+- Documentación: toda la información que permite que otra persona (o yo en el futuro) entienda, use y reproduzca un proyecto.
+- Metadatos: "datos sobre los datos": quién los tomó, dónde, cuándo, con qué método, qué significa cada variable, en qué unidad.
+
+Sin metadatos, un conjunto de datos es una tabla de números que nadie puede interpretar. Es la "R" de los principios FAIR: para que los datos sean reutilizables, tienen que estar bien descriptos.
+:::
+
+
 ## El README {.smaller}
 
 El primer archivo que alguien abre. Responde:
@@ -76,8 +92,15 @@ El primer archivo que alguien abre. Responde:
 Formato [Markdown]{.hl} (`.md`): texto plano, se lee en cualquier lado y GitHub lo muestra lindo.
 
 ::: notes
-Mostrar un README real de un repositorio de GitHub (por ejemplo, el del proyecto `ordenado/` del taller) para que vean cómo se ve renderizado.
+Qué es: un archivo de texto que se llama literalmente "léeme" (*read me*) y es lo primero que alguien abre. Es una convención del mundo del software desde hace décadas: GitHub lo muestra automáticamente como portada del repositorio.
+
+Muestro el README de `ordenado/` en GitHub para que vean cómo se ve renderizado.
+
+Lo mínimo que tiene que tener: qué es, quién lo hizo, qué hay en cada carpeta, cómo se reproduce y bajo qué licencia se puede usar.
+
+Lo escribimos en Markdown (`.md`) porque es texto plano: se lee en cualquier programa, pesa poco, Git puede ver sus cambios línea por línea y no depende de Word.
 :::
+
 
 ## Markdown en 1 minuto
 
@@ -95,6 +118,13 @@ Código en línea: `data/raw/`
 
 Es el mismo formato que usan Quarto, GitHub y este sitio.
 
+::: notes
+Qué es Markdown: un lenguaje de marcado muy simple: se escribe texto común y con unos pocos símbolos se indica el formato (`#` para títulos, `*` para cursiva, `-` para listas). Es el mismo que usan Quarto, GitHub y este sitio.
+
+Si alguien ya usó Quarto o R Markdown, ya sabe Markdown.
+:::
+
+
 ## El diccionario de datos {.smaller}
 
 Una tabla que describe [cada variable]{.hl} del conjunto de datos:
@@ -108,6 +138,17 @@ Una tabla que describe [cada variable]{.hl} del conjunto de datos:
 En un CSV, al lado de los datos: `docs/diccionario_datos.csv`.
 
 <span class="fuente">Basado en LMU Open Science Center, *Data Documentation & Validation in R*; Broman, K. W. & Woo, K. H. (2018). Data organization in spreadsheets. *The American Statistician*, 72(1), 2–10.</span>
+
+::: notes
+Definición: un diccionario de datos (o *codebook*) es una tabla que describe cada variable de un conjunto de datos: nombre, descripción, tipo, unidad, valores permitidos y cómo se codifican los datos faltantes.
+
+Por qué en CSV y no en Word: porque es una tabla que se puede leer con R, comparar con los datos y validar automáticamente.
+
+Para quien trabaja con biodiversidad: existe un estándar internacional, Darwin Core, con nombres de variables acordados para registros de especies (`scientificName`, `eventDate`, `decimalLatitude`...). Lo usa GBIF, el portal global de datos de biodiversidad. Usar esos nombres desde el principio hace los datos mucho más interoperables (la "I" de FAIR).
+
+Fuentes: LMU, *Data Documentation & Validation in R*; Broman & Woo (2018).
+:::
+
 
 ## Planillas que se entienden {.smaller}
 
@@ -136,10 +177,23 @@ En un CSV, al lado de los datos: `docs/diccionario_datos.csv`.
 <span class="fuente">Broman, K. W. & Woo, K. H. (2018). Data organization in spreadsheets. *The American Statistician*, 72(1), 2–10.</span>
 
 ::: notes
-No vamos a modificar el crudo (es de solo lectura): lo documentamos tal como está. La limpieza se hace con código en el encuentro 4.
+Basado en Broman & Woo (2018), *Data organization in spreadsheets* (The American Statistician). Sus reglas principales:
 
-Para sus PRÓXIMAS planillas de campo, en cambio, esto se aplica desde el día 1.
+1. Ser consistente (mismos códigos, mismos nombres, mismo formato de fecha).
+2. Fechas en formato ISO 8601: AAAA-MM-DD.
+3. Una sola cosa por celda (no "12 cm aprox.").
+4. Que sea un rectángulo: una fila de encabezado y los datos abajo, sin títulos ni notas alrededor.
+5. Crear un diccionario de datos.
+6. No hacer cálculos en el archivo de datos crudos.
+7. No usar colores ni formato como información: el color no se puede leer desde R.
+8. Elegir buenos nombres para las variables.
+9. Hacer copias de respaldo y guardar los datos en formatos simples (CSV).
+
+Concepto relacionado, datos ordenados (*tidy data*, Wickham 2014): cada variable es una columna, cada observación es una fila, cada valor es una celda.
+
+Aclaro: no vamos a modificar el crudo, que es de solo lectura. Lo documentamos tal como está y la limpieza la hacemos con código en el encuentro 4. Pero para sus próximas planillas de campo, esto se aplica desde el día 1.
 :::
+
 
 ## Registrar decisiones {.smaller}
 
@@ -159,8 +213,13 @@ Cada vez que [decidís algo sobre los datos]{.hl}, anotalo:
 Una sección del README, o un archivo `docs/decisiones.md`.
 
 ::: notes
-Lo más valioso de la documentación no es lo obvio, sino las decisiones: lo que solo vos sabés.
+Lo más valioso de la documentación no es lo obvio, sino las decisiones: lo que solo yo sé. ¿Por qué excluí esa planta? ¿Por qué usé esa versión de los datos? ¿Qué significa ese código?
+
+Algunos grupos llevan un cuaderno de laboratorio electrónico o un archivo `docs/decisiones.md` con fecha. Lo importante es que esté dentro del proyecto, no en un mail ni en la cabeza.
+
+Cuando lleguemos a Git (encuentro 5), los mensajes de commit van a ser otra forma de registrar decisiones.
 :::
+
 
 ## Diccionario de datos
 
@@ -176,8 +235,13 @@ Con la [plantilla]{.hl} de la página del encuentro, completen el diccionario de
 :::
 
 ::: notes
-Pista: abrir el Excel y recorrer columna por columna. Hay faltantes escondidos: "-" en altura, "NA" en cobertura, "s/d" en P. rapida, 999 en altura.
+Pista para quien se traba: abrir el Excel y recorrerlo columna por columna.
+
+Faltantes escondidos que tienen que encontrar: `-` en la altura, `NA` en la cobertura, `s/d` en *P. rapida*, y `999` en la altura de la planta P10. Y el amarillo: "valor corregido tras revisar fotos".
+
+Si alguien termina rápido: que piense qué tipo tiene cada variable (número, entero, texto, fecha).
 :::
+
 
 ## README
 
@@ -193,8 +257,11 @@ Con la [plantilla]{.hl}, escribí el `README.md` del proyecto:
 :::
 
 ::: notes
-Se puede escribir en RStudio: File → New File → Markdown File. Guardar como README.md en la raíz del proyecto.
+Se puede escribir en RStudio: File → New File → Markdown File. Guardar como `README.md` en la raíz del proyecto (al lado del `.Rproj`).
+
+Pueden inventar la autoría y el contexto, pero las decisiones de la mudanza tienen que ser las reales: es lo más importante del README.
 :::
+
 
 ## Intercambio
 
@@ -203,6 +270,11 @@ Se puede escribir en RStudio: File → New File → Markdown File. Guardar como 
 
 Leé el README de tu compañero/a y marcá [una cosa que no se entiende]{.hl}.
 :::
+
+::: notes
+Revisión entre pares: cada uno lee el README del compañero y marca una cosa que no se entiende. Es un ensayo de lo que hacemos en el encuentro 6, con la checklist.
+:::
+
 
 ## Bonus: diccionarios automáticos
 
@@ -215,8 +287,13 @@ Genera un resumen de cada variable (tipo, valores, faltantes). [No reemplaza]{.h
 <span class="fuente">Basado en LMU Open Science Center, *Data Documentation & Validation in R*, "Automated Creation with R" (CC BY-SA 4.0).</span>
 
 ::: notes
-Solo mostrar si sobra tiempo. Sirve para chequear que no se escape ningún valor raro.
+Solo si sobra tiempo.
+
+`datawizard::data_codebook()` genera un resumen de cada variable: tipo, valores, cantidad de faltantes. Sirve para chequear que no se escape ningún valor raro, pero no reemplaza el diccionario: no sabe qué significa cada columna ni en qué unidad está.
+
+Fuente: LMU, *Data Documentation & Validation in R*, sección "Automated Creation with R".
 :::
+
 
 ## Para la próxima {.smaller}
 
@@ -229,6 +306,11 @@ Escribí un [README de 5 líneas]{.hl} para un proyecto propio: qué es, qué ha
 <br>
 
 Pregunta de salida: *¿Qué información de tus datos está hoy solo en tu cabeza?*
+
+::: notes
+Cierre y pregunta de salida: "¿Qué información de tus datos está hoy solo en tu cabeza?". Suele generar respuestas muy honestas.
+:::
+
 
 ## Créditos {.smaller}
 

@@ -49,8 +49,11 @@ visitantes-florales/
 ::::
 
 ::: notes
-Fase R. Que miren el camino recorrido. Preguntar: ¿qué encuentro les sirvió más?
+Fase de activación. Que miren el camino: de la carpeta del encuentro 1 a la de hoy. Pregunto: ¿qué encuentro les sirvió más? ¿Qué fue lo más difícil?
+
+Es un buen momento para reconocer el esfuerzo del grupo.
 :::
+
 
 ## Hoy
 
@@ -60,6 +63,11 @@ Al terminar este encuentro vas a poder:
 2. Dar y recibir devoluciones sobre un proyecto
 3. Identificar los próximos pasos para compartir datos y código
 4. Planificar una práctica concreta para un proyecto propio
+
+::: notes
+Objetivos del último encuentro. Hoy no hay nada técnico nuevo: es integrar, revisar entre pares y pensar cómo llevarlo a sus proyectos.
+:::
+
 
 ## La checklist {.smaller}
 
@@ -74,6 +82,15 @@ Al terminar este encuentro vas a poder:
 
 La lista completa está en la página [Checklist]{.hl} del sitio.
 
+::: notes
+La checklist está en la página "Checklist" del sitio. Está basada en Wilson et al. (2017) y Broman & Woo (2018).
+
+Aclaro que no hace falta cumplir todo: cada ítem tildado es un paso más. La idea es que la usen después en sus propios proyectos.
+
+Si tengo copias impresas, las reparto: es más cómodo revisar el proyecto de otra persona en pantalla y la checklist en papel.
+:::
+
+
 ## Revisión cruzada
 
 ::: {.actividad}
@@ -86,10 +103,16 @@ La lista completa está en la página [Checklist]{.hl} del sitio.
 :::
 
 ::: notes
-La regla de oro: no se vale preguntar. Si hace falta preguntar, eso va al comentario de mejora.
+La regla de oro: no se vale preguntar. Si hace falta preguntar algo para correr el proyecto, eso va en el comentario de mejora. Es exactamente lo que le pasa a un revisor o a alguien que reutiliza nuestros datos.
 
-Si usaron GitHub: compartir el repositorio con el compañero (Settings → Collaborators) o hacerlo público un rato. Si no, pendrive o zip.
+Concepto, revisión de código entre pares (*code review*): que otra persona lea y corra nuestro código antes de publicarlo. Es práctica estándar en el desarrollo de software, y cada vez más revistas de ecología la incorporan (algunas tienen un "editor de datos" o "editor de código" que verifica que el análisis corra).
+
+Logística:
+
+- Si usaron GitHub: compartir el repo con el compañero (Settings → Collaborators) y que lo clone desde GitHub Desktop (File → Clone repository).
+- Si no: pendrive o zip.
 :::
+
 
 ## Devolución
 
@@ -101,6 +124,11 @@ Cada uno cuenta qué encontró en el proyecto del otro.
 ¿Qué fue lo más difícil de entender o de correr?
 :::
 
+::: notes
+Cada persona cuenta qué encontró. Pido que empiecen por lo que funciona y después lo que mejorarían. Que la devolución sea concreta: "no encontré el diccionario de datos" sirve más que "le falta documentación".
+:::
+
+
 ## No hay una única respuesta {.smaller}
 
 Comparen su proyecto con `ordenado/`, la versión de referencia.
@@ -111,8 +139,13 @@ Comparen su proyecto con `ordenado/`, la versión de referencia.
 No existe *la* estructura correcta: existen criterios (los de la checklist) y decisiones documentadas.
 
 ::: notes
-Este es un buen momento para reforzar que lo importante no es copiar una plantilla, sino entender por qué cada práctica ayuda.
+Comparan su proyecto con `ordenado/`, la versión de referencia (se descarga desde la página de este encuentro).
+
+Refuerzo que lo importante no es copiar una plantilla, sino entender por qué cada práctica ayuda. Si alguien resolvió algo mejor que la referencia, ¡lo destaco!
+
+Si alguien ya había encontrado `ordenado/` en el repositorio de GitHub del taller durante los encuentros anteriores, lo felicito: entendió para qué sirve un repositorio.
 :::
+
 
 ## El siguiente escalón: compartir {.smaller}
 
@@ -139,10 +172,27 @@ Sin licencia, legalmente nadie puede reutilizarlo.
 <span class="fuente">Ver: LMU Open Science Center, *Code Publishing* y *FAIR Data Management* (CC BY-SA 4.0).</span>
 
 ::: notes
-No profundizar: es un mapa para después. Mostrar como ejemplo el repositorio del propio taller (que va a tener DOI en Zenodo).
+Es un mapa para después, no profundizo.
 
-Mencionar {renv} como siguiente paso para fijar las versiones de los paquetes.
+Definiciones:
+
+- DOI (*Digital Object Identifier*): un identificador persistente. Es un link que no se rompe, aunque el archivo cambie de servidor. Hace que los datos y el código sean citables, igual que un artículo.
+- Zenodo: repositorio general gratuito del CERN. Asigna DOI, acepta datos, código, presentaciones y pósters. Se puede conectar con GitHub para que cada *release* (versión publicada) reciba un DOI automáticamente.
+- OSF (*Open Science Framework*): plataforma del Center for Open Science para organizar proyectos, preregistrar y compartir materiales. También asigna DOI.
+- CONICET Digital: el repositorio institucional del CONICET, que cumple con la Ley 26.899.
+
+Licencias (sin licencia, legalmente nadie puede reutilizar el material, aunque esté público):
+
+- CC BY 4.0: pueden usarlo para lo que sea, citando. Muy usada para datos y textos.
+- CC0: dominio público, sin condiciones. Recomendada para datos (por ejemplo, la usa GBIF).
+- CC BY-SA 4.0: como CC BY, pero lo derivado tiene que usar la misma licencia. Es la de este taller.
+- MIT o GPL: licencias para código. MIT es muy permisiva; GPL obliga a que el código derivado también sea abierto.
+
+Para fijar las versiones de los paquetes: el paquete `renv` guarda qué versión de cada paquete usó el proyecto, para que otra persona instale exactamente las mismas. Hay un tutorial de LMU (*Introduction to {renv}*).
+
+Ejemplo concreto: muestro el repositorio de este mismo taller, que va a tener DOI en Zenodo.
 :::
+
 
 ## Mi compromiso
 
@@ -156,6 +206,13 @@ Escribí en un papel:
 Llevátelo. 📌
 :::
 
+::: notes
+Que lo escriban en papel y se lo lleven. Si quieren, pueden compartir el suyo en voz alta: suele inspirar a otros.
+
+Si lo escriben en una notita, la pueden pegar en el monitor de su compu de trabajo.
+:::
+
+
 ## Contanos cómo te fue {.center}
 
 La encuesta es [anónima]{.hl} y nos ayuda a mejorar el taller.
@@ -163,10 +220,13 @@ La encuesta es [anónima]{.hl} y nos ayuda a mejorar el taller.
 📝 [LINK A LA ENCUESTA]
 
 ::: notes
-Fase E. Dar 10 minutos dentro del encuentro para completarla: si queda para después, casi nadie responde.
+Fase de evaluación. Doy 10 minutos dentro del encuentro para que completen la encuesta: si queda para después, casi nadie responde.
 
-Es el insumo del informe de feedback para la certificación de LMU.
+Es el insumo del informe de feedback para la certificación de LMU (autoevaluación antes/después, lo que más valoraron, sugerencias). Les explico eso: me ayuda a mí y a quien dicte el taller después.
+
+La encuesta es anónima. No miro las pantallas mientras la completan.
 :::
+
 
 ## ¡Gracias! {.center}
 
@@ -175,6 +235,15 @@ Todos los materiales del taller quedan disponibles en el sitio y en el repositor
 Maité A. Barrena · maibarrena7@gmail.com
 
 <span class="fuente">Este taller fue diseñado en el marco del Open Science Summer School 2026 del LMU Open Science Center, Ludwig-Maximilians-Universität München.</span>
+
+::: notes
+Agradezco al grupo. Recuerdo que el material queda disponible en el sitio, con licencia abierta, y que pueden escribirme si lo aplican a sus proyectos y se traban.
+
+Les cuento que el taller fue diseñado en el marco del Open Science Summer School 2026 del LMU Open Science Center, y que ellos fueron la primera edición.
+
+Si hay tiempo, foto grupal (con permiso de todos) para el informe.
+:::
+
 
 ## Créditos {.smaller}
 

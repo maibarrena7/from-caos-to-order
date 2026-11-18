@@ -218,7 +218,11 @@ Maité A. Barrena
 <p>¿Qué 3 problemas encontraste en una carpeta tuya? ¿Alguno que no estaba en nuestra lista de la semana pasada?</p>
 </div>
 <aside class="notes">
-<p>Fase R. 2 o 3 voluntarios. Ir sumando problemas nuevos a la lista del encuentro 1 (tenerla a mano en papel o en una foto del pizarrón).</p>
+<p>Fase de activación. Retomo la tarea: 2 o 3 voluntarios cuentan sus 3 problemas.</p>
+<ul>
+<li>Tengo a mano la foto del pizarrón del encuentro 1 y voy sumando los problemas nuevos a la lista.</li>
+<li>Si nadie hizo la tarea, no pasa nada: pregunto “¿cuál de los problemas de la semana pasada reconocieron en sus carpetas?”.</li>
+</ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -240,6 +244,19 @@ Maité A. Barrena
 <li>Reemplazar rutas absolutas por rutas relativas con <code>here()</code></li>
 <li>Configurar RStudio para no depender del <em>workspace</em></li>
 </ol>
+<aside class="notes">
+<p>Objetivos del encuentro. Hoy es el primer día en que se corre código, así que aviso que las notitas rosas van a ser más necesarias que la semana pasada.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2">
 <h2>“En mi compu funciona”</h2>
@@ -251,8 +268,14 @@ Maité A. Barrena
 <div class="fragment">
 <p>Y en tu misma computadora, si <span class="hl">movés la carpeta</span> o cambiás de compu, también.</p>
 <aside class="notes">
-<p>Preguntar: ¿alguna vez les pasó? Clásico al pasarle el script al director/a.</p>
-<p><code>setwd()</code> con una ruta absoluta ata el código a una computadora y a una ubicación. Es el problema más común cuando alguien intenta reproducir un análisis.</p>
+<p>Pregunto: ¿alguna vez le pasaron un script a su director/a y no le corrió? Es el problema más común cuando alguien intenta reproducir un análisis.</p>
+<p>Definiciones:</p>
+<ul>
+<li>Directorio de trabajo (<em>working directory</em>): la carpeta desde donde R busca y guarda archivos cuando le doy un nombre sin ruta completa. Se ve con <code>getwd()</code>.</li>
+<li>Ruta absoluta: la dirección completa desde la raíz del disco, como <code>C:/Users/usuario/Desktop/...</code>. Solo existe en una computadora.</li>
+<li>Ruta relativa: la dirección desde la carpeta del proyecto, como <code>data/raw/datos.xlsx</code>. Funciona en cualquier computadora que tenga el proyecto.</li>
+</ul>
+<p><code>setwd()</code> con una ruta absoluta ata el código a una persona, una computadora y una ubicación. Basta con mover la carpeta, o cambiar de usuario, para que se rompa.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -278,8 +301,15 @@ Maité A. Barrena
 <p><span class="subtitulo">Un proyecto = una carpeta = un <code>.Rproj</code>.</span></p>
 <p><span class="fuente">Basado en LMU Open Science Center, <em>Introduction to Version Control within RStudio</em>, sección “Creating an RStudio project” (CC BY-SA 4.0); Bryan, J. (2017). <em>Project-oriented workflow</em>. Tidyverse blog.</span></p>
 <aside class="notes">
-<p>Demostración en vivo: File → New Project → Existing Directory. Mostrar que getwd() da la carpeta del proyecto.</p>
-<p>En el proyecto de ejemplo hay DOS .Rproj sueltos en subcarpetas: preguntar qué problema genera eso.</p>
+<p>Demostración en vivo: File → New Project → Existing Directory → elijo la carpeta. Muestro que <code>getwd()</code> ahora devuelve la carpeta del proyecto, sin haber escrito ningún <code>setwd()</code>.</p>
+<p>Qué es un proyecto de RStudio: un archivo <code>.Rproj</code> en la raíz de la carpeta. Al abrirlo (doble clic), RStudio:</p>
+<ul>
+<li>fija el directorio de trabajo en esa carpeta;</li>
+<li>recuerda los scripts abiertos y la configuración de ese proyecto;</li>
+<li>separa un proyecto de otro (cada uno en su ventana).</li>
+</ul>
+<p>Pregunto: en el proyecto de ejemplo hay dos <code>.Rproj</code> sueltos en subcarpetas. ¿Qué problema genera eso? (Respuesta: no está claro cuál es la raíz del proyecto, y cada uno fija un directorio de trabajo distinto.)</p>
+<p>Fuente: LMU, <em>Introduction to Version Control within RStudio</em> (sección “Creating an RStudio project”), y Jenny Bryan, <em>Project-oriented workflow</em> (2017).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -302,8 +332,14 @@ Maité A. Barrena
 <p><code>here()</code> arma la ruta <span class="hl">desde la raíz del proyecto</span>, esté donde esté la carpeta y en el sistema operativo que sea.</p>
 <p><span class="fuente">Müller, K. (2020). <em>here: A Simpler Way to Find Your Files</em>. R package. <a href="https://here.r-lib.org" class="uri">https://here.r-lib.org</a></span></p>
 <aside class="notes">
-<p>Ventaja extra: funciona igual en Windows, macOS y Linux (las barras / y ).</p>
-<p>Funciona aunque el script esté en una subcarpeta (R/), porque busca el .Rproj hacia arriba.</p>
+<p>Qué hace <code>here::here()</code>: busca hacia arriba, desde donde está el script, hasta encontrar el archivo <code>.Rproj</code> (o un archivo <code>.here</code>), y arma la ruta desde ahí. Por eso funciona:</p>
+<ul>
+<li>aunque el script esté en una subcarpeta (<code>R/</code>);</li>
+<li>en Windows, Mac y Linux (se encarga de las barras <code>/</code> y <code>\</code>);</li>
+<li>en la compu de cualquier persona.</li>
+</ul>
+<p>Por qué escribo <code>here::here()</code> y no solo <code>here()</code>: la sintaxis <code>paquete::función()</code> dice explícitamente de qué paquete viene cada función. No hace falta cargar el paquete con <code>library()</code>, y quien lee el código sabe de dónde sale cada cosa.</p>
+<p>Si alguien pregunta “¿y si no uso RStudio?”: <code>here</code> también funciona sin RStudio, siempre que haya un <code>.Rproj</code> o un <code>.here</code> en la raíz.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -333,8 +369,15 @@ Maité A. Barrena
 </ul>
 </div>
 <aside class="notes">
-<p>Hacerlo todos juntos ahora, en vivo. Es un cambio de 30 segundos que previene muchos problemas.</p>
-<p>Atajo para “empezar de cero”: Session → Restart R (Ctrl/Cmd + Shift + F10).</p>
+<p>Definición: el <em>workspace</em> (espacio de trabajo) es el conjunto de objetos que tengo cargados en la sesión de R (lo que veo en el panel <em>Environment</em>). El archivo <code>.RData</code> es una “foto” de ese espacio de trabajo que RStudio ofrece guardar al cerrar.</p>
+<p>Por qué es un problema: si al abrir R se cargan objetos viejos, mis resultados pueden depender de cosas que no están en el código. Por ejemplo, un objeto que creé a mano en la consola hace dos semanas. El script parece funcionar, pero en otra compu no corre.</p>
+<p>Regla: el código es la fuente; los objetos se recrean corriendo el código.</p>
+<p>Lo hacemos todos juntos ahora (30 segundos): Tools → Global Options → General:</p>
+<ul>
+<li>destildar <em>Restore .RData into workspace at startup</em>;</li>
+<li><em>Save workspace to .RData on exit</em>: Never.</li>
+</ul>
+<p>Atajo para empezar de cero: Session → Restart R (Ctrl/Cmd + Shift + F10).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -353,9 +396,41 @@ Maité A. Barrena
 <span id="cb4-2"><a aria-label="2"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(datos, ...)        <span class="co"># ✓ esto sí: paquete::función()</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Los paquetes se instalan <span class="hl">una vez</span>, desde la consola. En el script se usan con <code>paquete::función()</code>, así queda claro de dónde sale cada función.</p>
 <p>Las instrucciones de instalación van en el README (encuentro 3).</p>
+<aside class="notes">
+<ul>
+<li><code>install.packages()</code> instala el paquete (lo descarga a la compu). Se hace una sola vez, desde la consola.</li>
+<li><code>library()</code> lo carga en la sesión. Se hace cada vez que abro R.</li>
+<li><code>paquete::función()</code> usa una función sin cargar todo el paquete. Es lo que usamos en los scripts del taller.</li>
+</ul>
+<p>Si <code>install.packages()</code> queda adentro del script, cada persona que lo corra reinstala el paquete: es lento, necesita internet y a veces cambia la versión sin avisar.</p>
+<p>Las instrucciones de instalación van en el README (encuentro 3).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2 seccion center">
 <h2>La mudanza</h2>
+<aside class="notes">
+<p>Slide de transición. Ahora sí se mueven archivos.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2">
 <h2>Mudanza guiada</h2>
@@ -370,8 +445,18 @@ Maité A. Barrena
 </ol>
 </div>
 <aside class="notes">
-<p>Fase P, la más larga. Circular. La guía es una propuesta: si alguien decide distinto con un buen argumento, perfecto.</p>
-<p>Solo lectura: Windows → clic derecho → Propiedades → Solo lectura. macOS → Obtener información → Bloqueado.</p>
+<p>Fase de práctica, la más larga del encuentro (35 min). Circulo por las mesas.</p>
+<p>La guía de la página del encuentro es una propuesta: si alguien decide distinto con un buen argumento, perfecto. Lo importante es que la decisión quede anotada.</p>
+<p>Solo lectura:</p>
+<ul>
+<li>Windows: clic derecho sobre el archivo → Propiedades → tildar <em>Solo lectura</em>.</li>
+<li>Mac: clic derecho → Obtener información → tildar <em>Bloqueado</em>.</li>
+</ul>
+<p>Errores típicos:</p>
+<ul>
+<li>Crean el <code>.Rproj</code> dentro de una subcarpeta en vez de en la raíz → lo borran y lo vuelven a crear.</li>
+<li>Les da miedo borrar → que muevan todo lo descartado a una carpeta <code>viejo_no_tocar/</code> fuera del proyecto.</li>
+</ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -425,8 +510,9 @@ Maité A. Barrena
 </tbody>
 </table>
 <aside class="notes">
-<p>Esta slide se discute DESPUÉS de la actividad, no antes.</p>
-<p>Lo importante: cada duda que no podemos resolver es información que faltó documentar. La anotamos para el README del encuentro 3.</p>
+<p>Esta slide se discute después de la actividad, no antes.</p>
+<p>Mensaje central: cada duda que no podemos resolver es información que faltó documentar. No sabemos cuál de los dos Excel se usó, ni por qué el <code>v2_OK</code> saca la planta 14. Eso lo anotamos para el README del encuentro 3.</p>
+<p>Sobre la bibliografía en PDF: va a un gestor de referencias (Zotero es gratuito y de código abierto), no adentro del proyecto. Sobre el convenio firmado: va a una carpeta administrativa personal, nunca a un repositorio (lo retomo en el encuentro 5).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -457,7 +543,12 @@ Maité A. Barrena
 <span id="cb5-6"><a aria-label="6"></a>ggplot2<span class="sc">::</span><span class="fu">ggsave</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"outputs"</span>, <span class="st">"figuras"</span>, <span class="st">"grafico_prevalencia.png"</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <aside class="notes">
 <p>Es el único cambio de código del encuentro, y se los doy hecho.</p>
-<p>Si alguien no tiene <code>here</code>: install.packages(“here”) en la consola (¡no en el script!).</p>
+<p>Errores típicos:</p>
+<ul>
+<li><code>could not find function "here"</code> o <code>there is no package called 'here'</code> → falta instalar: <code>install.packages("here")</code> en la consola, no en el script.</li>
+<li><code>path does not exist</code> → el Excel no está en <code>data/raw/</code> o tiene otro nombre. Revisar con el panel <em>Files</em>.</li>
+<li><code>here()</code> apunta a otra carpeta → abrieron el script sin abrir el proyecto. Cerrar RStudio y abrir el <code>.Rproj</code> con doble clic.</li>
+</ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -481,8 +572,9 @@ Maité A. Barrena
 6 NA                 NaN     NaN</code></pre>
 <p>🤔 ¿Cuántos sitios había?</p>
 <aside class="notes">
-<p>Dejar la pregunta abierta. NO resolverla: se retoma en el encuentro 4.</p>
-<p>Que corra sin errores no significa que el resultado sea correcto.</p>
+<p>Dejo la pregunta abierta. No la resuelvo: se retoma en el encuentro 4.</p>
+<p>Que corra sin errores no significa que el resultado sea correcto. Si alguien lo descubre (“¡hay 5 sitios en vez de 3!”), lo felicito y le pido que no lo cuente.</p>
+<p>(Lo que pasa: “Loma del viento” con un espacio al final y “Pampa imaginaria” en minúscula se tratan como sitios distintos; la fila <code>NA</code> es la nota escrita debajo de los datos.)</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -506,6 +598,20 @@ Maité A. Barrena
 </div>
 <p><br></p>
 <p>Pregunta de salida: <em>¿Qué decidiste descartar y por qué?</em></p>
+<aside class="notes">
+<p>Cierre: pregunta de salida en papelito. Vuelvo a los objetivos.</p>
+<p>Recuerdo: la tarea es crear un proyecto de RStudio para un trabajo propio. Es el primer paso para llevar esto a su tesis.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2 smaller">
 <h2>Créditos</h2>

@@ -153,8 +153,9 @@ Maité A. Barrena
         └── Manuscrito_visitantes_florales_12.2024.docx</code></pre>
 <p>¿Quién usó Git alguna vez? 🙋</p>
 <aside class="notes">
-<p>Fase R. Volver a la carpeta del proyecto desordenado. ¿Cómo sabíamos cuál era la versión buena? No lo sabíamos.</p>
-<p>Encuesta rápida de manos para calibrar el ritmo: si nadie usó Git, ir más despacio en la demo.</p>
+<p>Fase de activación. Vuelvo a la carpeta <code>final final final final/</code> del proyecto desordenado: ¿cómo sabíamos cuál era la versión buena? No lo sabíamos.</p>
+<p>Encuesta de manos: “¿quién usó Git alguna vez?”. Si casi nadie, voy más despacio en la demo. Lo cruzo con lo que respondieron en el formulario de inscripción.</p>
+<p>Lo que quiero que se lleven hoy: Git reemplaza a la carpeta “final final final”. En vez de guardar copias, guardo una sola versión del proyecto con su historia.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -176,6 +177,19 @@ Maité A. Barrena
 <li>Registrar cambios en un proyecto (<em>commits</em>) y recorrer su historial</li>
 <li>Decidir qué archivos van (y cuáles no) a un repositorio</li>
 </ol>
+<aside class="notes">
+<p>Objetivos del encuentro. Les digo la verdad: Git es la parte que más cuesta al principio, a todo el mundo. Hoy no van a ser expertos. El objetivo es que pierdan el miedo y puedan hacer lo básico: guardar versiones y volver atrás.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2">
 <h2>Control de versiones</h2>
@@ -187,6 +201,28 @@ Maité A. Barrena
 ● 2026-12-01  Primera versión del análisis     (Maité)</code></pre>
 <p>Cada punto es una foto del proyecto, con fecha, autor y un mensaje. Podés volver a cualquiera.</p>
 <p><span class="fuente">Basado en Von Grebmer zu Wolfsthurn, S., Edelsbrunner, P., Ihle, M. &amp; Schönbrodt, F. (2026). <em>Introduction to version control with Git in RStudio</em> [Quarto slides]. LMU Open Science Center (CC BY-SA 4.0).</span></p>
+<aside class="notes">
+<p>Definición: un sistema de control de versiones registra los cambios que se hacen en un conjunto de archivos a lo largo del tiempo, de forma que se pueda ver qué cambió, cuándo, quién lo cambió y volver a cualquier versión anterior.</p>
+<p>La metáfora que uso: cada commit es una foto del proyecto completo, con fecha, autoría y un mensaje que dice qué cambió. El historial es el álbum de fotos. Puedo mirar cualquier foto vieja y volver a ella.</p>
+<p>Diferencia con el “historial de versiones” de Google Drive o Dropbox (lo van a preguntar):</p>
+<ul>
+<li>Drive guarda versiones automáticamente, cada tanto, sin mensaje, archivo por archivo, y por tiempo limitado.</li>
+<li>Git guarda versiones cuando yo decido (en un momento con sentido), con un mensaje que explica el cambio, del proyecto entero a la vez, y para siempre.</li>
+<li>Git además muestra exactamente qué líneas cambiaron entre una versión y otra.</li>
+</ul>
+<p>Un poco de historia: Git lo creó Linus Torvalds en 2005 para coordinar el desarrollo del sistema operativo Linux. Hoy es el estándar en el desarrollo de software y cada vez más en ciencia.</p>
+<p>Fuente: LMU, <em>Introduction to version control with Git in RStudio</em> (Von Grebmer zu Wolfsthurn et al.).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2">
 <h2>Git y GitHub no son lo mismo</h2>
@@ -207,6 +243,27 @@ Maité A. Barrena
 </ul>
 </div></div>
 <p><em>Git es como el programa que saca las fotos; GitHub, como el álbum compartido en la nube.</em></p>
+<aside class="notes">
+<p>Es la confusión más común. Lo digo despacio:</p>
+<ul>
+<li>Git es un programa que se instala en la compu. Trabaja localmente, sin internet. Lleva el registro de los cambios de una carpeta. Es gratuito y de código abierto.</li>
+<li>GitHub es una página web (una empresa, de Microsoft desde 2018) que guarda una copia de repositorios Git en la nube. Sirve para tener un respaldo, colaborar con otras personas y compartir.</li>
+<li>GitHub Desktop es un programa con botones para usar Git (y conectarse con GitHub) sin escribir comandos. Es lo que usamos en el taller. Ya trae Git incluido.</li>
+</ul>
+<p>Metáfora: Git es la cámara de fotos; GitHub es el álbum compartido en la nube; GitHub Desktop es una app amigable para manejar la cámara.</p>
+<p>Hay alternativas a GitHub: GitLab, Codeberg, Bitbucket. Git funciona igual con todas.</p>
+<p>Pregunta que siempre aparece: “¿Git sube mis datos a internet?” No.&nbsp;Git trabaja en la compu. Solo se sube algo a internet cuando yo hago push a GitHub, y solo lo que no está en el <code>.gitignore</code>.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2 smaller">
 <h2>Vocabulario mínimo</h2>
@@ -245,6 +302,36 @@ Maité A. Barrena
 </tbody>
 </table>
 <p><span class="fuente">Basado en LMU Open Science Center, <em>Introduction to version control with Git in RStudio</em> (CC BY-SA 4.0).</span></p>
+<aside class="notes">
+<p>Repaso cada palabra con un ejemplo concreto del proyecto:</p>
+<ul>
+<li>Repositorio (repo): una carpeta “vigilada” por Git. Técnicamente, una carpeta que tiene adentro una subcarpeta oculta <code>.git/</code> donde se guarda todo el historial. Si borro <code>.git/</code>, pierdo el historial (los archivos quedan, pero dejan de ser un repo).</li>
+<li>Commit: una foto del proyecto, con un mensaje. Cada commit tiene un identificador único (un código largo de letras y números, llamado <em>hash</em> o <em>SHA</em>), autoría y fecha.</li>
+<li>Historial (history / log): la lista de todos los commits, del más nuevo al más viejo.</li>
+<li>Push: subir a GitHub los commits que hice en mi compu.</li>
+<li>Pull: bajar a mi compu los commits nuevos que están en GitHub (por ejemplo, los que hizo una coautora).</li>
+<li><code>.gitignore</code>: archivo de texto con la lista de cosas que Git no tiene que vigilar.</li>
+</ul>
+<p>Palabras que pueden aparecer en GitHub Desktop y conviene saber:</p>
+<ul>
+<li>Branch (rama): una línea de trabajo paralela. La principal se llama <code>main</code>. Hoy trabajamos siempre en <code>main</code>; las ramas quedan para más adelante.</li>
+<li>Remote / origin: la copia del repo en GitHub. “Push origin” = subir a GitHub.</li>
+<li>Fetch: preguntarle a GitHub si hay algo nuevo, sin bajarlo todavía.</li>
+<li>Clone (clonar): descargar un repositorio de GitHub a la compu, con todo su historial.</li>
+<li>Diff: la comparación entre dos versiones. En GitHub Desktop, las líneas en verde se agregaron y las líneas en rojo se borraron.</li>
+</ul>
+<p>Lo que pasa “por detrás” de un commit, en tres zonas (solo si preguntan): 1) la carpeta de trabajo (donde edito), 2) el área de preparación o <em>staging</em> (lo que marco para incluir en el próximo commit, en GitHub Desktop son las casillas tildadas de la lista de cambios) y 3) el repositorio (los commits guardados).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2">
 <h2>¿Qué NO va a un repositorio?</h2>
@@ -254,8 +341,19 @@ Maité A. Barrena
 <p>¿Lo subirías a GitHub? ¿Qué otros archivos <span class="hl">no</span> deberían ir?</p>
 </div>
 <aside class="notes">
-<p>Llegar a la lista: datos personales o sensibles (convenios, DNI, datos de participantes), archivos muy pesados (fotos, videos, datos crudos enormes), productos que se regeneran (outputs/, data/processed/), archivos de sesión (.RData, .Rhistory), contraseñas o tokens.</p>
-<p>Aclarar: un repositorio privado tampoco es lugar para documentos sensibles.</p>
+<p>Discusión (10 min). Llego con ellos a esta lista:</p>
+<ul>
+<li>Datos personales o sensibles: convenios firmados, DNI, datos de personas, ubicación exacta de especies amenazadas o de nidos.</li>
+<li>Contraseñas, claves, tokens de acceso (por ejemplo, el token de una API).</li>
+<li>Archivos muy pesados: fotos, videos, datos crudos enormes. GitHub rechaza archivos de más de 100 MB y avisa a partir de 50 MB. Para eso se usan repositorios de datos (Zenodo, OSF) o herramientas como Git LFS.</li>
+<li>Productos que se regeneran: <code>outputs/</code>, <code>data/processed/</code>. Si el código los genera, no hace falta guardarlos.</li>
+<li>Archivos de sesión: <code>.RData</code>, <code>.Rhistory</code>, <code>.Rproj.user/</code>.</li>
+</ul>
+<p>Aclaraciones clave:</p>
+<ul>
+<li>Un repositorio privado tampoco es lugar para documentos sensibles: lo pueden ver colaboradores, y si algún día se hace público, se ve todo el historial.</li>
+<li>Lo que entra al historial queda en el historial, aunque después se borre el archivo. Por eso el <code>.gitignore</code> va antes del primer commit. Si alguna vez se sube una contraseña por error, hay que cambiar la contraseña: borrarla del repo no alcanza.</li>
+</ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -283,7 +381,20 @@ outputs/
 *FIRMADO*</code></pre>
 <p>Un archivo de texto en la <span class="hl">raíz</span> del proyecto. Cada línea = algo que Git ignora.</p>
 <aside class="notes">
-<p>Ojo: el .gitignore no “borra” nada, solo hace que Git no lo registre. Y hay que crearlo ANTES del primer commit: si un archivo ya fue registrado, ignorarlo después no lo saca del historial.</p>
+<p>Qué es: un archivo de texto llamado exactamente <code>.gitignore</code> (con punto adelante y sin extensión), en la raíz del proyecto. Cada línea es un patrón de archivos o carpetas que Git ignora.</p>
+<p>Cómo se leen los patrones:</p>
+<ul>
+<li><code>outputs/</code> → ignora la carpeta entera.</li>
+<li><code>.RData</code> → ignora ese archivo, esté donde esté.</li>
+<li><code>*FIRMADO*</code> → el asterisco es un comodín: ignora cualquier archivo cuyo nombre contenga “FIRMADO”.</li>
+<li>Las líneas que empiezan con <code>#</code> son comentarios.</li>
+</ul>
+<p>Ojo con dos cosas:</p>
+<ol type="1">
+<li>El <code>.gitignore</code> no borra nada: solo hace que Git no lo registre. El archivo sigue en la compu.</li>
+<li>Si un archivo ya fue commiteado, agregarlo después al <code>.gitignore</code> no lo saca del historial. Por eso va primero.</li>
+</ol>
+<p>Error típico en Windows: al descargar la plantilla se guarda como <code>gitignore-plantilla.txt</code> o <code>.gitignore.txt</code>. Tiene que llamarse exactamente <code>.gitignore</code>. Si Windows oculta las extensiones, activar en el Explorador: Vista → Mostrar → Extensiones de nombre de archivo.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -298,6 +409,19 @@ outputs/
 </section>
 <section class="slide level2 seccion center">
 <h2>Manos a la obra</h2>
+<aside class="notes">
+<p>Slide de transición. Antes de empezar, chequeo con las notitas: “verde si tienen GitHub Desktop abierto y con su cuenta iniciada, rosa si no”. Los que tengan rosa trabajan en pareja con alguien que tenga verde.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2">
 <h2>Primer repositorio</h2>
@@ -313,8 +437,35 @@ outputs/
 </ol>
 </div>
 <aside class="notes">
-<p>Demostración en vivo con proyector, paso a paso, y que lo repliquen. Ir al ritmo del más lento: en la encuesta de inscripción vimos quién nunca usó Git.</p>
-<p>Alternativa para quien prefiera: pestaña Git de RStudio (requiere Git instalado aparte). GitHub Desktop trae Git incluido.</p>
+<p>Demostración en vivo, paso a paso, con el proyector. Voy al ritmo de la persona más lenta. Después de cada paso, pido verde/rosa.</p>
+<ol type="1">
+<li><p>Guardar el <code>.gitignore</code>: descargar la plantilla de la página y guardarla en la raíz del proyecto como <code>.gitignore</code>.</p></li>
+<li><p>Crear el repositorio: GitHub Desktop → File → <em>Add local repository</em> → <em>Choose…</em> → elegir la carpeta del proyecto. Aparece el aviso “This directory does not appear to be a Git repository” → clic en <em>create a repository</em>. En la ventana que se abre:</p></li>
+</ol>
+<ul>
+<li><em>Name</em>: el nombre de la carpeta (no lo cambien).</li>
+<li><em>Git ignore</em>: dejar en None (ya tenemos el nuestro).</li>
+<li><em>License</em>: None.</li>
+<li>→ <em>Create repository</em>.</li>
+</ul>
+<p>Si después la pestaña <em>Changes</em> queda vacía y en <em>History</em> aparece un “Initial commit”, es porque GitHub Desktop ya hizo el primer commit solo. Está bien: pasamos al paso 4. Lo pruebo en mi ensayo para saber exactamente qué muestra.</p>
+<ol start="3" type="1">
+<li><p>Primer commit: a la izquierda, la lista de archivos. Revisar que no aparezcan <code>outputs/</code>, <code>.RData</code> ni el convenio. Mensaje abajo a la izquierda (“Proyecto organizado”) → <em>Commit to main</em>.</p></li>
+<li><p>Segundo commit: abrir <code>README.md</code>, cambiar algo y guardar. En GitHub Desktop aparece el cambio: muestro el diff (verde = agregado, rojo = borrado). Mensaje claro → <em>Commit to main</em>.</p></li>
+<li><p>Historial: pestaña <em>History</em>. Muestro los commits con fecha, autoría y qué cambió.</p></li>
+<li><p>Volver atrás: clic derecho sobre el último commit → <em>Revert changes in commit</em>. Explico que revert no borra el commit: crea un commit nuevo que deshace el cambio. Así el historial nunca se pierde.</p></li>
+</ol>
+<p>Errores típicos y cómo los resuelvo:</p>
+<ul>
+<li><em>“Please configure your name and email”</em> o los commits salen sin autoría → File → Options → Git: completar nombre y mail.</li>
+<li><em>“Cannot add local repository / this is not a git repository”</em> → es normal la primera vez: hay que hacer clic en <em>create a repository</em>.</li>
+<li>Aparece <code>outputs/</code> o <code>.RData</code> en la lista → el <code>.gitignore</code> está mal nombrado (<code>.gitignore.txt</code>) o no está en la raíz. Arreglarlo antes de commitear. Si ya lo commitearon: lo más simple es borrar el repositorio (la carpeta oculta <code>.git</code>) y empezar de nuevo; en un proyecto de práctica no se pierde nada.</li>
+<li>Quieren deshacer el último commit y todavía no hicieron push → History → clic derecho → <em>Undo commit</em>. Para commits más viejos o ya subidos, siempre <em>Revert</em>.</li>
+<li>Quieren descartar cambios que no commitearon → clic derecho sobre el archivo en <em>Changes</em> → <em>Discard changes</em>. Ojo: eso sí borra los cambios sin guardar.</li>
+<li>El proyecto está en OneDrive/Google Drive → puede dar conflictos de sincronización. Para el taller, mejor una carpeta común en Documentos.</li>
+<li>Aparece un aviso sobre “LF will be replaced by CRLF” → es un tema de saltos de línea entre Windows y Mac/Linux. Se puede ignorar.</li>
+</ul>
+<p>Alternativa para quien prefiera: la pestaña <em>Git</em> de RStudio (necesita Git instalado aparte). Para quien usa Linux, es la opción.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -352,6 +503,26 @@ outputs/
 </tbody>
 </table>
 <p>El mensaje responde: <span class="hl">¿qué cambió y por qué?</span> Lo va a leer tu “yo” de dentro de seis meses.</p>
+<aside class="notes">
+<p>Regla práctica: el mensaje completa la frase “Si aplico este commit, va a…”: “…unificar los nombres de los sitios”, “…corregir la unidad de la altura”.</p>
+<ul>
+<li>Corto (menos de unos 50 caracteres) y en verbo.</li>
+<li>Dice qué cambió y, si no es obvio, por qué.</li>
+<li>Un commit = un cambio con sentido. Mejor varios commits chicos que uno gigante con “cambios varios”.</li>
+</ul>
+<p>Lo va a leer mi “yo” de dentro de seis meses (vuelvo a la frase del encuentro 1).</p>
+<p>Los mensajes de commit también son una forma de registrar decisiones (encuentro 3): “Excluyo la planta P14 por daño en la muestra” queda para siempre en el historial, con fecha.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2">
 <h2>Subir a GitHub</h2>
@@ -364,7 +535,18 @@ outputs/
 </ol>
 </div>
 <aside class="notes">
-<p>Si no da el tiempo o falla internet, hacerlo como demostración. Se retoma en el encuentro 6 para la revisión cruzada.</p>
+<p>Si no da el tiempo o falla internet, lo hago como demostración.</p>
+<p>Paso a paso: <em>Publish repository</em> (arriba) → dejar tildado <em>Keep this code private</em> → <em>Publish repository</em>. Después, en el navegador, github.com → su perfil → el repositorio. El README aparece como portada.</p>
+<p>Después de publicar, el ciclo de trabajo es siempre el mismo:</p>
+<ol type="1">
+<li>Cambio algo en la compu y guardo.</li>
+<li>En GitHub Desktop: mensaje → <em>Commit to main</em>.</li>
+<li><em>Push origin</em> (sube a GitHub).</li>
+</ol>
+<p>Si trabajan desde dos compus, o con otra persona: antes de empezar, <em>Fetch origin</em> y después <em>Pull origin</em>, para bajar lo nuevo.</p>
+<p>Error típico: <em>Push</em> rechazado (“rejected” o “Newer commits on remote”) → hay cambios en GitHub que no están en la compu. Solución: <em>Pull origin</em> primero, después <em>Push</em>.</p>
+<p>Pregunta frecuente: “¿Privado o público?” Para el taller, privado. Se puede cambiar cuando quieran: en github.com → Settings → General → abajo de todo, <em>Change visibility</em>.</p>
+<p>Para la revisión cruzada del encuentro 6 pueden invitar al compañero: Settings → Collaborators → <em>Add people</em>.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -385,6 +567,27 @@ outputs/
 </div>
 <p><br></p>
 <p>Pregunta de salida: <em>¿Qué carpeta tuya reemplazarías con Git?</em></p>
+<aside class="notes">
+<p>Cierre y pregunta de salida: “¿Qué carpeta tuya reemplazarías con Git?”.</p>
+<p>Preguntas frecuentes que pueden aparecer al final:</p>
+<ul>
+<li>“¿Puedo usar Git para mi tesis en Word?” Puede guardar las versiones, pero no ve qué cambió adentro del .docx (es un archivo binario). Git brilla con archivos de texto: scripts, <code>.qmd</code>, <code>.md</code>, <code>.csv</code>. Por eso escribir en Quarto se lleva tan bien con Git.</li>
+<li>“¿Y si trabajo con mi directora en el mismo repo?” Se la invita como colaboradora en GitHub. Cada una hace commit y push; antes de trabajar, pull. Si las dos cambian la misma línea del mismo archivo, Git avisa un conflicto y hay que elegir a mano qué versión queda. Es menos grave de lo que suena.</li>
+<li>“¿Es gratis?” Git sí, siempre. GitHub tiene un plan gratuito con repositorios públicos y privados ilimitados, que alcanza para casi todo.</li>
+<li>“¿Qué es un fork?” Una copia de un repositorio de otra persona en tu propia cuenta de GitHub, para modificarla sin tocar el original.</li>
+</ul>
+<p>Recursos para seguir: <em>Happy Git and GitHub for the useR</em> (Jenny Bryan) y el tutorial de LMU <em>Introduction to Version Control within RStudio</em>.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2 smaller">
 <h2>Créditos</h2>

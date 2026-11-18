@@ -169,9 +169,14 @@ Maité A. Barrena
 </ul>
 </div></div>
 <aside class="notes">
-<p>Presentarme brevemente: doctoranda, por qué me interesa el tema, que este taller es parte de mi formación como instructora en LMU.</p>
-<p>Repartir las notitas verdes y rosas. Explicar que no hace falta levantar la mano: si pegan la rosa en la pantalla, me acerco.</p>
-<p>Chequeo técnico: que todos abran RStudio. Si alguien no puede, que trabaje en pareja hoy y lo resolvemos al final.</p>
+<p>Qué hago: me presento en 1 minuto: soy bióloga marina, doctoranda en la UNCo, y este taller es parte de mi formación como instructora en ciencia abierta en el LMU Open Science Center (Múnich). Les cuento que lo armé porque a mí me pasó todo lo que vamos a ver.</p>
+<ul>
+<li>Reparto las notitas: 2 verdes y 2 rosas por persona. Se pegan atrás de la tapa de la notebook, mirando hacia mí.</li>
+<li>Verde = “terminé / me funcionó”. Rosa = “necesito ayuda”. Sin notita = “sigo trabajando”. Una sola pegada a la vez.</li>
+<li>En la primera actividad me acerco rápido a la primera rosa que aparezca: así ven que funciona y que no pasa nada por pedir ayuda.</li>
+</ul>
+<p>Chequeo técnico: que todos abran RStudio. Si alguien no puede, trabaja en pareja hoy y lo resolvemos al final (hoy casi no se usa R).</p>
+<p>Acuerdos: lo digo en serio: equivocarse es parte del taller. Nadie arranca sabiendo esto; lo aprendemos porque nos pasó.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -228,7 +233,13 @@ Maité A. Barrena
 </tbody>
 </table>
 <aside class="notes">
-<p>Mostrar que hay una línea: cada encuentro arregla una parte del mismo proyecto. Al final del 6 tienen un proyecto que cualquiera puede abrir y correr.</p>
+<p>La idea fuerza: un solo proyecto que mejora un paso por encuentro. Arrancamos con una carpeta desordenada y en el encuentro 6 la van a tener ordenada, documentada, con historial y lista para compartir.</p>
+<ul>
+<li>Semana 1: estructura (dónde va cada cosa).</li>
+<li>Semana 2: documentación y reproducibilidad (que se entienda y que corra).</li>
+<li>Semana 3: control de versiones e integración (que quede registrado y que otra persona lo pueda usar).</li>
+</ul>
+<p>Aclaro que no van a programar desde cero: el código se los doy yo. El foco está en organizar, no en aprender R.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -251,7 +262,7 @@ Maité A. Barrena
 <li>Aplicar una regla para nombrar archivos</li>
 </ol>
 <aside class="notes">
-<p>Objetivos de aprendizaje (workbook, sección 4). Volver a esta slide al final para chequear.</p>
+<p>Estos son los objetivos de aprendizaje del encuentro (los redacté con verbos de la taxonomía de Bloom: reconocer, explicar, diseñar, aplicar). Al final del encuentro vuelvo a esta slide y pregunto: ¿lo logramos?</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -275,7 +286,13 @@ Maité A. Barrena
 </ul>
 </div>
 <aside class="notes">
-<p>Fase R (reactivar). No hace falta que todos hablen: 3 o 4 voluntarios. Dar pie a la risa: a todos nos pasa.</p>
+<p>Fase de activación (activar lo que ya saben): no explico nada todavía.</p>
+<ul>
+<li>Pido 3 o 4 voluntarios, no hace falta que hablen todos.</li>
+<li>Busco que se rían: “a todos nos pasa”. Si nadie se anima, arranco yo con la slide siguiente.</li>
+<li>Escucho qué problemas nombran: los voy a retomar en la puesta en común.</li>
+</ul>
+<p>⏱ 5 minutos máximo.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -305,8 +322,9 @@ Maité A. Barrena
         └── final final final final/
             └── MS_..._12.2024.docx</code></pre>
 <aside class="notes">
-<p>Mi carpeta real de la tesis de grado (solo los nombres). Contar la anécdota: cuando el revisor pidió un cambio en la figura, no sabía cuál de los Excel era el bueno ni qué script hacía el mapa.</p>
-<p>Opcional: reemplazar este bloque por una captura de pantalla de la carpeta (img/mi-carpeta.png).</p>
+<p>Esta es mi carpeta real de la nota de acantocéfalos del róbalo (mi tesis de grado), solo con los nombres de los archivos.</p>
+<p>La anécdota: cuando el revisor pidió un cambio en la figura del mapa, no sabía cuál de los dos Excel era el bueno, ni qué script había hecho el mapa (había tres, uno vacío). Tuve que rehacerlo casi de cero. Y eso que era mi propio trabajo, de hacía apenas un año.</p>
+<p>Lo cuento sin apuro: es el momento en que se ven reflejados. No es un problema de gente desordenada: es lo que pasa cuando nadie nos enseñó a organizar un proyecto.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -327,7 +345,9 @@ Maité A. Barrena
 <p><em>Tu colaborador más cercano sos vos hace seis meses… y no contestás los mails.</em></p>
 <p><span class="fuente">Frase atribuida a Mark Holder, difundida por Karl Broman.</span></p>
 <aside class="notes">
-<p>La primera persona que se beneficia de un proyecto ordenado sos vos misma. Después: directores, coautores, revisores, quien herede tus datos.</p>
+<p>La frase se atribuye a Mark Holder (biólogo evolutivo) y la difundió Karl Broman en sus cursos de reproducibilidad.</p>
+<p>La idea: la primera persona que se beneficia de un proyecto ordenado sos vos misma dentro de unos meses. Después vienen directores, coautores, revisores y quien herede tus datos (un tesista nuevo, por ejemplo).</p>
+<p>Pregunta para el grupo: ¿alguna vez abrieron un script propio de hace un año y no entendieron qué hacía?</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -348,7 +368,11 @@ Maité A. Barrena
 <p>No es solo publicar en acceso abierto: es una forma de hacer la investigación.</p>
 <p><span class="fuente">Adaptado de UNESCO (2021). <em>Recomendación de la UNESCO sobre la Ciencia Abierta</em>. <a href="https://unesdoc.unesco.org/ark:/48223/pf0000379949_spa" class="uri">https://unesdoc.unesco.org/ark:/48223/pf0000379949_spa</a></span></p>
 <aside class="notes">
-<p>Definición resumida de la Recomendación de la UNESCO (adoptada por 193 países, incluida Argentina). Remarcar la palabra “procesos”: la ciencia abierta no empieza cuando publicamos, empieza en cómo trabajamos todos los días.</p>
+<p>Definición (UNESCO, 2021): la Recomendación sobre la Ciencia Abierta fue adoptada en noviembre de 2021 por los 193 Estados miembros de la UNESCO, Argentina incluida. Es el primer marco internacional consensuado sobre el tema.</p>
+<p>Define la ciencia abierta como un “constructo inclusivo” que combina movimientos y prácticas para que el conocimiento científico sea abierto, accesible y reutilizable para todos, aumentar la colaboración y abrir los procesos de creación, evaluación y comunicación del conocimiento a la sociedad.</p>
+<p>Remarco la palabra procesos: la ciencia abierta no empieza cuando publico, empieza en cómo trabajo todos los días.</p>
+<p>Valores que propone la UNESCO: calidad e integridad, beneficio colectivo, equidad y justicia, diversidad e inclusión.</p>
+<p>Si preguntan: ciencia abierta ≠ solo acceso abierto. El acceso abierto (<em>open access</em>) es una parte: que las publicaciones se puedan leer sin pagar.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -385,7 +409,23 @@ Maité A. Barrena
 <p>En Argentina, la <span class="hl">Ley 26.899</span> (2013) obliga a que la producción financiada con fondos públicos esté en repositorios de acceso abierto, incluidos los datos primarios.</p>
 <p><span class="fuente">UNESCO (2021); Ley 26.899 de Repositorios Digitales Institucionales de Acceso Abierto.</span></p>
 <aside class="notes">
-<p>No profundizar en cada pilar: es un mapa. La ley 26.899 conecta con su realidad: si tienen beca CONICET o un proyecto financiado, ya les aplica.</p>
+<p>Marco: la UNESCO organiza la ciencia abierta en 4 pilares:</p>
+<ol type="1">
+<li>Conocimiento científico abierto: publicaciones, datos, software y código, hardware, recursos educativos.</li>
+<li>Infraestructuras abiertas: repositorios, plataformas, estándares compartidos (ej. Zenodo, CONICET Digital).</li>
+<li>Participación abierta de la sociedad: ciencia ciudadana, co-producción del conocimiento.</li>
+<li>Diálogo abierto con otros sistemas de conocimiento: saberes indígenas, locales, de comunidades.</li>
+</ol>
+<p>En la slide lo simplifico en productos (lo que se abre) y procesos (cómo se trabaja).</p>
+<p>Definiciones rápidas, por si preguntan:</p>
+<ul>
+<li>Preprint: versión de un artículo que se publica antes (o en paralelo) a la revisión por pares (ej. bioRxiv, EcoEvoRxiv).</li>
+<li>Preregistro: registrar la hipótesis, el diseño y el plan de análisis <em>antes</em> de ver los datos, con fecha. Evita ajustar el análisis a los resultados.</li>
+<li>Datos FAIR (Wilkinson et al.&nbsp;2016): datos <em>Findable, Accessible, Interoperable, Reusable</em> (encontrables, accesibles, interoperables, reutilizables). Ojo: FAIR no es lo mismo que abierto. Unos datos pueden ser FAIR y tener acceso restringido.</li>
+<li>Principio útil: <em>“tan abierto como sea posible, tan cerrado como sea necesario”</em> (lo usa la Comisión Europea). Hay datos que no se pueden abrir: datos personales, especies amenazadas con ubicación, etc.</li>
+</ul>
+<p>Ley 26.899 (Argentina, 2013): obliga a las instituciones del sistema científico financiadas por el Estado a tener repositorios digitales institucionales de acceso abierto. Los investigadores deben depositar sus publicaciones (en un plazo de hasta 6 meses desde su publicación) y sus datos primarios (en un plazo de hasta 5 años desde su recolección). Si tienen beca CONICET o un proyecto con fondos públicos, ya les aplica.</p>
+<p>⏱ No me detengo en cada pilar: es un mapa. 2–3 minutos.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -417,7 +457,20 @@ Maité A. Barrena
 </div>
 <p>Este taller trabaja los primeros escalones: los que dependen solo de nosotros.</p>
 <aside class="notes">
-<p>Idea fuerza: no se puede abrir lo que no se entiende. La ciencia abierta “grande” (datos abiertos, DOI) se apoya en estas prácticas “chiquitas” y cotidianas.</p>
+<p>Idea fuerza: no se puede abrir lo que no se entiende. Compartir datos y código (lo que pide la ley, las revistas, los financiadores) es el último escalón. Y se apoya en prácticas chiquitas y cotidianas que dependen solo de nosotros.</p>
+<p>La escalera:</p>
+<ol type="1">
+<li>Organizar (encuentros 1–2): que cada cosa tenga su lugar y su nombre.</li>
+<li>Documentar (3–4): que otra persona entienda qué hay y pueda reproducir el análisis.</li>
+<li>Versionar (5): que quede registrado qué cambió, cuándo y por qué.</li>
+<li>Compartir (6 y después): depositar en un repositorio con identificador persistente (DOI) y licencia.</li>
+</ol>
+<p>Marco teórico (para profundizar si hay interés):</p>
+<ul>
+<li>Esta progresión sigue a Wilson et al.&nbsp;(2017), <em>Good enough practices in scientific computing</em>: no proponen prácticas ideales, sino “suficientemente buenas”, que cualquier investigador puede adoptar sin ser programador.</li>
+<li>Se relaciona con el ciclo de vida de los datos: planificar → recolectar → procesar → analizar → preservar → compartir → reutilizar. La mayoría de los problemas de reproducibilidad no nacen al publicar, sino en las etapas de procesar y analizar, que son justo las que trabajamos acá.</li>
+<li>Muchos financiadores ya piden un Plan de Gestión de Datos (PGD o DMP, <em>Data Management Plan</em>) al presentar un proyecto: qué datos voy a generar, cómo los voy a organizar, documentar, guardar y compartir. Lo que aprendan acá es la base práctica de ese plan.</li>
+</ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -445,7 +498,41 @@ Maité A. Barrena
 </div></div>
 <p><span class="fuente">Baker, M. (2016). 1,500 scientists lift the lid on reproducibility. <em>Nature</em>, 533, 452–454. · Definición: The Turing Way Community (2022). · Ver también: LMU Open Science Center, <em>Threats to credible research</em> (CC BY-SA 4.0).</span></p>
 <aside class="notes">
-<p>No profundizar en la crisis de replicabilidad: es contexto. Lo importante es que la organización del proyecto es el primer escalón de la reproducibilidad, y está en nuestras manos.</p>
+<p>La encuesta: Baker (2016) encuestó a 1.576 investigadores para la revista <em>Nature</em>. Más del 70 % no había podido reproducir los experimentos de otra persona, y más de la mitad no había podido reproducir los propios. El 52 % dijo que había una “crisis significativa” de reproducibilidad.</p>
+<p>Definiciones (The Turing Way), las digo despacio porque se confunden:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>Mismos datos</th>
+<th>Datos distintos</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mismo análisis</td>
+<td>Reproducible</td>
+<td>Replicable</td>
+</tr>
+<tr class="even">
+<td>Análisis distinto</td>
+<td>Robusto</td>
+<td>Generalizable</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Reproducible: con los mismos datos y el mismo código obtengo el mismo resultado. Es el piso mínimo.</li>
+<li>Replicable: repito el estudio con datos nuevos y llego a la misma conclusión.</li>
+<li>Este taller trabaja la reproducibilidad, que es lo que depende 100 % de nosotros.</li>
+</ul>
+<p>En ecología, específicamente:</p>
+<ul>
+<li>Culina et al.&nbsp;(2020, <em>PLOS Biology</em>) revisaron artículos de ecología publicados entre 2015 y 2019: solo alrededor de un 27 % compartía su código.</li>
+<li>Roche et al.&nbsp;(2015, <em>PLOS Biology</em>) revisaron datos archivados de estudios de ecología y evolución: más de la mitad estaban incompletos o archivados de una forma que dificultaba reutilizarlos.</li>
+</ul>
+<p>Mensaje: no es un problema de mala fe, es un problema de prácticas. Si no puedo reproducir mi propio análisis, ¿cómo lo va a revisar otra persona?</p>
+<p>No me quedo mucho en la “crisis”: es contexto, no el tema del taller.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -460,6 +547,19 @@ Maité A. Barrena
 </section>
 <section class="slide level2 seccion center">
 <h2>Búsqueda del tesoro</h2>
+<aside class="notes">
+<p>Slide de transición. Presento la actividad con energía: “ahora les toca a ustedes”.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2 smaller">
 <h2>El proyecto de hoy</h2>
@@ -472,8 +572,16 @@ Maité A. Barrena
 </ul>
 <p>Todo está en la carpeta <code>desordenado/</code>.</p>
 <aside class="notes">
-<p>Aclarar que los datos son simulados, pero la carpeta imita la estructura de un proyecto real (el mío).</p>
-<p>Que descarguen y descompriman <code>desordenado.zip</code> desde la página del encuentro. Pendrive de respaldo.</p>
+<p>Aclaro que los datos son simulados: las especies, los sitios, las personas y los documentos son inventados. Pero la carpeta imita la estructura de un proyecto real (el mío).</p>
+<ul>
+<li>Que descarguen <code>desordenado.zip</code> desde la página del encuentro 1 y lo descompriman (en el Escritorio, o donde lo encuentren fácil).</li>
+<li>Plan B: llevo el zip en un pendrive por si el wifi no anda.</li>
+</ul>
+<p>Definiciones del “estudio”, por si preguntan:</p>
+<ul>
+<li>Prevalencia: porcentaje de plantas que tienen al menos un visitante de una especie.</li>
+<li>Abundancia media: número promedio de visitantes de una especie por planta (contando también las plantas sin visitantes).</li>
+</ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -501,9 +609,18 @@ Maité A. Barrena
 <p>Anoten cada problema que encuentren en el camino.</p>
 </div>
 <aside class="notes">
-<p>Circular por las mesas. No dar respuestas: la gracia es que no se pueden responder con certeza.</p>
-<p>Pistas si se traban: comparar fechas de modificación, abrir los scripts y ver qué archivo leen.</p>
-<p>Respuestas “esperables”: (1) no se sabe, probablemente el COMPLETO; (2) ninguno: la Fig 2 no sale de ningún script; (3) imposible saber; (4) solo lo dice una nota al pie del Excel; (5) el CONVENIO_…_FIRMADO.docx.</p>
+<p>Qué hago: circulo por las mesas. No doy respuestas: la gracia es que no se pueden responder con certeza. Esa frustración es el objetivo.</p>
+<p>Pistas si alguien se traba: abrir los scripts y ver qué archivo leen; abrir los dos Excel y comparar la cantidad de filas.</p>
+<p>Respuestas esperables:</p>
+<ol type="1">
+<li>Datos crudos: no se puede saber con certeza. El <code>COMPLETO</code> tiene 38 plantas y el otro 32. Los dos scripts leen el <code>COMPLETO</code>.</li>
+<li>Figura 2: ningún script la genera. Los scripts guardan <code>grafico prevalencia nuevo.png</code>, no <code>Fig_2_visitantes.pdf</code>.</li>
+<li>Manuscrito final: imposible saberlo. Hay 4 candidatos en 3 niveles de “final”.</li>
+<li>Celdas amarillas: solo lo explica una nota escrita debajo de los datos del Excel <code>COMPLETO</code> (“corregido después de revisar fotos”).</li>
+<li>Archivo que no debería estar: <code>CONVENIO_permiso_colecta_FIRMADO.docx</code> (datos personales y firmas).</li>
+</ol>
+<p>Para quien va rápido: los dos scripts de análisis casi no se diferencian. El <code>v2_OK</code> elimina también la fila 14 con el comentario <code># tambien la 14??</code>. Es un ejemplo perfecto de una decisión metodológica no documentada.</p>
+<p>Otra trampa escondida: en la <code>Hoja2</code> del Excel hay una prevalencia calculada “a mano” con una fórmula que divide por 38, aunque en uno de los archivos hay 32 plantas.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -558,8 +675,17 @@ Maité A. Barrena
 </tbody>
 </table>
 <aside class="notes">
-<p>Completar la tabla en el pizarrón con lo que digan ellos ANTES de mostrar esta slide. Mostrarla al final como resumen.</p>
-<p>Anticipar: cada categoría se resuelve en un encuentro distinto.</p>
+<p>Importante: primero escribo en el pizarrón lo que dicen ellos, y recién al final muestro esta slide como resumen.</p>
+<p>Agrupo los problemas en categorías. Cada categoría se resuelve en un encuentro distinto:</p>
+<ul>
+<li>Versiones → encuentro 5 (Git).</li>
+<li>Datos → encuentros 2 y 3.</li>
+<li>Código → encuentros 2 y 4.</li>
+<li>Productos → encuentro 4.</li>
+<li>Documentos sensibles → encuentro 5 (<code>.gitignore</code>).</li>
+<li>Documentación → encuentro 3.</li>
+</ul>
+<p>Le saco una foto al pizarrón: la retomo en el encuentro 2.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -574,6 +700,19 @@ Maité A. Barrena
 </section>
 <section class="slide level2 seccion center">
 <h2>¿Cómo lo ordenamos?</h2>
+<aside class="notes">
+<p>Slide de transición: pasamos de los problemas a las soluciones.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2 smaller">
 <h2>Principios</h2>
@@ -586,7 +725,24 @@ Maité A. Barrena
 </ol>
 <p><span class="fuente">Basado en Wilson, G. et al.&nbsp;(2017). Good enough practices in scientific computing. <em>PLOS Computational Biology</em>, 13(6), e1005510.</span></p>
 <aside class="notes">
-<p>El 4 es el más difícil de aceptar: estamos acostumbrados a cuidar las figuras como si fueran el resultado. El resultado es el código.</p>
+<p>Estos 5 principios están basados en Wilson et al.&nbsp;(2017), <em>Good enough practices in scientific computing</em> (PLOS Computational Biology).</p>
+<ul>
+<li><ol type="1">
+<li>Un proyecto = una carpeta. Todo lo necesario adentro: datos, código, documentación. Si para correr el análisis necesito un archivo que está en “Descargas”, el proyecto no es autocontenido.</li>
+</ol></li>
+<li><ol start="2" type="1">
+<li>Los datos crudos no se tocan. Son el registro original de la observación. Todo cambio (limpieza, corrección) se hace con código y se guarda como dato procesado. Así siempre puedo volver al original.</li>
+</ol></li>
+<li><ol start="3" type="1">
+<li>Separar datos, código, productos y documentación: cada cosa tiene un rol distinto y un “ciclo de vida” distinto.</li>
+</ol></li>
+<li><ol start="4" type="1">
+<li>Los productos son descartables. Es el más difícil de aceptar: estamos acostumbrados a cuidar las figuras como si fueran el resultado. El resultado es el código que las genera.</li>
+</ol></li>
+<li><ol start="5" type="1">
+<li>Una carpeta se explica sola, con un <code>README</code> (encuentro 3).</li>
+</ol></li>
+</ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -614,7 +770,15 @@ Maité A. Barrena
 └── docs/                    ← diccionario de datos, informe, notas</code></pre>
 <p>No es <em>la</em> estructura correcta: es <span class="hl">una</span> estructura con criterio.</p>
 <aside class="notes">
-<p>Insistir en que hay muchas variantes válidas. Lo importante es que sea consistente y que esté explicada en el README.</p>
+<p>Insisto: hay muchas variantes válidas. Algunas comunidades usan <code>scripts/</code> en lugar de <code>R/</code>, o <code>results/</code> en lugar de <code>outputs/</code>. Lo importante es que sea consistente y que esté explicada en el README.</p>
+<ul>
+<li><code>data/raw/</code>: datos tal cual salieron del campo o del instrumento. Solo lectura.</li>
+<li><code>data/processed/</code>: datos limpios, generados por el código. Se pueden borrar y regenerar.</li>
+<li><code>R/</code>: scripts, numerados en el orden en que se corren.</li>
+<li><code>outputs/</code>: figuras y tablas, generadas por el código.</li>
+<li><code>docs/</code>: documentación (diccionario de datos, notas, manuscrito).</li>
+</ul>
+<p>Si preguntan por plantillas: existen paquetes que crean estructuras automáticamente (por ejemplo <code>usethis</code> o <code>rrtools</code> en R), pero para empezar alcanza con crearla a mano.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -667,8 +831,14 @@ Maité A. Barrena
 </table>
 <p><span class="fuente">Basado en Bryan, J. <em>Naming things</em> (2015).</span></p>
 <aside class="notes">
-<p>Preguntar: ¿por qué la fecha va al revés (año primero)? Porque así el explorador de archivos los ordena cronológicamente.</p>
-<p>Ceros al inicio: 01, 02… 10, para que el 10 no quede después del 1.</p>
+<p>Las tres reglas son de Jenny Bryan (<em>Naming things</em>, 2015).</p>
+<ul>
+<li>Legible para máquinas: sin espacios, tildes ni caracteres especiales. Los espacios rompen rutas en la terminal y en algunos programas; las tildes dan problemas entre Windows, Mac y Linux.</li>
+<li>Legible para personas: que el nombre diga qué es.</li>
+<li>Se ordena solo: pregunto al grupo: ¿por qué la fecha va al revés, con el año primero? Respuesta: porque es el formato ISO 8601 (AAAA-MM-DD) y así el explorador de archivos los ordena cronológicamente.</li>
+<li>Ceros al inicio: <code>01</code>, <code>02</code>… <code>10</code>, para que el <code>10</code> no quede antes del <code>2</code>.</li>
+</ul>
+<p>Bonus: separar con guion bajo <code>_</code> las partes del nombre y con guion medio <code>-</code> las palabras dentro de una parte. Ej: <code>2023-03_campo_plantas.xlsx</code>.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -692,8 +862,11 @@ Maité A. Barrena
 </ol>
 </div>
 <aside class="notes">
-<p>Fase P. Pueden usar la estructura de referencia o inventar la suya. Si alguien termina antes, que piense una regla de nombres para su propio proyecto.</p>
-<p>NO mover todavía los archivos: eso es el encuentro 2.</p>
+<p>Fase de práctica. Pueden usar la estructura de referencia o inventar la suya.</p>
+<ul>
+<li>No mover archivos todavía: eso es el encuentro 2. Hoy solo crean las carpetas vacías.</li>
+<li>Si alguien termina antes, que piense una regla de nombres para su propio proyecto.</li>
+</ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -717,8 +890,9 @@ Maité A. Barrena
 <p>Pregunta de salida (en un papelito, anónimo):</p>
 <p><em>¿Qué problema de la lista reconociste en tus propios proyectos?</em></p>
 <aside class="notes">
-<p>Fase E. Juntar los papelitos: sirven para ajustar el encuentro 2 y para la reflexión del informe de LMU.</p>
-<p>Volver a la slide de objetivos y preguntar: ¿lo logramos?</p>
+<p>Cierre: junto los papelitos de salida. Son anónimos y sirven para ajustar el encuentro 2 y para la reflexión del informe para LMU. Puedo usar las notitas: en la verde algo que les sirvió, en la rosa algo que no quedó claro.</p>
+<p>Vuelvo a la slide de objetivos (“Hoy”) y pregunto: ¿lo logramos?</p>
+<p>Recuerdo que la próxima vez trabajamos con lo que hicieron hoy: que no borren la carpeta.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -743,6 +917,19 @@ Maité A. Barrena
 <li>Von Grebmer zu Wolfsthurn, S., Ihle, M., &amp; Schönbrodt, F. (2026). <em>Threats to credible research: Where are we at?</em> [Quarto slides]. LMU Open Science Center. CC BY-SA 4.0.</li>
 </ul>
 <p>Este material se distribuye bajo licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">CC BY-SA 4.0</a>. Datos del proyecto de ejemplo: simulados.</p>
+<aside class="notes">
+<p>Cito siempre las fuentes y a LMU (me lo pidió Malika). Recuerdo que todo el material es CC BY-SA 4.0: lo pueden reutilizar citando.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 
 
 </section>

@@ -12,7 +12,7 @@ page-layout: full
 ::: hero
 
 ::: hero-texto
-[Taller · FACIMAR – UNComa · Diciembre 2026]{.kicker}
+[Taller · FACIMAR – UNComa · 2027]{.kicker}
 
 <h1 class="display">Del caos<br>*al orden*</h1>
 

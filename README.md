@@ -2,7 +2,7 @@
 
 *From Messy Folders to Reproducible Research: Organising Research Projects in R*
 
-Materiales del taller **Del caos al orden**, dictado en la Facultad de Ciencias Marinas de la Universidad Nacional del Comahue (San Antonio Oeste, Argentina) en diciembre de 2026.
+Materiales del taller **Del caos al orden**, dictado en la Facultad de Ciencias Marinas de la Universidad Nacional del Comahue (San Antonio Oeste, Argentina) en 2027.
 
 > **English summary.** Teaching materials (in Spanish) for a six-session, in-person workshop on organising, documenting and version-controlling research projects in R. Developed as part of the instructor certification of the [LMU Open Science Center](https://www.osc.uni-muenchen.de) Open Science Summer School 2026. Licensed under CC BY-SA 4.0.
 
